@@ -1,5 +1,4 @@
 # BK-ASSIST.user.scripts
-Here is a compact, professional **README.md** focused only on important details and technical clarity:
 
 **BK Screens Automation Scripts**
 
