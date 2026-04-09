@@ -1,5 +1,5 @@
 (async _=>{
-  const u="https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/new/main/DTECT/detector.js?"+Date.now();
+  const u="https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/detect.js?"+Date.now();
   const f=await fetch(u).then(r=>r.text());
   return (new Function(f+";return detectTechStack"))()();
 })()
