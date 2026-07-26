@@ -1,7 +1,7 @@
 // Materials data now lives in a separate materials.json file so it can be
 // updated day-to-day without touching this script. Point MATERIALS_URL at
 // wherever you host it (an intranet static path, a GitHub raw URL, etc.).
-const MATERIALS_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/store/items/Sticker/sticker-mat.json"
+const MATERIALS_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/store/items/mat.json"
     ;
 // The BOM automation script (bom_auto_create_multi.js), hosted so it can be
 // fetched and run automatically when "Proceed" is clicked.
