@@ -56,9 +56,11 @@ function withCacheBust(url) {
             .trim()
             .toUpperCase();
 
-        const buyerKey = Object.keys(MATERIALS).find(key =>
-            buyer.includes(key.toUpperCase())
-        );
+        // Longest key first, so a more specific key (e.g. "RI KIDS") wins
+        // over a broader one (e.g. "RI") when the buyer name could match both.
+        const buyerKey = Object.keys(MATERIALS)
+            .sort((a, b) => b.length - a.length)
+            .find(key => buyer.includes(key.toUpperCase()));
 
         if (!buyerKey) {
             console.warn("No material configuration found for buyer:", buyer);
@@ -77,6 +79,54 @@ function withCacheBust(url) {
         if (!buyerKey) return [];
         return MATERIALS[buyerKey][type] || [];
     }
+
+    // Colors, per buyer, only used for River Island labels for now —
+    // shape expected in materials.json: MATERIALS[buyerKey].colors = ["BLACK", "WHITE", ...]
+    function getBuyerColors() {
+        const buyerKey = getBuyerKey();
+        if (!buyerKey) return [];
+        return MATERIALS[buyerKey].colors || [];
+    }
+
+    // Items can be flat ({item_id, item_name, type, rate}) or a
+    // variant group ({type, needsColor: true, variants: [{color,
+    // item_id, item_name, rate}, ...]}). This resolves a raw list
+    // entry down to a concrete item once (if needed) a color is
+    // known. For variant groups with no color chosen yet, returns
+    // null — caller should treat that as "pending, can't check yet".
+    function resolveItem(rawItem, selectedColor) {
+        if (!rawItem.needsColor) return rawItem;
+
+        if (!selectedColor) return null;
+
+        const variant = (rawItem.variants || []).find(
+            v => v.color.toUpperCase() === selectedColor.toUpperCase()
+        );
+
+        if (!variant) return null;
+
+        return {
+            item_id: variant.item_id,
+            item_name: variant.item_name,
+            type: rawItem.type,
+            rate: variant.rate,
+            color: variant.color
+        };
+    }
+
+    // Union of every color that appears across any needsColor item
+    // in a list, so the dropdown only ever shows colors that are
+    // actually configured somewhere.
+    function collectAvailableColors(items) {
+        const colors = new Set();
+        items.forEach(item => {
+            if (item.needsColor) {
+                (item.variants || []).forEach(v => colors.add(v.color));
+            }
+        });
+        return [...colors];
+    }
+
     // ----------------------------
     // Add Header Button
     // ----------------------------
@@ -208,7 +258,6 @@ function withCacheBust(url) {
         stickerBtn.className = "btn btn-info btn-block";
         stickerBtn.textContent = "🏷 Sticker";
         stickerBtn.style.marginBottom = "10px";
-        // stickerBtn.onclick = () => showList("Sticker", getStickerList());
         stickerBtn.onclick = () =>
             showList("Sticker", getMaterialList("stickers"), "STICKER");
 
@@ -218,7 +267,6 @@ function withCacheBust(url) {
         labelBtn.style.marginBottom = "15px";
         labelBtn.onclick = () =>
             showList("Labels", getMaterialList("labels"), "LABEL");
-        // labelBtn.onclick = () => showList("Labels", getLabelList());
 
         const closeBtn = document.createElement("button");
         closeBtn.className = "btn btn-default btn-block";
@@ -236,135 +284,193 @@ function withCacheBust(url) {
     // List Popup (Sticker/Labels)
     // ----------------------------
     function showList(title, items, category) {
-        const body = document.createElement("div");
-        const missingItems = [];
+        const anyNeedsColor = items.some(item => item.needsColor);
+        let selectedColor = null;
 
-        items.forEach(requiredItem => {
+        function render() {
+            const body = document.createElement("div");
+            const missingItems = [];   // resolved, concrete items only
+            let hasPending = false;    // true if a color-dependent item is unresolved
 
-            const exists = isItemInBom(requiredItem);
+            // ---- Color picker (only shown if this list has any color-dependent items) ----
+            if (anyNeedsColor) {
+                const colors = collectAvailableColors(items);
 
-            const itemBtn = document.createElement("button");
+                const colorWrap = document.createElement("div");
+                colorWrap.style.marginBottom = "12px";
 
-            itemBtn.className = "btn btn-block";
-            itemBtn.style.marginBottom = "8px";
+                const colorLabel = document.createElement("label");
+                colorLabel.textContent = "Color (required for some of these labels):";
+                colorLabel.style.display = "block";
+                colorLabel.style.marginBottom = "4px";
+                colorLabel.style.fontWeight = "bold";
+                colorLabel.style.fontSize = "13px";
 
-            if (exists) {
+                const colorSelect = document.createElement("select");
+                colorSelect.className = "form-control";
 
-                itemBtn.style.background = "#dff0d8";
-                itemBtn.style.border = "1px solid #5cb85c";
-                itemBtn.style.color = "#3c763d";
-                itemBtn.textContent = "✓ " + requiredItem.item_name;
+                const blankOpt = document.createElement("option");
+                blankOpt.value = "";
+                blankOpt.textContent = colors.length
+                    ? "Select a color..."
+                    : "No colors configured for this buyer";
+                colorSelect.appendChild(blankOpt);
 
-            } else {
+                colors.forEach(c => {
+                    const opt = document.createElement("option");
+                    opt.value = c;
+                    opt.textContent = c;
+                    opt.selected = c === selectedColor;
+                    colorSelect.appendChild(opt);
+                });
 
-                itemBtn.style.background = "#f2dede";
-                itemBtn.style.border = "1px solid #d9534f";
-                itemBtn.style.color = "#a94442";
-                itemBtn.textContent = "✖ " + requiredItem.item_name;
+                colorSelect.onchange = () => {
+                    selectedColor = colorSelect.value || null;
+                    render(); // rebuild list with newly resolved items
+                };
 
-                missingItems.push(requiredItem);
+                colorWrap.appendChild(colorLabel);
+                colorWrap.appendChild(colorSelect);
+                body.appendChild(colorWrap);
             }
 
-            itemBtn.onclick = () =>
-                console.log(requiredItem);
+            items.forEach(rawItem => {
+                const resolved = resolveItem(rawItem, selectedColor);
+                const itemBtn = document.createElement("button");
+                itemBtn.className = "btn btn-block";
+                itemBtn.style.marginBottom = "8px";
 
-            body.appendChild(itemBtn);
+                if (!resolved) {
+                    // color-dependent item, no color chosen yet
+                    hasPending = true;
+                    itemBtn.style.background = "#fcf8e3";
+                    itemBtn.style.border = "1px solid #f0ad4e";
+                    itemBtn.style.color = "#8a6d3b";
+                    itemBtn.textContent = "… " + rawItem.type + " (pick a color)";
+                    itemBtn.disabled = true;
+                    body.appendChild(itemBtn);
+                    return;
+                }
 
-        });
+                const exists = isItemInBom(resolved);
 
-        // Add Proceed button at bottom
-        const proceedBtn = document.createElement("button");
-        proceedBtn.className = "btn btn-success btn-block";
-        proceedBtn.style.marginTop = "15px";
-        proceedBtn.innerHTML = "✔ Proceed";
+                if (exists) {
+                    itemBtn.style.background = "#dff0d8";
+                    itemBtn.style.border = "1px solid #5cb85c";
+                    itemBtn.style.color = "#3c763d";
+                    itemBtn.textContent = "✓ " + resolved.item_name;
+                } else {
+                    itemBtn.style.background = "#f2dede";
+                    itemBtn.style.border = "1px solid #d9534f";
+                    itemBtn.style.color = "#a94442";
+                    itemBtn.textContent = "✖ " + resolved.item_name;
+                    missingItems.push(resolved);
+                }
 
-        // Disable if nothing missing
-        if (!missingItems.length) {
-            proceedBtn.disabled = true;
-            proceedBtn.innerHTML = "✔ All Present";
-            proceedBtn.style.opacity = 0.65;
+                itemBtn.onclick = () => console.log(resolved);
+                body.appendChild(itemBtn);
+            });
+
+            // Add Proceed button at bottom
+            const proceedBtn = document.createElement("button");
+            proceedBtn.className = "btn btn-success btn-block";
+            proceedBtn.style.marginTop = "15px";
+
+            if (hasPending) {
+                proceedBtn.disabled = true;
+                proceedBtn.innerHTML = "✔ Select a Color First";
+                proceedBtn.style.opacity = 0.65;
+            } else if (!missingItems.length) {
+                proceedBtn.disabled = true;
+                proceedBtn.innerHTML = "✔ All Present";
+                proceedBtn.style.opacity = 0.65;
+            } else {
+                proceedBtn.innerHTML = "✔ Proceed";
+            }
+
+            proceedBtn.onclick = async () => {
+                if (hasPending || !missingItems.length) return;
+
+                const brand = getBuyerBrand();
+                if (!brand) {
+                    console.error("Can't build handoff payload — no brand resolved for this buyer.");
+                    return;
+                }
+
+                // Every item must carry its own rate — no silent default.
+                const itemsMissingRate = missingItems.filter(item => item.rate == null);
+                if (itemsMissingRate.length) {
+                    console.error(
+                        `✘ ${itemsMissingRate.length} item(s) have no rate set in MATERIALS — ` +
+                        `fix these before proceeding:`,
+                        itemsMissingRate.map(i => i.item_name)
+                    );
+                }
+
+                const itemsWithRate = missingItems.filter(item => item.rate != null);
+                if (!itemsWithRate.length) {
+                    console.error("No items with a valid rate — aborting handoff.");
+                    return;
+                }
+
+                // Shape each missing item exactly the way the BOM automation
+                // script expects its ITEMS config entries.
+                const payload = itemsWithRate.map(item => ({
+                    filterText: category,   // broad "Summary" filter: STICKER or LABEL
+                    type: item.type,        // used to pick the right row within that filtered set
+                    brand: brand,
+                    color: item.color ?? null,
+                    rate: item.rate,
+                    excess: item.excess ?? DEFAULT_EXCESS,
+                    // kept for traceability / debugging, unused by the automation script
+                    item_id: item.item_id,
+                    item_name: item.item_name
+                }));
+
+                // Hand off to the BOM automation script:
+                // 1) a window global it can read if it's run afterwards
+                // 2) a custom event it can listen for if it's already loaded
+                window.bkPendingBomItems = payload;
+                window.dispatchEvent(new CustomEvent("bk:missing-items-ready", { detail: payload }));
+
+                console.log(`📦 Handed off ${payload.length} item(s) to BOM automation:`);
+                console.table(payload);
+
+                openCostingItemPopup();
+                closePopup();
+
+                // Fetch and run the automation script now that the payload is
+                // sitting on window.bkPendingBomItems and the costing popup is open.
+                try {
+                    const res = await fetch(withCacheBust(AUTOMATION_SCRIPT_URL), { cache: "no-store" });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const code = await res.text();
+                    // Indirect eval runs in global scope, same as pasting it into
+                    // the console — gives it access to window/$/angular as normal.
+                    (0, eval)(code);
+                    console.log("🚀 Automation script fetched and started.");
+                } catch (err) {
+                    console.error(
+                        `✘ Failed to fetch/run automation script (${err.message}). ` +
+                        `Payload is still on window.bkPendingBomItems — you can run it manually.`
+                    );
+                }
+            };
+
+            // Back button
+            const backBtn = document.createElement("button");
+            backBtn.className = "btn btn-warning btn-block";
+            backBtn.style.marginTop = "8px";
+            backBtn.textContent = "← Back";
+            backBtn.onclick = showMainPopup;
+
+            body.appendChild(proceedBtn);
+            body.appendChild(backBtn);
+
+            createPopup(title, body);
         }
 
-        proceedBtn.onclick = async () => {
-            if (!missingItems.length) return;
-
-            const brand = getBuyerBrand();
-            if (!brand) {
-                console.error("Can't build handoff payload — no brand resolved for this buyer.");
-                return;
-            }
-
-            // Every item must carry its own rate — no silent default.
-            const itemsMissingRate = missingItems.filter(item => item.rate == null);
-            if (itemsMissingRate.length) {
-                console.error(
-                    `✘ ${itemsMissingRate.length} item(s) have no rate set in MATERIALS — ` +
-                    `fix these before proceeding:`,
-                    itemsMissingRate.map(i => i.item_name)
-                );
-            }
-
-            const itemsWithRate = missingItems.filter(item => item.rate != null);
-            if (!itemsWithRate.length) {
-                console.error("No items with a valid rate — aborting handoff.");
-                return;
-            }
-
-            // Shape each missing item exactly the way the BOM automation
-            // script expects its ITEMS config entries.
-            const payload = itemsWithRate.map(item => ({
-                filterText: category,   // broad "Summary" filter: STICKER or LABEL
-                type: item.type,        // used to pick the right row within that filtered set
-                brand: brand,
-                rate: item.rate,
-                excess: item.excess ?? DEFAULT_EXCESS,
-                // kept for traceability / debugging, unused by the automation script
-                item_id: item.item_id,
-                item_name: item.item_name
-            }));
-
-            // Hand off to the BOM automation script:
-            // 1) a window global it can read if it's run afterwards
-            // 2) a custom event it can listen for if it's already loaded
-            window.bkPendingBomItems = payload;
-            window.dispatchEvent(new CustomEvent("bk:missing-items-ready", { detail: payload }));
-
-            console.log(`📦 Handed off ${payload.length} item(s) to BOM automation:`);
-            console.table(payload);
-
-            openCostingItemPopup();
-            closePopup();
-
-            // Fetch and run the automation script now that the payload is
-            // sitting on window.bkPendingBomItems and the costing popup is open.
-            try {
-                const res = await fetch(withCacheBust(AUTOMATION_SCRIPT_URL), { cache: "no-store" });
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const code = await res.text();
-                // Indirect eval runs in global scope, same as pasting it into
-                // the console — gives it access to window/$/angular as normal.
-                (0, eval)(code);
-                console.log("🚀 Automation script fetched and started.");
-            } catch (err) {
-                console.error(
-                    `✘ Failed to fetch/run automation script (${err.message}). ` +
-                    `Payload is still on window.bkPendingBomItems — you can run it manually.`
-                );
-            }
-        };
-
-        // Back button
-        const backBtn = document.createElement("button");
-        backBtn.className = "btn btn-warning btn-block";
-        backBtn.style.marginTop = "8px";
-        backBtn.textContent = "← Back";
-        backBtn.onclick = showMainPopup;
-
-        body.appendChild(proceedBtn);
-        body.appendChild(backBtn);
-
-        // Finally show the popup with the title and body
-        createPopup(title, body);
+        render();
     }
 
 
