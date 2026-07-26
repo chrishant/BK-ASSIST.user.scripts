@@ -5,7 +5,7 @@ const MATERIALS_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.use
     ;
 // The BOM automation script (bom_auto_create_multi.js), hosted so it can be
 // fetched and run automatically when "Proceed" is clicked.
-const AUTOMATION_SCRIPT_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/store/items/Sticker/sticker-assist.js";
+const AUTOMATION_SCRIPT_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine.jss";
 
 const DEFAULT_EXCESS = 5;
 
