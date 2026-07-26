@@ -221,6 +221,7 @@
     // ---- Main loop ----
     await sleep(2000); // initial static wait, same as original
 
+    const runStart = Date.now();
     const results = { created: [], skipped: [], failed: [] };
 
     for (const item of ITEMS) {
@@ -244,5 +245,24 @@
     console.log(`Created (${results.created.length}):`, results.created);
     console.log(`Skipped — already in BOM (${results.skipped.length}):`, results.skipped);
     console.log(`Failed (${results.failed.length}):`, results.failed);
+
+    // ---- Completion alert with elapsed time + timestamp ----
+    function formatDuration(ms) {
+        const totalSec = Math.round(ms / 1000);
+        const min = Math.floor(totalSec / 60);
+        const sec = totalSec % 60;
+        if (min > 0) return `${min}m ${sec}s`;
+        return `${sec}s`;
+    }
+
+    const elapsedMs = Date.now() - runStart;
+    const finishedAt = new Date().toLocaleTimeString();
+
+    alert(
+        `✅ BOM Automation complete\n\n` +
+        `Duration: ${formatDuration(elapsedMs)}\n\n` +
+        `Created: ${results.created.length}\n` +
+        (results.failed.length ? `\n\nFailed items:\n- ${results.failed.join("\n- ")}` : "")
+    );
 
 })();
