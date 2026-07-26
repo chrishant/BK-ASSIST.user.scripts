@@ -1,75 +1,33 @@
-const MATERIALS = {
-    "RIVER ISLAND": {
-        stickers: [
-            {
-                item_id: 62771,
-                item_name: "CARTON STICKER RI"
-            },
-            {
-                item_id: 62770,
-                item_name: "POLYBAG STICKER RI"
-            },
-            {
-                item_id: 22813,
-                item_name: "BARCODE STICKER RFID RI"
-            }
-        ],
+// Materials data now lives in a separate materials.json file so it can be
+// updated day-to-day without touching this script. Point MATERIALS_URL at
+// wherever you host it (an intranet static path, a GitHub raw URL, etc.).
+const MATERIALS_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/store/items/Sticker/sticker-mat.json"
+    ;
+// The BOM automation script (bom_auto_create_multi.js), hosted so it can be
+// fetched and run automatically when "Proceed" is clicked.
+const AUTOMATION_SCRIPT_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/store/items/Sticker/sticker-assist.js";
 
-        labels: [
-            {
-                item_id: 62541,
-                item_name: "MAIN LABEL RI SOME WHERE TO GO GREY"
-            },
-            {
-                item_id: 32570,
-                item_name: "SIZE LABEL RI GREY"
-            },
-            {
-                item_id: 11597,
-                item_name: "WASH CARE LABEL RI"
-            },
-            {
-                item_id: 68112,
-                item_name: "COO LABEL RI"
-            }
-        ]
-    },
-    "LOVE & ROSES": {
-        stickers: [
-            {
-                item_id: 62771,
-                item_name: "CARTON STICKER LOVE & ROSES"
-            },
-            {
-                item_id: 62770,
-                item_name: "POLYBAG STICKER LOVE & ROSES"
-            },
-            {
-                item_id: 22813,
-                item_name: "BARCODE STICKER LOVE & ROSES"
-            }
-        ],
+const DEFAULT_EXCESS = 5;
 
-        labels: [
-            {
-                item_id: 62541,
-                item_name: "MAIN LABEL LOVE & ROSES"
-            },
-            {
-                item_id: 32570,
-                item_name: "SIZE LABEL LOVE & ROSES"
-            },
-            {
-                item_id: 11597,
-                item_name: "WASH CARE LABEL LOVE & ROSES"
-            }
-        ]
-    }
-};
-
-(() => {
+(async () => {
     // Prevent duplicate injection
     if (document.getElementById("bk-material-btn")) return;
+
+    // ----------------------------
+    // Load materials data (from materials.json — no fallback; fail loudly)
+    // ----------------------------
+    let MATERIALS;
+    try {
+        const res = await fetch(MATERIALS_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        MATERIALS = await res.json();
+        console.log(`✅ Loaded materials data from ${MATERIALS_URL}`);
+    } catch (err) {
+        const msg = `Failed to load materials.json (${err.message}). Material Assistant will not be available.`;
+        console.error(`✘ ${msg}`);
+        alert(`✘ Material Assistant\n\n${msg}`);
+        return;
+    }
 
     // ----------------------------
     // Helper: Get Angular Scope
@@ -82,7 +40,7 @@ const MATERIALS = {
     // ----------------------------
     // Dynamic Lists
     // ----------------------------
-    function getMaterialList(type) {
+    function getBuyerKey() {
         const scope = getScope("#AsstCtrlMainDiv_input_item");
 
         const buyer = (scope?.main_model?.buyer_name || "")
@@ -95,9 +53,19 @@ const MATERIALS = {
 
         if (!buyerKey) {
             console.warn("No material configuration found for buyer:", buyer);
-            return [];
         }
 
+        return buyerKey || null;
+    }
+
+    function getBuyerBrand() {
+        const buyerKey = getBuyerKey();
+        return buyerKey ? MATERIALS[buyerKey].brand : null;
+    }
+
+    function getMaterialList(type) {
+        const buyerKey = getBuyerKey();
+        if (!buyerKey) return [];
         return MATERIALS[buyerKey][type] || [];
     }
     // ----------------------------
@@ -233,14 +201,14 @@ const MATERIALS = {
         stickerBtn.style.marginBottom = "10px";
         // stickerBtn.onclick = () => showList("Sticker", getStickerList());
         stickerBtn.onclick = () =>
-            showList("Sticker", getMaterialList("stickers"));
+            showList("Sticker", getMaterialList("stickers"), "STICKER");
 
         const labelBtn = document.createElement("button");
         labelBtn.className = "btn btn-success btn-block";
         labelBtn.textContent = "🏷 Labels";
         labelBtn.style.marginBottom = "15px";
         labelBtn.onclick = () =>
-            showList("Labels", getMaterialList("labels"));
+            showList("Labels", getMaterialList("labels"), "LABEL");
         // labelBtn.onclick = () => showList("Labels", getLabelList());
 
         const closeBtn = document.createElement("button");
@@ -258,7 +226,7 @@ const MATERIALS = {
     // ----------------------------
     // List Popup (Sticker/Labels)
     // ----------------------------
-    function showList(title, items) {
+    function showList(title, items, category) {
         const body = document.createElement("div");
         const missingItems = [];
 
@@ -308,13 +276,72 @@ const MATERIALS = {
             proceedBtn.style.opacity = 0.65;
         }
 
-        proceedBtn.onclick = () => {
+        proceedBtn.onclick = async () => {
             if (!missingItems.length) return;
-            // console.log("Missing items:", missingItems);
-            console.table(missingItems);
+
+            const brand = getBuyerBrand();
+            if (!brand) {
+                console.error("Can't build handoff payload — no brand resolved for this buyer.");
+                return;
+            }
+
+            // Every item must carry its own rate — no silent default.
+            const itemsMissingRate = missingItems.filter(item => item.rate == null);
+            if (itemsMissingRate.length) {
+                console.error(
+                    `✘ ${itemsMissingRate.length} item(s) have no rate set in MATERIALS — ` +
+                    `fix these before proceeding:`,
+                    itemsMissingRate.map(i => i.item_name)
+                );
+            }
+
+            const itemsWithRate = missingItems.filter(item => item.rate != null);
+            if (!itemsWithRate.length) {
+                console.error("No items with a valid rate — aborting handoff.");
+                return;
+            }
+
+            // Shape each missing item exactly the way the BOM automation
+            // script expects its ITEMS config entries.
+            const payload = itemsWithRate.map(item => ({
+                filterText: category,   // broad "Summary" filter: STICKER or LABEL
+                type: item.type,        // used to pick the right row within that filtered set
+                brand: brand,
+                rate: item.rate,
+                excess: item.excess ?? DEFAULT_EXCESS,
+                // kept for traceability / debugging, unused by the automation script
+                item_id: item.item_id,
+                item_name: item.item_name
+            }));
+
+            // Hand off to the BOM automation script:
+            // 1) a window global it can read if it's run afterwards
+            // 2) a custom event it can listen for if it's already loaded
+            window.bkPendingBomItems = payload;
+            window.dispatchEvent(new CustomEvent("bk:missing-items-ready", { detail: payload }));
+
+            console.log(`📦 Handed off ${payload.length} item(s) to BOM automation:`);
+            console.table(payload);
+
             openCostingItemPopup();
             closePopup();
-            // TODO: add missingItems to BOM here
+
+            // Fetch and run the automation script now that the payload is
+            // sitting on window.bkPendingBomItems and the costing popup is open.
+            try {
+                const res = await fetch(AUTOMATION_SCRIPT_URL, { cache: "no-store" });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const code = await res.text();
+                // Indirect eval runs in global scope, same as pasting it into
+                // the console — gives it access to window/$/angular as normal.
+                (0, eval)(code);
+                console.log("🚀 Automation script fetched and started.");
+            } catch (err) {
+                console.error(
+                    `✘ Failed to fetch/run automation script (${err.message}). ` +
+                    `Payload is still on window.bkPendingBomItems — you can run it manually.`
+                );
+            }
         };
 
         // Back button
@@ -337,4 +364,3 @@ const MATERIALS = {
 
     console.log("✅ Material Assistant injected.");
 })();
-
