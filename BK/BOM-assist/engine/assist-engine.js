@@ -12,7 +12,6 @@
     console.log(`📦 Using ${ITEMS.length} item(s) handed off from Material Assistant.`);
 
     // ---- Same Angular-scope-based BOM check that controller.js uses ----
-    // (more reliable than scraping grid row text)
     function getScope(selector) {
         const el = document.querySelector(selector);
         return el ? angular.element(el).scope() : null;
@@ -114,8 +113,6 @@
     }
 
     // ---- Checks whether an item is already present in the BOM ----
-    // Matches by item_id when available (from the controller.js handoff),
-    // falling back to a normalized item_name match otherwise.
     function isItemAlreadyInBom(cfg) {
         const bom = getBomItems();
 
@@ -131,6 +128,7 @@
         const grid = $("#grid_ItemCostingDetail").dxDataGrid("instance");
         grid.columnOption("summary_item", "selectedFilterOperation", "=");
         grid.repaint();
+
         // 1. Filter Summary
         const filter = await waitFor(() =>
             document.querySelectorAll("#grid_ItemCostingDetail .dx-datagrid-filter-row input")[1]
