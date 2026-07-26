@@ -1,6 +1,6 @@
 // fetch.js — paste into console to load controller.js (which loads everything else)
 
-const CONTROLLER_SCRIPT_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/material-assistant.js";
+const CONTROLLER_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/material-assistant.js";
 
 (async () => {
     try {
