@@ -203,7 +203,7 @@
         btn1.click();
         console.log(`✔ Item created — ${cfg.type} ${cfg.brand}`);
 
-        await sleep(200);
+        await sleep(400);
 
         // 8. Add Item to BOM
         const btn2 = await waitFor(() => document.querySelector(
