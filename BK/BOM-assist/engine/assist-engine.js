@@ -128,7 +128,9 @@
     // ---- Runs the full flow for a single item config ----
     async function processItem(cfg) {
         console.log(`\n=== Starting: ${cfg.type} / ${cfg.brand} ===`);
-
+        const grid = $("#grid_ItemCostingDetail").dxDataGrid("instance");
+        grid.columnOption("summary_item", "selectedFilterOperation", "=");
+        grid.repaint();
         // 1. Filter Summary
         const filter = await waitFor(() =>
             document.querySelectorAll("#grid_ItemCostingDetail .dx-datagrid-filter-row input")[1]
