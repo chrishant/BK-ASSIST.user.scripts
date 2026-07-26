@@ -9,6 +9,15 @@ const AUTOMATION_SCRIPT_URL = "https://raw.githubusercontent.com/chrishant/BK-AS
 
 const DEFAULT_EXCESS = 5;
 
+// GitHub's raw content is served through a CDN that can cache responses for
+// a few minutes even with cache: "no-store" (that header only stops the
+// browser's own cache). Appending a changing query param makes every fetch
+// look like a new URL to the CDN, forcing it to always return the latest file.
+function withCacheBust(url) {
+    const sep = url.includes("?") ? "&" : "?";
+    return `${url}${sep}_=${Date.now()}`;
+}
+
 (async () => {
     // Prevent duplicate injection
     if (document.getElementById("bk-material-btn")) return;
@@ -18,7 +27,7 @@ const DEFAULT_EXCESS = 5;
     // ----------------------------
     let MATERIALS;
     try {
-        const res = await fetch(MATERIALS_URL, { cache: "no-store" });
+        const res = await fetch(withCacheBust(MATERIALS_URL), { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         MATERIALS = await res.json();
         console.log(`✅ Loaded materials data from ${MATERIALS_URL}`);
@@ -329,7 +338,7 @@ const DEFAULT_EXCESS = 5;
             // Fetch and run the automation script now that the payload is
             // sitting on window.bkPendingBomItems and the costing popup is open.
             try {
-                const res = await fetch(AUTOMATION_SCRIPT_URL, { cache: "no-store" });
+                const res = await fetch(withCacheBust(AUTOMATION_SCRIPT_URL), { cache: "no-store" });
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const code = await res.text();
                 // Indirect eval runs in global scope, same as pasting it into
