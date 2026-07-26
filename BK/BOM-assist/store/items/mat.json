@@ -37,7 +37,7 @@
         ],
         "labels": [
             { "item_id": 2274, "item_name": "MAIN LABEL LOVE & ROSES", "type": "MAIN LABEL", "rate": 2.6 },
-            { "item_id": 5481, "item_name": "SIZE LABEL LOVE & ROSES", "type": "SIZE LABEL", "rate": 1..15 },
+            { "item_id": 5481, "item_name": "SIZE LABEL LOVE & ROSES", "type": "SIZE LABEL", "rate": 1.15 },
             { "item_id": 5480, "item_name": "WASH CARE LABEL LOVE & ROSES", "type": "WASH CARE LABEL", "rate": 3.6 }
         ]
     }
