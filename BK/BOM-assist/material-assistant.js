@@ -5,7 +5,12 @@ const MATERIALS_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.use
     ;
 // The BOM automation script (bom_auto_create_multi.js), hosted so it can be
 // fetched and run automatically when "Proceed" is clicked.
-const AUTOMATION_SCRIPT_URL = "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine.js";
+// Separate scripts per category, since the Sticker and Labels flows now run
+// different automation logic.
+const AUTOMATION_SCRIPT_URLS = {
+    STICKER: "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine-sticker.js",
+    LABEL: "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine-label.js"
+};
 
 const DEFAULT_EXCESS = 5;
 
@@ -249,6 +254,45 @@ function withCacheBust(url) {
     }
 
     // ----------------------------
+    // Automation dispatch — runs the right script for the given category
+    // and hands off the payload the same way as before.
+    // ----------------------------
+    async function runAutomation(category, payload) {
+        window.bkPendingBomItems = payload;
+        window.dispatchEvent(new CustomEvent("bk:missing-items-ready", { detail: payload }));
+
+        console.log(`📦 Handed off ${payload.length} item(s) to BOM automation [${category}]:`);
+        console.table(payload);
+
+        openCostingItemPopup();
+        closePopup();
+
+        const scriptUrl = AUTOMATION_SCRIPT_URLS[category];
+        if (!scriptUrl) {
+            console.error(
+                `✘ No automation script configured for category "${category}". ` +
+                `Payload is still on window.bkPendingBomItems — you can run it manually.`
+            );
+            return;
+        }
+
+        try {
+            const res = await fetch(withCacheBust(scriptUrl), { cache: "no-store" });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const code = await res.text();
+            // Indirect eval runs in global scope, same as pasting it into
+            // the console — gives it access to window/$/angular as normal.
+            (0, eval)(code);
+            console.log(`🚀 Automation script [${category}] fetched and started.`);
+        } catch (err) {
+            console.error(
+                `✘ Failed to fetch/run automation script for ${category} (${err.message}). ` +
+                `Payload is still on window.bkPendingBomItems — you can run it manually.`
+            );
+        }
+    }
+
+    // ----------------------------
     // Main Popup
     // ----------------------------
     function showMainPopup() {
@@ -375,6 +419,7 @@ function withCacheBust(url) {
             const proceedBtn = document.createElement("button");
             proceedBtn.className = "btn btn-success btn-block";
             proceedBtn.style.marginTop = "15px";
+            proceedBtn.id = "bk-material-proceed-btn";
 
             if (hasPending) {
                 proceedBtn.disabled = true;
@@ -385,7 +430,9 @@ function withCacheBust(url) {
                 proceedBtn.innerHTML = "✔ All Present";
                 proceedBtn.style.opacity = 0.65;
             } else {
-                proceedBtn.innerHTML = "✔ Proceed";
+                proceedBtn.innerHTML = category === "STICKER"
+                    ? "✔ Proceed (Sticker)"
+                    : "✔ Proceed (Label)";
             }
 
             proceedBtn.onclick = async () => {
@@ -427,34 +474,9 @@ function withCacheBust(url) {
                     item_name: item.item_name
                 }));
 
-                // Hand off to the BOM automation script:
-                // 1) a window global it can read if it's run afterwards
-                // 2) a custom event it can listen for if it's already loaded
-                window.bkPendingBomItems = payload;
-                window.dispatchEvent(new CustomEvent("bk:missing-items-ready", { detail: payload }));
-
-                console.log(`📦 Handed off ${payload.length} item(s) to BOM automation:`);
-                console.table(payload);
-
-                openCostingItemPopup();
-                closePopup();
-
-                // Fetch and run the automation script now that the payload is
-                // sitting on window.bkPendingBomItems and the costing popup is open.
-                try {
-                    const res = await fetch(withCacheBust(AUTOMATION_SCRIPT_URL), { cache: "no-store" });
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    const code = await res.text();
-                    // Indirect eval runs in global scope, same as pasting it into
-                    // the console — gives it access to window/$/angular as normal.
-                    (0, eval)(code);
-                    console.log("🚀 Automation script fetched and started.");
-                } catch (err) {
-                    console.error(
-                        `✘ Failed to fetch/run automation script (${err.message}). ` +
-                        `Payload is still on window.bkPendingBomItems — you can run it manually.`
-                    );
-                }
+                // category-specific automation: Sticker and Labels each run
+                // their own automation script now.
+                await runAutomation(category, payload);
             };
 
             // Back button
