@@ -1,1 +1,1 @@
-temp.forEach(r => { if (+r.tax_percentage === 18) { r.tax_percentage = 5; r.charge_percentage = 5; r.charge_value = +(parseFloat(r.on_amount || 0) * 0.05).toFixed(3); } }); console.log('✅ Updated all 18% rows to 5%');
+temp1.forEach(r => { if (+r.tax_percentage === 18) { r.tax_percentage = 5; r.charge_percentage = 5; r.charge_value = +(parseFloat(r.on_amount || 0) * 0.05).toFixed(3); } }); console.log('✅ Updated all 18% rows to 5%');
