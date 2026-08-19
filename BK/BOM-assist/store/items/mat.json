@@ -12,17 +12,17 @@
                 "needsColor": true,
                 "variants": [
                     { "color": "GREY", "item_id": 32570, "item_name": "SIZE LABEL RI GREY", "rate": 0.9 },
-                    { "color": "WHITE", "item_id": 32570, "item_name": "SIZE LABEL RI WHITE", "rate": 0.9 },
-                    { "color": "BLACK", "item_id": 32571, "item_name": "SIZE LABEL RI BLACK", "rate": 0.9 }
+                    { "color": "WHITE", "item_id": 68576, "item_name": "SIZE LABEL RI WHITE", "rate": 0.9 },
+                    { "color": "BLACK", "item_id": 32569, "item_name": "SIZE LABEL RI BLACK", "rate": 0.9 }
                 ]
             },
             {
                 "type": "COO LABEL",
                 "needsColor": true,
                 "variants": [
-                    { "color": "GREY", "item_id": 32570, "item_name": "COO LABEL RI GREY", "rate": 0.9 },
-                    { "color": "WHITE", "item_id": 32570, "item_name": "COO LABEL RI WHITE", "rate": 0.9 },
-                    { "color": "BLACK", "item_id": 32571, "item_name": "COO LABEL RI BLACK", "rate": 0.9 }
+                    { "color": "GREY", "item_id": 64725, "item_name": "COO LABEL RI GREY", "rate": 0.9 },
+                    { "color": "WHITE", "item_id": 64732, "item_name": "COO LABEL RI WHITE", "rate": 0.9 },
+                    { "color": "BLACK", "item_id": 64658, "item_name": "COO LABEL RI BLACK", "rate": 0.9 }
                 ]
             },
             { "item_id": 11597, "item_name": "WASH CARE LABEL RI", "type": "WASH CARE LABEL", "rate": 3 }
