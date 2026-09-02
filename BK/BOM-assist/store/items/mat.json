@@ -41,17 +41,4 @@
             { "item_id": 5480, "item_name": "WASH CARE LABEL LOVE & ROSES", "type": "WASH CARE LABEL", "rate": 3.6 }
         ]
     }
-    {
-        "brand": "RHS",
-        "stickers": [
-            { "item_id": 61486, "item_name": "CARTON STICKER LOVE & ROSES", "type": "CARTON STICKER", "rate": 1.95 },
-            { "item_id": 61487, "item_name": "TPT STICKER LOVE & ROSES", "type": "TPT STICKER", "rate": 4.65 },
-            { "item_id": 68471, "item_name": "BARCODE STICKER LOVE & ROSES", "type": "BARCODE STICKER", "rate": 1.1 }
-        ],
-        "labels": [
-            { "item_id": 2274, "item_name": "MAIN LABEL RHS", "type": "MAIN LABEL", "rate": 3.2 },
-            { "item_id": 5481, "item_name": "LOOP LABEL RHS", "type": "LOOP LABEL", "rate": 2.1 },
-            { "item_id": 5480, "item_name": "WASH CARE LABEL LOVE & ROSES", "type": "WASH CARE LABEL", "rate": 3.6 }
-        ]
-    }
 }
