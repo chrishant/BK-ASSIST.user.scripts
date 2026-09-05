@@ -2,7 +2,7 @@
     "RIVER ISLAND": {
         "brand": "RI",
         "stickers": [
-            { "item_id": 62771, "item_name": "CARTON STICKER RI", "type": "CARTON STICKER", "rate": 2.985, "avg": 0.7 },
+            { "item_id": 62771, "item_name": "CARTON STICKER RI", "type": "CARTON STICKER", "rate": 2.985, "avg": 0.07 },
             { "item_id": 62770, "item_name": "POLYBAG STICKER RI", "type": "POLYBAG STICKER", "rate": 0.505 },
             { "item_id": 71014, "item_name": "ADDRESS QR STICKER RI", "type": "ADDRESS QR STICKER", "rate": 0.505 },
             { "item_id": 22813, "item_name": "BARCODE STICKER RFID RI", "type": "BARCODE STICKER RFID", "rate": 4.273 }
@@ -32,8 +32,8 @@
     "LOVE & ROSE": {
         "brand": "LOVE & ROSES",
         "stickers": [
-            { "item_id": 61486, "item_name": "CARTON STICKER LOVE & ROSES", "type": "CARTON STICKER", "rate": 1.95, "avg": 0.7 },
-            { "item_id": 61487, "item_name": "TPT STICKER LOVE & ROSES", "type": "TPT STICKER", "rate": 4.65, "avg": 0.7 },
+            { "item_id": 61486, "item_name": "CARTON STICKER LOVE & ROSES", "type": "CARTON STICKER", "rate": 1.95, "avg": 0.07 },
+            { "item_id": 61487, "item_name": "TPT STICKER LOVE & ROSES", "type": "TPT STICKER", "rate": 4.65, "avg": 0.07 },
             { "item_id": 68471, "item_name": "BARCODE STICKER LOVE & ROSES", "type": "BARCODE STICKER", "rate": 1.1 }
         ],
         "labels": [
