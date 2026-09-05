@@ -32,8 +32,8 @@
     "LOVE & ROSE": {
         "brand": "LOVE & ROSES",
         "stickers": [
-            { "item_id": 61486, "item_name": "CARTON STICKER LOVE & ROSES", "type": "CARTON STICKER", "rate": 1.95 },
-            { "item_id": 61487, "item_name": "TPT STICKER LOVE & ROSES", "type": "TPT STICKER", "rate": 4.65 },
+            { "item_id": 61486, "item_name": "CARTON STICKER LOVE & ROSES", "type": "CARTON STICKER", "rate": 1.95, "avg": 0.7 },
+            { "item_id": 61487, "item_name": "TPT STICKER LOVE & ROSES", "type": "TPT STICKER", "rate": 4.65, "avg": 0.7 },
             { "item_id": 68471, "item_name": "BARCODE STICKER LOVE & ROSES", "type": "BARCODE STICKER", "rate": 1.1 }
         ],
         "labels": [
