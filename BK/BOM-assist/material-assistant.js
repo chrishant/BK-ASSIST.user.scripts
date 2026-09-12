@@ -1,67 +1,68 @@
-var _0xde73cb = (202322 ^ 202327) + (977445 ^ 977452);
-const MATERIALS_URL = "\u0068\u0074\u0074\u0070\u0073\u003A\u002F\u002F\u0072\u0061\u0077\u002E\u0067\u0069\u0074\u0068\u0075\u0062\u0075\u0073\u0065\u0072\u0063\u006F\u006E\u0074\u0065\u006E\u0074\u002E\u0063\u006F\u006D\u002F\u0063\u0068\u0072\u0069\u0073\u0068\u0061\u006E\u0074\u002F\u0042\u004B\u002D\u0041\u0053\u0053\u0049\u0053\u0054\u002E\u0075\u0073\u0065\u0072\u002E\u0073\u0063\u0072\u0069\u0070\u0074\u0073\u002F\u0072\u0065\u0066\u0073\u002F\u0068\u0065\u0061\u0064\u0073\u002F\u006D\u0061\u0069\u006E\u002F\u0042\u004B\u002F\u0042\u004F\u004D\u002D\u0061\u0073\u0073\u0069\u0073\u0074\u002F\u0073\u0074\u006F\u0072\u0065\u002F\u0069\u0074\u0065\u006D\u0073\u002F\u006D\u0061\u0074\u002E\u006A\u0073\u006F\u006E";
-_0xde73cb = '\u0061\u006B\u0065\u0063\u006E\u0065';
-var _0xedc3db = (537519 ^ 537510) + (415669 ^ 415668);
+var _0xcef = (325628 ^ 325624) + (836633 ^ 836637);
+const MATERIALS_URL = "nosj.tam/smeti/erots/tsissa-MOB/KB/niam/sdaeh/sfer/stpircs.resu.TSISSA-KB/tnahsirhc/moc.tnetnocresubuhtig.war//:sptth".split("").reverse().join("");
+_0xcef = 382660 ^ 382658;
+var _0x274afe = (166527 ^ 166527) + (460809 ^ 460811);
 const AUTOMATION_SCRIPT_URLS = {
-  '\u0053\u0054\u0049\u0043\u004B\u0045\u0052': "\u0068\u0074\u0074\u0070\u0073\u003A\u002F\u002F\u0072\u0061\u0077\u002E\u0067\u0069\u0074\u0068\u0075\u0062\u0075\u0073\u0065\u0072\u0063\u006F\u006E\u0074\u0065\u006E\u0074\u002E\u0063\u006F\u006D\u002F\u0063\u0068\u0072\u0069\u0073\u0068\u0061\u006E\u0074\u002F\u0042\u004B\u002D\u0041\u0053\u0053\u0049\u0053\u0054\u002E\u0075\u0073\u0065\u0072\u002E\u0073\u0063\u0072\u0069\u0070\u0074\u0073\u002F\u0072\u0065\u0066\u0073\u002F\u0068\u0065\u0061\u0064\u0073\u002F\u006D\u0061\u0069\u006E\u002F\u0042\u004B\u002F\u0042\u004F\u004D\u002D\u0061\u0073\u0073\u0069\u0073\u0074\u002F\u0065\u006E\u0067\u0069\u006E\u0065\u002F\u0061\u0073\u0073\u0069\u0073\u0074\u002D\u0065\u006E\u0067\u0069\u006E\u0065\u002D\u0073\u0074\u0069\u0063\u006B\u0065\u0072\u002E\u006A\u0073",
-  '\u004C\u0041\u0042\u0045\u004C': "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine-label.js"
+  "STICKER": "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine-sticker.js",
+  "LABEL": "\u0068\u0074\u0074\u0070\u0073\u003A\u002F\u002F\u0072\u0061\u0077\u002E\u0067\u0069\u0074\u0068\u0075\u0062\u0075\u0073\u0065\u0072\u0063\u006F\u006E\u0074\u0065\u006E\u0074\u002E\u0063\u006F\u006D\u002F\u0063\u0068\u0072\u0069\u0073\u0068\u0061\u006E\u0074\u002F\u0042\u004B\u002D\u0041\u0053\u0053\u0049\u0053\u0054\u002E\u0075\u0073\u0065\u0072\u002E\u0073\u0063\u0072\u0069\u0070\u0074\u0073\u002F\u0072\u0065\u0066\u0073\u002F\u0068\u0065\u0061\u0064\u0073\u002F\u006D\u0061\u0069\u006E\u002F\u0042\u004B\u002F\u0042\u004F\u004D\u002D\u0061\u0073\u0073\u0069\u0073\u0074\u002F\u0065\u006E\u0067\u0069\u006E\u0065\u002F\u0061\u0073\u0073\u0069\u0073\u0074\u002D\u0065\u006E\u0067\u0069\u006E\u0065\u002D\u006C\u0061\u0062\u0065\u006C\u002E\u006A\u0073"
 };
-_0xedc3db = (137405 ^ 137397) + (858001 ^ 858002);
-let _0x17ab;
-const DEFAULT_EXCESS = 370058 ^ 370063;
-_0x17ab = 159571 ^ 159579;
+_0x274afe = '\u0067\u0069\u006B\u0070\u006F\u006B';
+var _0x985b = (724860 ^ 724859) + (807469 ^ 807467);
+const DEFAULT_EXCESS = 345808 ^ 345813;
+_0x985b = (987438 ^ 987435) + (565356 ^ 565348);
 function withCacheBust(url) {
-  const _0x4d3ega = url['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073']("\u003F") ? "\u0026" : "\u003F";
-  return `${url}${_0x4d3ega}_=${Date['\u006E\u006F\u0077']()}`;
+  const _0xdg4e = url['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073']("\u003F") ? "\u0026" : "\u003F";
+  return `${url}${_0xdg4e}_=${Date['\u006E\u006F\u0077']()}`;
 }
-async function verifyKey(_0xef283b, _0x007e, _0xf78ge) {
-  _0xef283b = "\u0062\u006B\u005F\u0061\u0075\u0074\u0068\u005F\u0068\u0061\u0073\u0068";
-  let _0xdcbddf = localStorage['\u0067\u0065\u0074\u0049\u0074\u0065\u006D'](_0xef283b);
-  _0x007e = '\u0062\u0064\u006B\u006A\u006D\u006A';
-  if (!_0xdcbddf) {
-    const _0x8b90ce = prompt("\u0045\u006E\u0074\u0065\u0072\u0020\u0042\u004B\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074\u0020\u0041\u0063\u0063\u0065\u0073\u0073\u0020\u004B\u0065\u0079\u003A");
-    if (!_0x8b90ce) return false;
-    var _0xdce4g = (624900 ^ 624896) + (196872 ^ 196875);
-    const _0xc35c4d = await crypto['\u0073\u0075\u0062\u0074\u006C\u0065']['\u0064\u0069\u0067\u0065\u0073\u0074']("\u0053\u0048\u0041\u002D\u0032\u0035\u0036", new TextEncoder()['\u0065\u006E\u0063\u006F\u0064\u0065'](_0x8b90ce));
-    _0xdce4g = (593887 ^ 593882) + (501883 ^ 501884);
-    _0xdcbddf = [...new Uint8Array(_0xc35c4d)]['\u006D\u0061\u0070'](b => b['\u0074\u006F\u0053\u0074\u0072\u0069\u006E\u0067'](270918 ^ 270934)['\u0070\u0061\u0064\u0053\u0074\u0061\u0072\u0074'](439360 ^ 439362, "\u0030"))['\u006A\u006F\u0069\u006E']("");
+async function verifyKey(_0x3f7bdb, _0xa8c) {
+  var _0x8g7be = (199115 ^ 199116) + (433233 ^ 433233);
+  _0x3f7bdb = "\u0062\u006B\u005F\u0061\u0075\u0074\u0068\u005F\u0068\u0061\u0073\u0068";
+  _0x8g7be = (956246 ^ 956255) + (586451 ^ 586454);
+  var _0x3g_0x136 = (652862 ^ 652857) + (391989 ^ 391996);
+  let _0xeb8e5d = localStorage['\u0067\u0065\u0074\u0049\u0074\u0065\u006D'](_0x3f7bdb);
+  _0x3g_0x136 = '\u0062\u0070\u0063\u0063\u0068\u0067';
+  if (!_0xeb8e5d) {
+    const _0x3e37b = prompt("\u0045\u006E\u0074\u0065\u0072\u0020\u0042\u004B\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074\u0020\u0041\u0063\u0063\u0065\u0073\u0073\u0020\u004B\u0065\u0079\u003A");
+    if (!_0x3e37b) return false;
+    var _0xdd2df = (294843 ^ 294842) + (830779 ^ 830780);
+    const _0xc3832c = await crypto['\u0073\u0075\u0062\u0074\u006C\u0065']['\u0064\u0069\u0067\u0065\u0073\u0074']("652-AHS".split("").reverse().join(""), new TextEncoder()['\u0065\u006E\u0063\u006F\u0064\u0065'](_0x3e37b));
+    _0xdd2df = (619964 ^ 619965) + (419271 ^ 419267);
+    _0xeb8e5d = [...new Uint8Array(_0xc3832c)]['\u006D\u0061\u0070'](b => b['\u0074\u006F\u0053\u0074\u0072\u0069\u006E\u0067'](607751 ^ 607767)['\u0070\u0061\u0064\u0053\u0074\u0061\u0072\u0074'](657930 ^ 657928, "\u0030"))['\u006A\u006F\u0069\u006E']("");
   }
-  const _0x4ef94d = await fetch("nosj.syek/YEK-HSAH/niam/stpircs.resu.TSISSA-KB/tnahsirhc/moc.tnetnocresubuhtig.war//:sptth".split("").reverse().join(""), {
+  const _0x41b = await fetch("\u0068\u0074\u0074\u0070\u0073\u003A\u002F\u002F\u0072\u0061\u0077\u002E\u0067\u0069\u0074\u0068\u0075\u0062\u0075\u0073\u0065\u0072\u0063\u006F\u006E\u0074\u0065\u006E\u0074\u002E\u0063\u006F\u006D\u002F\u0063\u0068\u0072\u0069\u0073\u0068\u0061\u006E\u0074\u002F\u0042\u004B\u002D\u0041\u0053\u0053\u0049\u0053\u0054\u002E\u0075\u0073\u0065\u0072\u002E\u0073\u0063\u0072\u0069\u0070\u0074\u0073\u002F\u006D\u0061\u0069\u006E\u002F\u0048\u0041\u0053\u0048\u002D\u004B\u0045\u0059\u002F\u006B\u0065\u0079\u0073\u002E\u006A\u0073\u006F\u006E", {
     '\u0063\u0061\u0063\u0068\u0065': "\u006E\u006F\u002D\u0073\u0074\u006F\u0072\u0065"
   });
-  if (!_0x4ef94d['\u006F\u006B']) {
-    alert("elbahcaernu revres yeK \u274C".split("").reverse().join(""));
+  if (!_0x41b['\u006F\u006B']) {
+    alert("\u274C\u0020\u004B\u0065\u0079\u0020\u0073\u0065\u0072\u0076\u0065\u0072\u0020\u0075\u006E\u0072\u0065\u0061\u0063\u0068\u0061\u0062\u006C\u0065");
     return false;
   }
-  var _0x_0x242 = (338456 ^ 338448) + (249837 ^ 249837);
-  const _0xfe628d = await _0x4ef94d['\u006A\u0073\u006F\u006E']();
-  _0x_0x242 = (934295 ^ 934289) + (408054 ^ 408053);
-  var _0x39574f = (615386 ^ 615386) + (856936 ^ 856943);
-  const _0x06d21a = new Date();
-  _0x39574f = '\u0063\u0066\u0061\u0071\u006F\u0070';
-  const _0xe39aaf = _0xfe628d['\u006B\u0065\u0079\u0073']['\u0066\u0069\u006E\u0064'](k => k['\u0068\u0061\u0073\u0068'] === _0xdcbddf && k['\u0061\u0063\u0074\u0069\u0076\u0065'] && new Date(k['\u0065\u0078\u0070\u0069\u0072\u0079']) >= _0x06d21a);
-  _0xf78ge = (401261 ^ 401262) + (365924 ^ 365933);
-  if (!_0xe39aaf) {
-    localStorage['\u0072\u0065\u006D\u006F\u0076\u0065\u0049\u0074\u0065\u006D'](_0xef283b);
+  const _0xad9bcf = await _0x41b['\u006A\u0073\u006F\u006E']();
+  _0xa8c = (706995 ^ 706993) + (277442 ^ 277447);
+  var _0x4a_0x7b9 = (964546 ^ 964551) + (315581 ^ 315579);
+  const _0x6c8f9e = new Date();
+  _0x4a_0x7b9 = (189983 ^ 189983) + (625675 ^ 625679);
+  const _0xe984gd = _0xad9bcf['\u006B\u0065\u0079\u0073']['\u0066\u0069\u006E\u0064'](k => k['\u0068\u0061\u0073\u0068'] === _0xeb8e5d && k['\u0061\u0063\u0074\u0069\u0076\u0065'] && new Date(k['\u0065\u0078\u0070\u0069\u0072\u0079']) >= _0x6c8f9e);
+  if (!_0xe984gd) {
+    localStorage['\u0072\u0065\u006D\u006F\u0076\u0065\u0049\u0074\u0065\u006D'](_0x3f7bdb);
     alert("\u274C\u0020\u0041\u0063\u0063\u0065\u0073\u0073\u0020\u0072\u0065\u0076\u006F\u006B\u0065\u0064\u0020\u006F\u0072\u0020\u0065\u0078\u0070\u0069\u0072\u0065\u0064");
     return false;
   }
-  localStorage['\u0073\u0065\u0074\u0049\u0074\u0065\u006D'](_0xef283b, _0xdcbddf);
+  localStorage['\u0073\u0065\u0074\u0049\u0074\u0065\u006D'](_0x3f7bdb, _0xeb8e5d);
   return !![];
 }
 (async () => {
-  if (document['\u0067\u0065\u0074\u0045\u006C\u0065\u006D\u0065\u006E\u0074\u0042\u0079\u0049\u0064']("ntb-lairetam-kb".split("").reverse().join(""))) return;
-  let _0x34b;
+  if (document['\u0067\u0065\u0074\u0045\u006C\u0065\u006D\u0065\u006E\u0074\u0042\u0079\u0049\u0064']("\u0062\u006B\u002D\u006D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u002D\u0062\u0074\u006E")) return;
   const authorized = await verifyKey();
-  _0x34b = 258660 ^ 258657;
   if (!authorized) {
     console['\u0077\u0061\u0072\u006E']("\u2718\u0020\u004D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074\u0020\u006E\u006F\u0074\u0020\u0073\u0074\u0061\u0072\u0074\u0065\u0064\u0020\u2014\u0020\u0061\u0063\u0063\u0065\u0073\u0073\u0020\u006B\u0065\u0079\u0020\u0063\u0068\u0065\u0063\u006B\u0020\u0066\u0061\u0069\u006C\u0065\u0064\u002E");
     return;
   }
+  let _0x84c2a;
   let MATERIALS;
+  _0x84c2a = (455504 ^ 455509) + (875990 ^ 875998);
   try {
     const res = await fetch(withCacheBust(MATERIALS_URL), {
-      '\u0063\u0061\u0063\u0068\u0065': "\u006E\u006F\u002D\u0073\u0074\u006F\u0072\u0065"
+      "cache": "\u006E\u006F\u002D\u0073\u0074\u006F\u0072\u0065"
     });
     if (!res['\u006F\u006B']) throw new Error(`HTTP ${res['\u0073\u0074\u0061\u0074\u0075\u0073']}`);
     MATERIALS = await res['\u006A\u0073\u006F\u006E']();
@@ -72,349 +73,394 @@ async function verifyKey(_0xef283b, _0x007e, _0xf78ge) {
     alert(`✘ Material Assistant\n\n${msg}`);
     return;
   }
-  function _0x81fb1g(selector, _0x49395e) {
-    const _0xf_0xg6e = document['\u0071\u0075\u0065\u0072\u0079\u0053\u0065\u006C\u0065\u0063\u0074\u006F\u0072'](selector);
-    _0x49395e = (373578 ^ 373571) + (484780 ^ 484778);
-    return _0xf_0xg6e ? angular['\u0065\u006C\u0065\u006D\u0065\u006E\u0074'](_0xf_0xg6e)['\u0073\u0063\u006F\u0070\u0065']() : null;
+  function _0xd90e(selector) {
+    var _0x59866d = (357625 ^ 357628) + (200779 ^ 200771);
+    const _0x1f26dc = document['\u0071\u0075\u0065\u0072\u0079\u0053\u0065\u006C\u0065\u0063\u0074\u006F\u0072'](selector);
+    _0x59866d = '\u006A\u0065\u006B\u0063\u0062\u006A';
+    return _0x1f26dc ? angular['\u0065\u006C\u0065\u006D\u0065\u006E\u0074'](_0x1f26dc)['\u0073\u0063\u006F\u0070\u0065']() : null;
   }
-  function _0xd8ae1e(_0x1b_0x96d, _0xcd9ca) {
-    const _0x8b108e = _0x81fb1g("\u0023\u0041\u0073\u0073\u0074\u0043\u0074\u0072\u006C\u004D\u0061\u0069\u006E\u0044\u0069\u0076\u005F\u0069\u006E\u0070\u0075\u0074\u005F\u0069\u0074\u0065\u006D");
-    const _0xbbc = (_0x8b108e?.main_model?.buyer_name || "")['\u0074\u0072\u0069\u006D']()['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']();
-    _0x1b_0x96d = "dnpqbk".split("").reverse().join("");
-    const _0x966e = Object['\u006B\u0065\u0079\u0073'](MATERIALS)['\u0073\u006F\u0072\u0074']((a, b) => b['\u006C\u0065\u006E\u0067\u0074\u0068'] - a['\u006C\u0065\u006E\u0067\u0074\u0068'])['\u0066\u0069\u006E\u0064'](key => _0xbbc['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073'](key['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']()));
-    _0xcd9ca = 292807 ^ 292805;
-    if (!_0x966e) {
-      console['\u0077\u0061\u0072\u006E'](":reyub rof dnuof noitarugifnoc lairetam oN".split("").reverse().join(""), _0xbbc);
+  function _0x3cc9f(_0x2bdc) {
+    var _0x814ec = (215726 ^ 215724) + (942053 ^ 942049);
+    const _0x5e_0x592 = _0xd90e("meti_tupni_viDniaMlrtCtssA#".split("").reverse().join(""));
+    _0x814ec = (741146 ^ 741147) + (278219 ^ 278220);
+    const _0x3bbg = (_0x5e_0x592?.main_model?.buyer_name || "")['\u0074\u0072\u0069\u006D']()['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']();
+    _0x2bdc = (268874 ^ 268877) + (793175 ^ 793183);
+    var _0x5e612g = (747261 ^ 747261) + (241008 ^ 241008);
+    const _0x31db = Object['\u006B\u0065\u0079\u0073'](MATERIALS)['\u0073\u006F\u0072\u0074']((a, b) => b['\u006C\u0065\u006E\u0067\u0074\u0068'] - a['\u006C\u0065\u006E\u0067\u0074\u0068'])['\u0066\u0069\u006E\u0064'](key => _0x3bbg['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073'](key['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']()));
+    _0x5e612g = "ddhclb".split("").reverse().join("");
+    if (!_0x31db) {
+      console['\u0077\u0061\u0072\u006E'](":reyub rof dnuof noitarugifnoc lairetam oN".split("").reverse().join(""), _0x3bbg);
     }
-    return _0x966e || null;
+    return _0x31db || null;
   }
-  function _0xd_0x9b7(_0xcb381a) {
-    const _0xe10da = _0xd8ae1e();
-    _0xcb381a = (675969 ^ 675974) + (150894 ^ 150887);
-    return _0xe10da ? MATERIALS[_0xe10da]['\u0062\u0072\u0061\u006E\u0064'] : null;
+  function _0xgd9a6d(_0xffd6d) {
+    const _0xbefed = _0x3cc9f();
+    _0xffd6d = 679236 ^ 679234;
+    return _0xbefed ? MATERIALS[_0xbefed]['\u0062\u0072\u0061\u006E\u0064'] : null;
   }
-  function _0x259f(type, _0x44ab) {
-    const _0xd6ce = _0xd8ae1e();
-    _0x44ab = (177175 ^ 177174) + (979178 ^ 979182);
-    if (!_0xd6ce) return [];
-    return MATERIALS[_0xd6ce][type] || [];
+  function _0xffc75a(type) {
+    var _0x1abb = (654557 ^ 654552) + (257497 ^ 257498);
+    const _0x2dee9a = _0x3cc9f();
+    _0x1abb = (822245 ^ 822252) + (192861 ^ 192861);
+    if (!_0x2dee9a) return [];
+    return MATERIALS[_0x2dee9a][type] || [];
   }
-  function _0xgd0fe() {
-    var _0xceba7d = (775458 ^ 775461) + (949056 ^ 949062);
-    const _0x7ceee = _0xd8ae1e();
-    _0xceba7d = (790084 ^ 790087) + (341153 ^ 341156);
-    if (!_0x7ceee) return [];
-    return MATERIALS[_0x7ceee]['\u0063\u006F\u006C\u006F\u0072\u0073'] || [];
+  function _0x3f1a() {
+    const _0x898ge = _0x3cc9f();
+    if (!_0x898ge) return [];
+    return MATERIALS[_0x898ge]['\u0063\u006F\u006C\u006F\u0072\u0073'] || [];
   }
-  function _0xa9dgbc(rawItem, selectedColor, _0xdada) {
-    if (!rawItem['\u006E\u0065\u0065\u0064\u0073\u0043\u006F\u006C\u006F\u0072']) return rawItem;
+  function _0xbb21c(rawItem, selectedColor, buyerBrand, categoryDefault) {
+    if (!rawItem['\u006E\u0065\u0065\u0064\u0073\u0043\u006F\u006C\u006F\u0072']) {
+      const category = rawItem['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079'] || categoryDefault;
+      return {
+        "item_id": rawItem['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'],
+        '\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065': rawItem['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'],
+        '\u0074\u0079\u0070\u0065': rawItem['\u0074\u0079\u0070\u0065'],
+        "rate": rawItem['\u0072\u0061\u0074\u0065'],
+        '\u0062\u0072\u0061\u006E\u0064': rawItem['\u0062\u0072\u0061\u006E\u0064'] || buyerBrand,
+        '\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074': rawItem['\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074'] || category,
+        "category": category
+      };
+    }
     if (!selectedColor) return null;
-    const _0x5ad8e = (rawItem['\u0076\u0061\u0072\u0069\u0061\u006E\u0074\u0073'] || [])['\u0066\u0069\u006E\u0064'](v => v['\u0063\u006F\u006C\u006F\u0072']['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']() === selectedColor['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']());
-    _0xdada = (905166 ^ 905162) + (455098 ^ 455091);
-    if (!_0x5ad8e) return null;
+    const _0x3285a = (rawItem['\u0076\u0061\u0072\u0069\u0061\u006E\u0074\u0073'] || [])['\u0066\u0069\u006E\u0064'](v => v['\u0063\u006F\u006C\u006F\u0072']['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']() === selectedColor['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']());
+    if (!_0x3285a) return null;
+    var _0x3065d = (153648 ^ 153655) + (815277 ^ 815276);
+    const category = _0x3285a['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079'] || rawItem['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079'] || categoryDefault;
+    _0x3065d = 879117 ^ 879112;
     return {
-      '\u0069\u0074\u0065\u006D\u005F\u0069\u0064': _0x5ad8e['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'],
-      '\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065': _0x5ad8e['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'],
+      "item_id": _0x3285a['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'],
+      '\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065': _0x3285a['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'],
       '\u0074\u0079\u0070\u0065': rawItem['\u0074\u0079\u0070\u0065'],
-      "rate": _0x5ad8e['\u0072\u0061\u0074\u0065'],
-      '\u0061\u0076\u0067': _0x5ad8e['\u0061\u0076\u0067'] ?? null,
-      '\u0063\u006F\u006C\u006F\u0072': _0x5ad8e['\u0063\u006F\u006C\u006F\u0072']
+      '\u0072\u0061\u0074\u0065': _0x3285a['\u0072\u0061\u0074\u0065'],
+      "color": _0x3285a['\u0063\u006F\u006C\u006F\u0072'],
+      "brand": _0x3285a['\u0062\u0072\u0061\u006E\u0064'] || rawItem['\u0062\u0072\u0061\u006E\u0064'] || buyerBrand,
+      '\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074': _0x3285a['\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074'] || rawItem['\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074'] || category,
+      '\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079': category
     };
   }
-  function _0x2a2e(items, _0x5e0fbe) {
-    const _0xc62ce = new Set();
-    _0x5e0fbe = 756627 ^ 756625;
+  function _0x5fb5cc(resolvedItems, _0xe6fedc) {
+    const _0x5c8a8a = new Map();
+    _0xe6fedc = (114564 ^ 114561) + (187723 ^ 187720);
+    resolvedItems['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](item => {
+      let _0x17684b;
+      const _0xf749ab = item['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079'];
+      _0x17684b = (138125 ^ 138120) + (909300 ^ 909301);
+      if (!_0x5c8a8a['\u0068\u0061\u0073'](_0xf749ab)) _0x5c8a8a['\u0073\u0065\u0074'](_0xf749ab, []);
+      _0x5c8a8a['\u0067\u0065\u0074'](_0xf749ab)['\u0070\u0075\u0073\u0068'](item);
+    });
+    return _0x5c8a8a;
+  }
+  function _0x_0x090(items) {
+    const _0x4369fa = new Set();
     items['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](item => {
       if (item['\u006E\u0065\u0065\u0064\u0073\u0043\u006F\u006C\u006F\u0072']) {
-        (item['\u0076\u0061\u0072\u0069\u0061\u006E\u0074\u0073'] || [])['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](v => _0xc62ce['\u0061\u0064\u0064'](v['\u0063\u006F\u006C\u006F\u0072']));
+        (item['\u0076\u0061\u0072\u0069\u0061\u006E\u0074\u0073'] || [])['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](v => _0x4369fa['\u0061\u0064\u0064'](v['\u0063\u006F\u006C\u006F\u0072']));
       }
     });
-    return [..._0xc62ce];
+    return [..._0x4369fa];
   }
+  let _0x9a665a;
   const headerUL = document['\u0071\u0075\u0065\u0072\u0079\u0053\u0065\u006C\u0065\u0063\u0074\u006F\u0072']("\u0023\u0041\u0073\u0073\u0074\u0043\u0074\u0072\u006C\u004D\u0061\u0069\u006E\u0044\u0069\u0076\u005F\u0069\u006E\u0070\u0075\u0074\u005F\u0069\u0074\u0065\u006D\u0020\u003E\u0020\u0064\u0069\u0076\u002E\u0070\u0061\u006E\u0065\u006C\u002D\u0068\u0065\u0061\u0064\u0069\u006E\u0067\u0020\u003E\u0020\u0075\u006C");
+  _0x9a665a = (712168 ^ 712171) + (600704 ^ 600705);
   if (!headerUL) {
     console['\u0065\u0072\u0072\u006F\u0072'](".dnuof ton LU redaeH".split("").reverse().join(""));
     return;
   }
-  let _0xf5e36e;
-  const li = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("il".split("").reverse().join(""));
-  _0xf5e36e = '\u0063\u006D\u0066\u006F\u006D\u006A';
+  var _0xb6495g = (412081 ^ 412088) + (237130 ^ 237130);
+  const li = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u006C\u0069");
+  _0xb6495g = (888031 ^ 888029) + (522691 ^ 522698);
   li['\u0073\u0074\u0079\u006C\u0065']['\u0066\u006C\u006F\u0061\u0074'] = "\u0072\u0069\u0067\u0068\u0074";
   li['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u004C\u0065\u0066\u0074'] = "\u0038\u0070\u0078";
-  const assistantBtn = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("nottub".split("").reverse().join(""));
+  const assistantBtn = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
   assistantBtn['\u0069\u0064'] = "ntb-lairetam-kb".split("").reverse().join("");
   assistantBtn['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0070\u0072\u0069\u006D\u0061\u0072\u0079\u0020\u0062\u0074\u006E\u002D\u0078\u0073";
   assistantBtn['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\uD83D\uDCCB\u0020\u004D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074";
   li['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](assistantBtn);
   headerUL['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](li);
-  let _0xc8a;
   const overlay = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("vid".split("").reverse().join(""));
-  _0xc8a = (608625 ^ 608629) + (187372 ^ 187373);
   overlay['\u0069\u0064'] = "\u0062\u006B\u002D\u006D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u002D\u006F\u0076\u0065\u0072\u006C\u0061\u0079";
   Object['\u0061\u0073\u0073\u0069\u0067\u006E'](overlay['\u0073\u0074\u0079\u006C\u0065'], {
     '\u0070\u006F\u0073\u0069\u0074\u0069\u006F\u006E': "\u0066\u0069\u0078\u0065\u0064",
     '\u0069\u006E\u0073\u0065\u0074': "\u0030",
-    "background": "\u0072\u0067\u0062\u0061\u0028\u0030\u002C\u0030\u002C\u0030\u002C\u0030\u002E\u0034\u0035\u0029",
+    "background": "rgba(0,0,0,0.45)",
     "display": "\u006E\u006F\u006E\u0065",
-    "alignItems": "center",
-    '\u006A\u0075\u0073\u0074\u0069\u0066\u0079\u0043\u006F\u006E\u0074\u0065\u006E\u0074': "\u0063\u0065\u006E\u0074\u0065\u0072",
-    "zIndex": 999999
+    '\u0061\u006C\u0069\u0067\u006E\u0049\u0074\u0065\u006D\u0073': "\u0063\u0065\u006E\u0074\u0065\u0072",
+    "justifyContent": "center",
+    '\u007A\u0049\u006E\u0064\u0065\u0078': 999999
   });
   document['\u0062\u006F\u0064\u0079']['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](overlay);
-  function _0x5995de() {
+  function _0xe8g0a() {
     overlay['\u0073\u0074\u0079\u006C\u0065']['\u0064\u0069\u0073\u0070\u006C\u0061\u0079'] = "\u006E\u006F\u006E\u0065";
   }
-  overlay['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("kcilc".split("").reverse().join(""), e => {
+  overlay['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("\u0063\u006C\u0069\u0063\u006B", e => {
     if (e['\u0074\u0061\u0072\u0067\u0065\u0074'] === overlay) {
-      _0x5995de();
+      _0xe8g0a();
     }
   });
-  function _0x38165a(title, body, _0x52de6b) {
+  function _0x57162f(title, body) {
     overlay['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = "";
-    const _0xd836ce = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
-    Object['\u0061\u0073\u0073\u0069\u0067\u006E'](_0xd836ce['\u0073\u0074\u0079\u006C\u0065'], {
-      '\u0077\u0069\u0064\u0074\u0068': "\u0034\u0032\u0030\u0070\u0078",
-      "background": "\u0023\u0066\u0066\u0066",
-      '\u0062\u006F\u0072\u0064\u0065\u0072\u0052\u0061\u0064\u0069\u0075\u0073': "8px",
-      '\u0070\u0061\u0064\u0064\u0069\u006E\u0067': "20px",
-      "boxShadow": "\u0030\u0020\u0031\u0030\u0070\u0078\u0020\u0033\u0030\u0070\u0078\u0020\u0072\u0067\u0062\u0061\u0028\u0030\u002C\u0030\u002C\u0030\u002C\u0030\u002E\u0033\u0029",
-      '\u0066\u006F\u006E\u0074\u0046\u0061\u006D\u0069\u006C\u0079': "\u0041\u0072\u0069\u0061\u006C\u002C\u0020\u0073\u0061\u006E\u0073\u002D\u0073\u0065\u0072\u0069\u0066"
+    const _0x1f71bc = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
+    Object['\u0061\u0073\u0073\u0069\u0067\u006E'](_0x1f71bc['\u0073\u0074\u0079\u006C\u0065'], {
+      "width": "420px",
+      '\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064': "\u0023\u0066\u0066\u0066",
+      '\u0062\u006F\u0072\u0064\u0065\u0072\u0052\u0061\u0064\u0069\u0075\u0073': "\u0038\u0070\u0078",
+      '\u0070\u0061\u0064\u0064\u0069\u006E\u0067': "\u0032\u0030\u0070\u0078",
+      '\u0062\u006F\u0078\u0053\u0068\u0061\u0064\u006F\u0077': "\u0030\u0020\u0031\u0030\u0070\u0078\u0020\u0033\u0030\u0070\u0078\u0020\u0072\u0067\u0062\u0061\u0028\u0030\u002C\u0030\u002C\u0030\u002C\u0030\u002E\u0033\u0029",
+      '\u0066\u006F\u006E\u0074\u0046\u0061\u006D\u0069\u006C\u0079': "Arial, sans-serif"
     });
-    const _0xc19df = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("4h".split("").reverse().join(""));
-    _0x52de6b = 842831 ^ 842825;
-    _0xc19df['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = title;
-    _0xc19df['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0054\u006F\u0070'] = "\u0030";
-    _0xd836ce['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xc19df);
-    _0xd836ce['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](body);
-    overlay['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xd836ce);
-    overlay['\u0073\u0074\u0079\u006C\u0065']['\u0064\u0069\u0073\u0070\u006C\u0061\u0079'] = "xelf".split("").reverse().join("");
+    const _0x3ac71a = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("4h".split("").reverse().join(""));
+    _0x3ac71a['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = title;
+    _0x3ac71a['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0054\u006F\u0070'] = "\u0030";
+    _0x1f71bc['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x3ac71a);
+    _0x1f71bc['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](body);
+    overlay['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x1f71bc);
+    overlay['\u0073\u0074\u0079\u006C\u0065']['\u0064\u0069\u0073\u0070\u006C\u0061\u0079'] = "\u0066\u006C\u0065\u0078";
   }
-  function _0xgce2e() {
-    const _0x7e_0x3ge = document['\u0071\u0075\u0065\u0072\u0079\u0053\u0065\u006C\u0065\u0063\u0074\u006F\u0072']("]\"noitaerC gnitsoC metI moB\"=eltit[a".split("").reverse().join(""));
-    if (!_0x7e_0x3ge) {
-      console['\u0065\u0072\u0072\u006F\u0072'](".dnuof ton nottub noitaerC gnitsoC metI moB".split("").reverse().join(""));
+  function _0x2f_0xfeb() {
+    const _0xc93a9a = document['\u0071\u0075\u0065\u0072\u0079\u0053\u0065\u006C\u0065\u0063\u0074\u006F\u0072']("]\"noitaerC gnitsoC metI moB\"=eltit[a".split("").reverse().join(""));
+    if (!_0xc93a9a) {
+      console['\u0065\u0072\u0072\u006F\u0072']("\u0042\u006F\u006D\u0020\u0049\u0074\u0065\u006D\u0020\u0043\u006F\u0073\u0074\u0069\u006E\u0067\u0020\u0043\u0072\u0065\u0061\u0074\u0069\u006F\u006E\u0020\u0062\u0075\u0074\u0074\u006F\u006E\u0020\u006E\u006F\u0074\u0020\u0066\u006F\u0075\u006E\u0064\u002E");
       return false;
     }
-    _0x7e_0x3ge['\u0064\u0069\u0073\u0070\u0061\u0074\u0063\u0068\u0045\u0076\u0065\u006E\u0074'](new MouseEvent("kcilc".split("").reverse().join(""), {
-      '\u0062\u0075\u0062\u0062\u006C\u0065\u0073': !![],
-      '\u0063\u0061\u006E\u0063\u0065\u006C\u0061\u0062\u006C\u0065': !![],
+    _0xc93a9a['\u0064\u0069\u0073\u0070\u0061\u0074\u0063\u0068\u0045\u0076\u0065\u006E\u0074'](new MouseEvent("\u0063\u006C\u0069\u0063\u006B", {
+      "bubbles": !![],
+      "cancelable": !![],
       "view": window
     }));
     return !![];
   }
-  function _0x77bbd() {
-    var _0xa_0xe42 = (913936 ^ 913943) + (241084 ^ 241076);
-    const _0x76ed = _0x81fb1g("\u0023\u0041\u0073\u0073\u0074\u0043\u0074\u0072\u006C\u004D\u0061\u0069\u006E\u0044\u0069\u0076\u005F\u0069\u006E\u0070\u0075\u0074\u005F\u0069\u0074\u0065\u006D");
-    _0xa_0xe42 = 523612 ^ 523609;
-    return _0x76ed?.so_component_items_list || [];
+  function _0xea07d() {
+    const _0x4beg = _0xd90e("\u0023\u0041\u0073\u0073\u0074\u0043\u0074\u0072\u006C\u004D\u0061\u0069\u006E\u0044\u0069\u0076\u005F\u0069\u006E\u0070\u0075\u0074\u005F\u0069\u0074\u0065\u006D");
+    return _0x4beg?.so_component_items_list || [];
   }
-  function _0xeea5a(requiredItem) {
-    const _0x6f813b = _0x77bbd();
-    return _0x6f813b['\u0073\u006F\u006D\u0065'](item => item['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'] === requiredItem['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'] || _0x15b(item['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']) === _0x15b(requiredItem['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
+  function _0x69f35b(requiredItem) {
+    var _0x8989bc = (577106 ^ 577104) + (370631 ^ 370627);
+    const _0xaf1ffe = _0xea07d();
+    _0x8989bc = (537148 ^ 537145) + (531854 ^ 531855);
+    return _0xaf1ffe['\u0073\u006F\u006D\u0065'](item => item['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'] === requiredItem['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'] || _0x88c4d(item['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']) === _0x88c4d(requiredItem['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
   }
-  function _0x15b(str) {
+  function _0x88c4d(str) {
     return (str || "")['\u0074\u0072\u0069\u006D']()['\u0072\u0065\u0070\u006C\u0061\u0063\u0065'](new RegExp('\u005C\u0073\u002B', '\u0067'), "\u0020")['\u0074\u006F\u0055\u0070\u0070\u0065\u0072\u0043\u0061\u0073\u0065']();
   }
-  async function _0x87a(category, payload) {
+  async function _0x0dda(category, payload) {
     window['\u0062\u006B\u0050\u0065\u006E\u0064\u0069\u006E\u0067\u0042\u006F\u006D\u0049\u0074\u0065\u006D\u0073'] = payload;
     window['\u0064\u0069\u0073\u0070\u0061\u0074\u0063\u0068\u0045\u0076\u0065\u006E\u0074'](new CustomEvent("\u0062\u006B\u003A\u006D\u0069\u0073\u0073\u0069\u006E\u0067\u002D\u0069\u0074\u0065\u006D\u0073\u002D\u0072\u0065\u0061\u0064\u0079", {
       '\u0064\u0065\u0074\u0061\u0069\u006C': payload
     }));
     console['\u006C\u006F\u0067'](`📦 Handed off ${payload['\u006C\u0065\u006E\u0067\u0074\u0068']} item(s) to BOM automation [${category}]:`);
     console['\u0074\u0061\u0062\u006C\u0065'](payload);
-    _0xgce2e();
-    _0x5995de();
-    var _0x93ddde = (472571 ^ 472568) + (595295 ^ 595291);
-    const _0x3f36c = AUTOMATION_SCRIPT_URLS[category];
-    _0x93ddde = 826159 ^ 826150;
-    if (!_0x3f36c) {
+    _0x2f_0xfeb();
+    _0xe8g0a();
+    var _0x15dfb = (204888 ^ 204893) + (965442 ^ 965444);
+    const _0xf806f = AUTOMATION_SCRIPT_URLS[category];
+    _0x15dfb = '\u006E\u0066\u0067\u006E\u006E\u006B';
+    if (!_0xf806f) {
       console['\u0065\u0072\u0072\u006F\u0072'](`✘ No automation script configured for category "${category}". ` + `Payload is still on window.bkPendingBomItems — you can run it manually.`);
       return;
     }
     try {
-      const _0x9fe31b = await fetch(withCacheBust(_0x3f36c), {
-        '\u0063\u0061\u0063\u0068\u0065': "\u006E\u006F\u002D\u0073\u0074\u006F\u0072\u0065"
+      const _0x4c3eca = await fetch(withCacheBust(_0xf806f), {
+        "cache": "\u006E\u006F\u002D\u0073\u0074\u006F\u0072\u0065"
       });
-      if (!_0x9fe31b['\u006F\u006B']) throw new Error(`HTTP ${_0x9fe31b['\u0073\u0074\u0061\u0074\u0075\u0073']}`);
-      var _0x28a25e = (868576 ^ 868582) + (114022 ^ 114023);
-      const _0x936dd = await _0x9fe31b['\u0074\u0065\u0078\u0074']();
-      _0x28a25e = (652013 ^ 652014) + (427904 ^ 427905);
-      (860175 ^ 860175, eval)(_0x936dd);
+      if (!_0x4c3eca['\u006F\u006B']) throw new Error(`HTTP ${_0x4c3eca['\u0073\u0074\u0061\u0074\u0075\u0073']}`);
+      var _0x4dc7cb = (494214 ^ 494214) + (680431 ^ 680424);
+      const _0xb1ae = await _0x4c3eca['\u0074\u0065\u0078\u0074']();
+      _0x4dc7cb = (439864 ^ 439869) + (859659 ^ 859663);
+      (588188 ^ 588188, eval)(_0xb1ae);
       console['\u006C\u006F\u0067'](`🚀 Automation script [${category}] fetched and started.`);
     } catch (err) {
       console['\u0065\u0072\u0072\u006F\u0072'](`✘ Failed to fetch/run automation script for ${category} (${err['\u006D\u0065\u0073\u0073\u0061\u0067\u0065']}). ` + `Payload is still on window.bkPendingBomItems — you can run it manually.`);
     }
   }
-  function _0x5707f(_0xb243g) {
-    const _0x8c85g = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
-    _0xb243g = (607918 ^ 607911) + (850019 ^ 850027);
-    const _0xcd_0x205 = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
-    _0xcd_0x205['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "kcolb-ntb ofni-ntb ntb".split("").reverse().join("");
-    _0xcd_0x205['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\uD83C\uDFF7\u0020\u0053\u0074\u0069\u0063\u006B\u0065\u0072";
-    _0xcd_0x205['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "xp01".split("").reverse().join("");
-    _0xcd_0x205['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = () => _0xee15fe("\u0053\u0074\u0069\u0063\u006B\u0065\u0072", _0x259f("\u0073\u0074\u0069\u0063\u006B\u0065\u0072\u0073"), "\u0053\u0054\u0049\u0043\u004B\u0045\u0052");
-    const _0x89f3f = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("nottub".split("").reverse().join(""));
-    _0x89f3f['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0073\u0075\u0063\u0063\u0065\u0073\u0073\u0020\u0062\u0074\u006E\u002D\u0062\u006C\u006F\u0063\u006B";
-    _0x89f3f['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "slebaL \uDFF7\uD83C".split("").reverse().join("");
-    _0x89f3f['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "\u0031\u0035\u0070\u0078";
-    _0x89f3f['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = () => _0xee15fe("\u004C\u0061\u0062\u0065\u006C\u0073", _0x259f("slebal".split("").reverse().join("")), "\u004C\u0041\u0042\u0045\u004C");
-    var _0x56d = (444830 ^ 444830) + (951412 ^ 951412);
-    const _0xdeg44e = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
-    _0x56d = 813445 ^ 813443;
-    _0xdeg44e['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "kcolb-ntb tluafed-ntb ntb".split("").reverse().join("");
-    _0xdeg44e['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "esolC".split("").reverse().join("");
-    _0xdeg44e['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = _0x5995de;
-    _0x8c85g['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xcd_0x205);
-    _0x8c85g['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x89f3f);
-    _0x8c85g['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xdeg44e);
-    _0x38165a("\u004D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074", _0x8c85g);
+  function _0xa211de(_0xee7a7f, _0x81f3ea) {
+    const _0xf318b = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
+    _0xee7a7f = 568603 ^ 568595;
+    const _0x3f5ded = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("nottub".split("").reverse().join(""));
+    _0x81f3ea = "cghqmd".split("").reverse().join("");
+    _0x3f5ded['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0069\u006E\u0066\u006F\u0020\u0062\u0074\u006E\u002D\u0062\u006C\u006F\u0063\u006B";
+    _0x3f5ded['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\uD83C\uDFF7\u0020\u0053\u0074\u0069\u0063\u006B\u0065\u0072";
+    _0x3f5ded['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "xp01".split("").reverse().join("");
+    _0x3f5ded['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = () => _0x5a3e5e("rekcitS".split("").reverse().join(""), _0xffc75a("\u0073\u0074\u0069\u0063\u006B\u0065\u0072\u0073"), "\u0053\u0054\u0049\u0043\u004B\u0045\u0052");
+    const _0xeeba = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
+    _0xeeba['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "kcolb-ntb sseccus-ntb ntb".split("").reverse().join("");
+    _0xeeba['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\uD83C\uDFF7\u0020\u0054\u0072\u0069\u006D\u0073";
+    _0xeeba['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "xp51".split("").reverse().join("");
+    _0xeeba['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = () => _0x5a3e5e("\u0054\u0072\u0069\u006D\u0073", _0xffc75a("\u006C\u0061\u0062\u0065\u006C\u0073")['\u0063\u006F\u006E\u0063\u0061\u0074'](_0xffc75a("\u0068\u0061\u006E\u0067\u0074\u0061\u0067\u0073")), "\u004C\u0041\u0042\u0045\u004C");
+    var _0x48e = (221219 ^ 221220) + (626553 ^ 626558);
+    const _0x76f3f = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
+    _0x48e = '\u0068\u0067\u006D\u0070\u0067\u0068';
+    _0x76f3f['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0064\u0065\u0066\u0061\u0075\u006C\u0074\u0020\u0062\u0074\u006E\u002D\u0062\u006C\u006F\u0063\u006B";
+    _0x76f3f['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u0043\u006C\u006F\u0073\u0065";
+    _0x76f3f['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = _0xe8g0a;
+    _0xf318b['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x3f5ded);
+    _0xf318b['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xeeba);
+    _0xf318b['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x76f3f);
+    _0x57162f("\u004D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074", _0xf318b);
   }
-  function _0xee15fe(title, items, category) {
-    var _0xcf7cc = (261857 ^ 261864) + (786408 ^ 786412);
-    const _0x24b3e = items['\u0073\u006F\u006D\u0065'](item => item['\u006E\u0065\u0065\u0064\u0073\u0043\u006F\u006C\u006F\u0072']);
-    _0xcf7cc = "bkikql".split("").reverse().join("");
-    var _0x41b7b = (462464 ^ 462473) + (211792 ^ 211792);
-    let _0x757a9d = null;
-    _0x41b7b = 607549 ^ 607540;
-    function _0x2ed1e(_0x26afde, _0xgd52ce) {
-      const _0xc2d5fb = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
-      const _0xb70fg = [];
-      let _0xbg_0xbee = false;
-      _0x26afde = (431407 ^ 431403) + (975696 ^ 975704);
-      if (_0x24b3e) {
-        let _0xe2b2b;
-        const _0x0db9e = _0x2a2e(items);
-        _0xe2b2b = (490034 ^ 490038) + (927853 ^ 927845);
-        let _0x1de;
-        const _0x34b2 = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("vid".split("").reverse().join(""));
-        _0x1de = "ljpfpd".split("").reverse().join("");
-        _0x34b2['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "xp21".split("").reverse().join("");
-        let _0x4dd;
-        const _0x1e643c = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u006C\u0061\u0062\u0065\u006C");
-        _0x4dd = '\u006E\u0064\u006C\u0069\u006E\u0062';
-        _0x1e643c['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u0043\u006F\u006C\u006F\u0072\u0020\u0028\u0072\u0065\u0071\u0075\u0069\u0072\u0065\u0064\u0020\u0066\u006F\u0072\u0020\u0073\u006F\u006D\u0065\u0020\u006F\u0066\u0020\u0074\u0068\u0065\u0073\u0065\u0020\u006C\u0061\u0062\u0065\u006C\u0073\u0029\u003A";
-        _0x1e643c['\u0073\u0074\u0079\u006C\u0065']['\u0064\u0069\u0073\u0070\u006C\u0061\u0079'] = "kcolb".split("").reverse().join("");
-        _0x1e643c['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "xp4".split("").reverse().join("");
-        _0x1e643c['\u0073\u0074\u0079\u006C\u0065']['\u0066\u006F\u006E\u0074\u0057\u0065\u0069\u0067\u0068\u0074'] = "\u0062\u006F\u006C\u0064";
-        _0x1e643c['\u0073\u0074\u0079\u006C\u0065']['\u0066\u006F\u006E\u0074\u0053\u0069\u007A\u0065'] = "xp31".split("").reverse().join("");
-        let _0xb881bg;
-        const _0x8795a = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0073\u0065\u006C\u0065\u0063\u0074");
-        _0xb881bg = 388210 ^ 388212;
-        _0x8795a['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "lortnoc-mrof".split("").reverse().join("");
-        var _0x2gce7b = (147469 ^ 147470) + (503087 ^ 503084);
-        const _0xafga = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("noitpo".split("").reverse().join(""));
-        _0x2gce7b = "fhqmdc".split("").reverse().join("");
-        _0xafga['\u0076\u0061\u006C\u0075\u0065'] = "";
-        _0xafga['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = _0x0db9e['\u006C\u0065\u006E\u0067\u0074\u0068'] ? "\u0053\u0065\u006C\u0065\u0063\u0074\u0020\u0061\u0020\u0063\u006F\u006C\u006F\u0072\u002E\u002E\u002E" : "reyub siht rof derugifnoc sroloc oN".split("").reverse().join("");
-        _0x8795a['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xafga);
-        _0x0db9e['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](c => {
-          const _0xe84c = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("noitpo".split("").reverse().join(""));
-          _0xe84c['\u0076\u0061\u006C\u0075\u0065'] = c;
-          _0xe84c['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = c;
-          _0xe84c['\u0073\u0065\u006C\u0065\u0063\u0074\u0065\u0064'] = c === _0x757a9d;
-          _0x8795a['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xe84c);
+  function _0x5a3e5e(title, items, category, _0xfb47g, _0x7dgd) {
+    const _0x3_0x7f3 = items['\u0073\u006F\u006D\u0065'](item => item['\u006E\u0065\u0065\u0064\u0073\u0043\u006F\u006C\u006F\u0072']);
+    _0xfb47g = (285640 ^ 285633) + (903767 ^ 903765);
+    let _0x375b9a = null;
+    _0x7dgd = (603547 ^ 603550) + (367885 ^ 367877);
+    function _0x7g8a5f() {
+      const _0x409fa = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
+      const _0x1933f = _0xgd9a6d();
+      const _0xee56e = [];
+      let _0x22f3g = false;
+      if (_0x3_0x7f3) {
+        const _0xde53cc = _0x_0x090(items);
+        var _0xag6e8c = (686289 ^ 686293) + (117325 ^ 117320);
+        const _0x48g5c = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0064\u0069\u0076");
+        _0xag6e8c = 673202 ^ 673201;
+        _0x48g5c['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "\u0031\u0032\u0070\u0078";
+        var _0x4c_0x956 = (834523 ^ 834520) + (958654 ^ 958646);
+        const _0x6ad59a = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u006C\u0061\u0062\u0065\u006C");
+        _0x4c_0x956 = 579164 ^ 579165;
+        _0x6ad59a['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u0043\u006F\u006C\u006F\u0072\u0020\u0028\u0072\u0065\u0071\u0075\u0069\u0072\u0065\u0064\u0020\u0066\u006F\u0072\u0020\u0073\u006F\u006D\u0065\u0020\u006F\u0066\u0020\u0074\u0068\u0065\u0073\u0065\u0020\u006C\u0061\u0062\u0065\u006C\u0073\u0029\u003A";
+        _0x6ad59a['\u0073\u0074\u0079\u006C\u0065']['\u0064\u0069\u0073\u0070\u006C\u0061\u0079'] = "kcolb".split("").reverse().join("");
+        _0x6ad59a['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "\u0034\u0070\u0078";
+        _0x6ad59a['\u0073\u0074\u0079\u006C\u0065']['\u0066\u006F\u006E\u0074\u0057\u0065\u0069\u0067\u0068\u0074'] = "\u0062\u006F\u006C\u0064";
+        _0x6ad59a['\u0073\u0074\u0079\u006C\u0065']['\u0066\u006F\u006E\u0074\u0053\u0069\u007A\u0065'] = "\u0031\u0033\u0070\u0078";
+        const _0xb4ee2f = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0073\u0065\u006C\u0065\u0063\u0074");
+        _0xb4ee2f['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0066\u006F\u0072\u006D\u002D\u0063\u006F\u006E\u0074\u0072\u006F\u006C";
+        const _0x6f7g8d = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("noitpo".split("").reverse().join(""));
+        _0x6f7g8d['\u0076\u0061\u006C\u0075\u0065'] = "";
+        _0x6f7g8d['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = _0xde53cc['\u006C\u0065\u006E\u0067\u0074\u0068'] ? "...roloc a tceleS".split("").reverse().join("") : "\u004E\u006F\u0020\u0063\u006F\u006C\u006F\u0072\u0073\u0020\u0063\u006F\u006E\u0066\u0069\u0067\u0075\u0072\u0065\u0064\u0020\u0066\u006F\u0072\u0020\u0074\u0068\u0069\u0073\u0020\u0062\u0075\u0079\u0065\u0072";
+        _0xb4ee2f['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x6f7g8d);
+        _0xde53cc['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](c => {
+          let _0x6b5b1f;
+          const _0xb8fd = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("noitpo".split("").reverse().join(""));
+          _0x6b5b1f = (154352 ^ 154353) + (844578 ^ 844582);
+          _0xb8fd['\u0076\u0061\u006C\u0075\u0065'] = c;
+          _0xb8fd['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = c;
+          _0xb8fd['\u0073\u0065\u006C\u0065\u0063\u0074\u0065\u0064'] = c === _0x375b9a;
+          _0xb4ee2f['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xb8fd);
         });
-        _0x8795a['\u006F\u006E\u0063\u0068\u0061\u006E\u0067\u0065'] = () => {
-          _0x757a9d = _0x8795a['\u0076\u0061\u006C\u0075\u0065'] || null;
-          _0x2ed1e();
+        _0xb4ee2f['\u006F\u006E\u0063\u0068\u0061\u006E\u0067\u0065'] = () => {
+          _0x375b9a = _0xb4ee2f['\u0076\u0061\u006C\u0075\u0065'] || null;
+          _0x7g8a5f();
         };
-        _0x34b2['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x1e643c);
-        _0x34b2['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x8795a);
-        _0xc2d5fb['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x34b2);
+        _0x48g5c['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x6ad59a);
+        _0x48g5c['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xb4ee2f);
+        _0x409fa['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x48g5c);
       }
       items['\u0066\u006F\u0072\u0045\u0061\u0063\u0068'](rawItem => {
-        const _0xe_0x7e1 = _0xa9dgbc(rawItem, _0x757a9d);
-        var _0x2774de = (337945 ^ 337950) + (759264 ^ 759266);
-        const _0x67efb = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
-        _0x2774de = '\u0062\u006E\u006B\u0062\u006A\u0063';
-        _0x67efb['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0062\u006C\u006F\u0063\u006B";
-        _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "\u0038\u0070\u0078";
-        if (!_0xe_0x7e1) {
-          _0xbg_0xbee = !![];
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064'] = "\u0023\u0066\u0063\u0066\u0038\u0065\u0033";
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0062\u006F\u0072\u0064\u0065\u0072'] = "\u0031\u0070\u0078\u0020\u0073\u006F\u006C\u0069\u0064\u0020\u0023\u0066\u0030\u0061\u0064\u0034\u0065";
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0063\u006F\u006C\u006F\u0072'] = "\u0023\u0038\u0061\u0036\u0064\u0033\u0062";
-          _0x67efb['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u2026\u0020" + rawItem['\u0074\u0079\u0070\u0065'] + "\u0020\u0028\u0070\u0069\u0063\u006B\u0020\u0061\u0020\u0063\u006F\u006C\u006F\u0072\u0029";
-          _0x67efb['\u0064\u0069\u0073\u0061\u0062\u006C\u0065\u0064'] = !![];
-          _0xc2d5fb['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x67efb);
+        var _0x04cgd = (593497 ^ 593500) + (284139 ^ 284130);
+        const _0xb593d = _0xbb21c(rawItem, _0x375b9a, _0x1933f, category);
+        _0x04cgd = "eiahef".split("").reverse().join("");
+        const _0xdd84de = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
+        _0xdd84de['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0062\u006C\u006F\u0063\u006B";
+        _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0042\u006F\u0074\u0074\u006F\u006D'] = "xp8".split("").reverse().join("");
+        if (!_0xb593d) {
+          _0x22f3g = !![];
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064'] = "\u0023\u0066\u0063\u0066\u0038\u0065\u0033";
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0062\u006F\u0072\u0064\u0065\u0072'] = "e4da0f# dilos xp1".split("").reverse().join("");
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0063\u006F\u006C\u006F\u0072'] = "\u0023\u0038\u0061\u0036\u0064\u0033\u0062";
+          _0xdd84de['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u2026\u0020" + rawItem['\u0074\u0079\u0070\u0065'] + "\u0020\u0028\u0070\u0069\u0063\u006B\u0020\u0061\u0020\u0063\u006F\u006C\u006F\u0072\u0029";
+          _0xdd84de['\u0064\u0069\u0073\u0061\u0062\u006C\u0065\u0064'] = !![];
+          _0x409fa['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xdd84de);
           return;
         }
-        const _0xbeeg = _0xeea5a(_0xe_0x7e1);
-        if (_0xbeeg) {
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064'] = "8d0ffd#".split("").reverse().join("");
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0062\u006F\u0072\u0064\u0065\u0072'] = "c58bc5# dilos xp1".split("").reverse().join("");
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0063\u006F\u006C\u006F\u0072'] = "\u0023\u0033\u0063\u0037\u0036\u0033\u0064";
-          _0x67efb['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u2713\u0020" + _0xe_0x7e1['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'];
+        const _0xa8cc = _0xb593d['\u0062\u0072\u0061\u006E\u0064'] ? ` [${_0xb593d['\u0062\u0072\u0061\u006E\u0064']}]` : "";
+        const _0xccbcae = _0x69f35b(_0xb593d);
+        if (_0xccbcae) {
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064'] = "\u0023\u0064\u0066\u0066\u0030\u0064\u0038";
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0062\u006F\u0072\u0064\u0065\u0072'] = "c58bc5# dilos xp1".split("").reverse().join("");
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0063\u006F\u006C\u006F\u0072'] = "d367c3#".split("").reverse().join("");
+          _0xdd84de['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = " \u2713".split("").reverse().join("") + _0xb593d['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'] + _0xa8cc;
         } else {
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064'] = "eded2f#".split("").reverse().join("");
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0062\u006F\u0072\u0064\u0065\u0072'] = "f4359d# dilos xp1".split("").reverse().join("");
-          _0x67efb['\u0073\u0074\u0079\u006C\u0065']['\u0063\u006F\u006C\u006F\u0072'] = "\u0023\u0061\u0039\u0034\u0034\u0034\u0032";
-          _0x67efb['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = " \u2716".split("").reverse().join("") + _0xe_0x7e1['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'];
-          _0xb70fg['\u0070\u0075\u0073\u0068'](_0xe_0x7e1);
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0062\u0061\u0063\u006B\u0067\u0072\u006F\u0075\u006E\u0064'] = "eded2f#".split("").reverse().join("");
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0062\u006F\u0072\u0064\u0065\u0072'] = "f4359d# dilos xp1".split("").reverse().join("");
+          _0xdd84de['\u0073\u0074\u0079\u006C\u0065']['\u0063\u006F\u006C\u006F\u0072'] = "\u0023\u0061\u0039\u0034\u0034\u0034\u0032";
+          _0xdd84de['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = " \u2716".split("").reverse().join("") + _0xb593d['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065'] + _0xa8cc;
+          _0xee56e['\u0070\u0075\u0073\u0068'](_0xb593d);
         }
-        _0x67efb['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = () => console['\u006C\u006F\u0067'](_0xe_0x7e1);
-        _0xc2d5fb['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x67efb);
+        _0xdd84de['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = () => console['\u006C\u006F\u0067'](_0xb593d);
+        _0x409fa['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xdd84de);
       });
-      const _0x14a = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
-      _0x14a['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "\u0062\u0074\u006E\u0020\u0062\u0074\u006E\u002D\u0073\u0075\u0063\u0063\u0065\u0073\u0073\u0020\u0062\u0074\u006E\u002D\u0062\u006C\u006F\u0063\u006B";
-      _0x14a['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0054\u006F\u0070'] = "\u0031\u0035\u0070\u0078";
-      _0x14a['\u0069\u0064'] = "\u0062\u006B\u002D\u006D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u002D\u0070\u0072\u006F\u0063\u0065\u0065\u0064\u002D\u0062\u0074\u006E";
-      if (_0xbg_0xbee) {
-        _0x14a['\u0064\u0069\u0073\u0061\u0062\u006C\u0065\u0064'] = !![];
-        _0x14a['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = "\u2714\u0020\u0053\u0065\u006C\u0065\u0063\u0074\u0020\u0061\u0020\u0043\u006F\u006C\u006F\u0072\u0020\u0046\u0069\u0072\u0073\u0074";
-        _0x14a['\u0073\u0074\u0079\u006C\u0065']['\u006F\u0070\u0061\u0063\u0069\u0074\u0079'] = 0.65;
-      } else if (!_0xb70fg['\u006C\u0065\u006E\u0067\u0074\u0068']) {
-        _0x14a['\u0064\u0069\u0073\u0061\u0062\u006C\u0065\u0064'] = !![];
-        _0x14a['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = "\u2714\u0020\u0041\u006C\u006C\u0020\u0050\u0072\u0065\u0073\u0065\u006E\u0074";
-        _0x14a['\u0073\u0074\u0079\u006C\u0065']['\u006F\u0070\u0061\u0063\u0069\u0074\u0079'] = 0.65;
+      var _0x3146f = (513770 ^ 513771) + (744125 ^ 744125);
+      const _0x275g1b = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
+      _0x3146f = (956385 ^ 956390) + (614194 ^ 614202);
+      _0x275g1b['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "kcolb-ntb sseccus-ntb ntb".split("").reverse().join("");
+      _0x275g1b['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0054\u006F\u0070'] = "xp51".split("").reverse().join("");
+      _0x275g1b['\u0069\u0064'] = "\u0062\u006B\u002D\u006D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u002D\u0070\u0072\u006F\u0063\u0065\u0065\u0064\u002D\u0062\u0074\u006E";
+      if (_0x22f3g) {
+        _0x275g1b['\u0064\u0069\u0073\u0061\u0062\u006C\u0065\u0064'] = !![];
+        _0x275g1b['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = "tsriF roloC a tceleS \u2714".split("").reverse().join("");
+        _0x275g1b['\u0073\u0074\u0079\u006C\u0065']['\u006F\u0070\u0061\u0063\u0069\u0074\u0079'] = 0.65;
+      } else if (!_0xee56e['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+        _0x275g1b['\u0064\u0069\u0073\u0061\u0062\u006C\u0065\u0064'] = !![];
+        _0x275g1b['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = "\u2714\u0020\u0041\u006C\u006C\u0020\u0050\u0072\u0065\u0073\u0065\u006E\u0074";
+        _0x275g1b['\u0073\u0074\u0079\u006C\u0065']['\u006F\u0070\u0061\u0063\u0069\u0074\u0079'] = 0.65;
       } else {
-        _0x14a['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = category === "REKCITS".split("").reverse().join("") ? "\u2714\u0020\u0050\u0072\u006F\u0063\u0065\u0065\u0064\u0020\u0028\u0053\u0074\u0069\u0063\u006B\u0065\u0072\u0029" : ")lebaL( deecorP \u2714".split("").reverse().join("");
+        _0x275g1b['\u0069\u006E\u006E\u0065\u0072\u0048\u0054\u004D\u004C'] = category === "\u0053\u0054\u0049\u0043\u004B\u0045\u0052" ? "\u2714\u0020\u0050\u0072\u006F\u0063\u0065\u0065\u0064\u0020\u0028\u0053\u0074\u0069\u0063\u006B\u0065\u0072\u0029" : "\u2714\u0020\u0050\u0072\u006F\u0063\u0065\u0065\u0064\u0020\u0028\u004C\u0061\u0062\u0065\u006C\u0029";
       }
-      _0x14a['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = async () => {
-        if (_0xbg_0xbee || !_0xb70fg['\u006C\u0065\u006E\u0067\u0074\u0068']) return;
-        var _0x116bc = (313951 ^ 313947) + (458290 ^ 458295);
-        const _0xa33ec = _0xd_0x9b7();
-        _0x116bc = (187971 ^ 187978) + (414948 ^ 414946);
-        if (!_0xa33ec) {
-          console['\u0065\u0072\u0072\u006F\u0072']("\u0043\u0061\u006E\u0027\u0074\u0020\u0062\u0075\u0069\u006C\u0064\u0020\u0068\u0061\u006E\u0064\u006F\u0066\u0066\u0020\u0070\u0061\u0079\u006C\u006F\u0061\u0064\u0020\u2014\u0020\u006E\u006F\u0020\u0062\u0072\u0061\u006E\u0064\u0020\u0072\u0065\u0073\u006F\u006C\u0076\u0065\u0064\u0020\u0066\u006F\u0072\u0020\u0074\u0068\u0069\u0073\u0020\u0062\u0075\u0079\u0065\u0072\u002E");
+      _0x275g1b['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = async () => {
+        if (_0x22f3g || !_0xee56e['\u006C\u0065\u006E\u0067\u0074\u0068']) return;
+        let _0x9ffe9c;
+        const _0x8cf23c = _0xee56e['\u0066\u0069\u006C\u0074\u0065\u0072'](item => !item['\u0062\u0072\u0061\u006E\u0064']);
+        _0x9ffe9c = 632058 ^ 632051;
+        if (_0x8cf23c['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+          console['\u0065\u0072\u0072\u006F\u0072'](`✘ ${_0x8cf23c['\u006C\u0065\u006E\u0067\u0074\u0068']} item(s) have no brand resolved — ` + `fix these in materials.json:`, _0x8cf23c['\u006D\u0061\u0070'](i => i['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
+        }
+        let _0x9g80ba;
+        const _0x2014d = _0xee56e['\u0066\u0069\u006C\u0074\u0065\u0072'](item => item['\u0072\u0061\u0074\u0065'] == null);
+        _0x9g80ba = 107974 ^ 107972;
+        if (_0x2014d['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+          console['\u0065\u0072\u0072\u006F\u0072'](`✘ ${_0x2014d['\u006C\u0065\u006E\u0067\u0074\u0068']} item(s) have no rate set in MATERIALS — ` + `fix these before proceeding:`, _0x2014d['\u006D\u0061\u0070'](i => i['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
+        }
+        var _0xa3b24d = (241023 ^ 241017) + (872778 ^ 872777);
+        const _0x8859d = _0xee56e['\u0066\u0069\u006C\u0074\u0065\u0072'](item => item['\u0072\u0061\u0074\u0065'] != null && item['\u0062\u0072\u0061\u006E\u0064']);
+        _0xa3b24d = (282668 ^ 282666) + (340709 ^ 340707);
+        if (!_0x8859d['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+          console['\u0065\u0072\u0072\u006F\u0072'](".ffodnah gnitroba \u2014 dnarb dna etar dilav a htiw smeti oN".split("").reverse().join(""));
           return;
         }
-        var _0x65da = (227122 ^ 227122) + (268494 ^ 268495);
-        const _0xaf_0x396 = _0xb70fg['\u0066\u0069\u006C\u0074\u0065\u0072'](item => item['\u0072\u0061\u0074\u0065'] == null);
-        _0x65da = '\u006C\u006C\u0065\u006D\u006E\u0070';
-        if (_0xaf_0x396['\u006C\u0065\u006E\u0067\u0074\u0068']) {
-          console['\u0065\u0072\u0072\u006F\u0072'](`✘ ${_0xaf_0x396['\u006C\u0065\u006E\u0067\u0074\u0068']} item(s) have no rate set in MATERIALS — ` + `fix these before proceeding:`, _0xaf_0x396['\u006D\u0061\u0070'](i => i['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
+        const _0x4194ef = _0x8859d['\u0066\u0069\u006C\u0074\u0065\u0072'](item => !item['\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074']);
+        if (_0x4194ef['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+          console['\u0065\u0072\u0072\u006F\u0072'](`✘ ${_0x4194ef['\u006C\u0065\u006E\u0067\u0074\u0068']} item(s) have no filterText resolved — ` + `fix these in materials.json:`, _0x4194ef['\u006D\u0061\u0070'](i => i['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
         }
-        const _0x9ccgg = _0xb70fg['\u0066\u0069\u006C\u0074\u0065\u0072'](item => item['\u0072\u0061\u0074\u0065'] != null);
-        if (!_0x9ccgg['\u006C\u0065\u006E\u0067\u0074\u0068']) {
-          console['\u0065\u0072\u0072\u006F\u0072']("\u004E\u006F\u0020\u0069\u0074\u0065\u006D\u0073\u0020\u0077\u0069\u0074\u0068\u0020\u0061\u0020\u0076\u0061\u006C\u0069\u0064\u0020\u0072\u0061\u0074\u0065\u0020\u2014\u0020\u0061\u0062\u006F\u0072\u0074\u0069\u006E\u0067\u0020\u0068\u0061\u006E\u0064\u006F\u0066\u0066\u002E");
-          return;
+        const _0x634dfc = _0x8859d['\u0066\u0069\u006C\u0074\u0065\u0072'](item => !item['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079']);
+        if (_0x634dfc['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+          console['\u0065\u0072\u0072\u006F\u0072'](`✘ ${_0x634dfc['\u006C\u0065\u006E\u0067\u0074\u0068']} item(s) have no category resolved — ` + `fix these in materials.json:`, _0x634dfc['\u006D\u0061\u0070'](i => i['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']));
         }
-        const _0x3_0x2bd = _0x9ccgg['\u006D\u0061\u0070'](item => ({
-          "filterText": category,
-          '\u0074\u0079\u0070\u0065': item['\u0074\u0079\u0070\u0065'],
-          "brand": _0xa33ec,
-          "color": item['\u0063\u006F\u006C\u006F\u0072'] ?? null,
+        const _0xb572ce = _0x8859d['\u0066\u0069\u006C\u0074\u0065\u0072'](item => item['\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074'] && item['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079'])['\u006D\u0061\u0070'](item => ({
+          '\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074': item['\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074'],
+          "type": item['\u0074\u0079\u0070\u0065'],
+          "brand": item['\u0062\u0072\u0061\u006E\u0064'],
+          '\u0063\u006F\u006C\u006F\u0072': item['\u0063\u006F\u006C\u006F\u0072'] ?? null,
           "rate": item['\u0072\u0061\u0074\u0065'],
-          '\u0061\u0076\u0067': item['\u0061\u0076\u0067'] ?? null,
           '\u0065\u0078\u0063\u0065\u0073\u0073': item['\u0065\u0078\u0063\u0065\u0073\u0073'] ?? DEFAULT_EXCESS,
+          '\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079': item['\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079'],
           "item_id": item['\u0069\u0074\u0065\u006D\u005F\u0069\u0064'],
-          '\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065': item['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']
+          "item_name": item['\u0069\u0074\u0065\u006D\u005F\u006E\u0061\u006D\u0065']
         }));
-        await _0x87a(category, _0x3_0x2bd);
+        if (!_0xb572ce['\u006C\u0065\u006E\u0067\u0074\u0068']) {
+          console['\u0065\u0072\u0072\u006F\u0072']("\u004E\u006F\u0020\u0069\u0074\u0065\u006D\u0073\u0020\u0077\u0069\u0074\u0068\u0020\u0061\u0020\u0076\u0061\u006C\u0069\u0064\u0020\u0066\u0069\u006C\u0074\u0065\u0072\u0054\u0065\u0078\u0074\u0020\u0061\u006E\u0064\u0020\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079\u0020\u2014\u0020\u0061\u0062\u006F\u0072\u0074\u0069\u006E\u0067\u0020\u0068\u0061\u006E\u0064\u006F\u0066\u0066\u002E");
+          return;
+        }
+        const _0x34b = _0x5fb5cc(_0xb572ce);
+        for (const [itemCategory, groupItems] of _0x34b) {
+          const _0xb35dfa = groupItems['\u006D\u0061\u0070'](({
+            '\u0063\u0061\u0074\u0065\u0067\u006F\u0072\u0079': _c,
+            ...rest
+          }) => rest);
+          await _0x0dda(itemCategory, _0xb35dfa);
+        }
       };
-      const _0xb374ea = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("\u0062\u0075\u0074\u0074\u006F\u006E");
-      _0xgd52ce = (729941 ^ 729941) + (408603 ^ 408605);
-      _0xb374ea['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "kcolb-ntb gninraw-ntb ntb".split("").reverse().join("");
-      _0xb374ea['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0054\u006F\u0070'] = "\u0038\u0070\u0078";
-      _0xb374ea['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "kcaB \u2190".split("").reverse().join("");
-      _0xb374ea['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = _0x5707f;
-      _0xc2d5fb['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x14a);
-      _0xc2d5fb['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xb374ea);
-      _0x38165a(title, _0xc2d5fb);
+      const _0xa1203b = document['\u0063\u0072\u0065\u0061\u0074\u0065\u0045\u006C\u0065\u006D\u0065\u006E\u0074']("nottub".split("").reverse().join(""));
+      _0xa1203b['\u0063\u006C\u0061\u0073\u0073\u004E\u0061\u006D\u0065'] = "kcolb-ntb gninraw-ntb ntb".split("").reverse().join("");
+      _0xa1203b['\u0073\u0074\u0079\u006C\u0065']['\u006D\u0061\u0072\u0067\u0069\u006E\u0054\u006F\u0070'] = "xp8".split("").reverse().join("");
+      _0xa1203b['\u0074\u0065\u0078\u0074\u0043\u006F\u006E\u0074\u0065\u006E\u0074'] = "\u2190\u0020\u0042\u0061\u0063\u006B";
+      _0xa1203b['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = _0xa211de;
+      _0x409fa['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0x275g1b);
+      _0x409fa['\u0061\u0070\u0070\u0065\u006E\u0064\u0043\u0068\u0069\u006C\u0064'](_0xa1203b);
+      _0x57162f(title, _0x409fa);
     }
-    _0x2ed1e();
+    _0x7g8a5f();
   }
-  assistantBtn['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = _0x5707f;
+  assistantBtn['\u006F\u006E\u0063\u006C\u0069\u0063\u006B'] = _0xa211de;
   console['\u006C\u006F\u0067']("\u2705\u0020\u004D\u0061\u0074\u0065\u0072\u0069\u0061\u006C\u0020\u0041\u0073\u0073\u0069\u0073\u0074\u0061\u006E\u0074\u0020\u0069\u006E\u006A\u0065\u0063\u0074\u0065\u0064\u002E");
 })();
