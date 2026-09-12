@@ -44,9 +44,9 @@
         "filterText": "TAG",
         "needsColor": true,
         "variants": [
-          { "color": "GREY",  "item_id": 64725, "item_name": "HANG TAG RI SOME WHERE TO GO GREY", "brand": "RI SOME WHERE TO GO", "rate": 3.5 },
-          { "color": "WHITE", "item_id": 64732, "item_name": "HANG TAG RI RELAXED",              "brand": "RI RELAXED",        "rate": 2.2 },
-          { "color": "BLACK", "item_id": 65999, "item_name": "HANG TAG RI SOME WHERE TO GO BLACK", "brand": "RI SOME WHERE TO GO", "rate": 3.5 }
+          { "color": "GREY",  "item_id": 64725, "item_name": "HANG TAG RI SOME WHERE TO GO GREY", "brand": "RI SOME WHERE TO GO", "rate": 8.5 },
+          { "color": "WHITE", "item_id": 64732, "item_name": "HANG TAG RI RELAXED",              "brand": "RI RELAXED",        "rate": 4.2 },
+          { "color": "BLACK", "item_id": 65999, "item_name": "HANG TAG RI SOME WHERE TO GO BLACK", "brand": "RI SOME WHERE TO GO", "rate": 8.5 }
         ]
       },
       { "item_id": 11597, "item_name": "WASH CARE LABEL RI", "type": "WASH CARE LABEL", "rate": 4 }
