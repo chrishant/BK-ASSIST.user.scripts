@@ -31,7 +31,7 @@
                 "needsColor": true,
                 "variants": [
                     { "color": "GREY", "item_id": 64725, "item_name": "MAIN LABEL RI SOMEWHERE TO GO GREY", "brand": "RI SOMEWHERE TO GO", "rate": 3.5 },
-                    { "color": "WHITE", "item_id": 64732, "item_name": "MAIN LABEL RI RELAXED", "rate": 2.2 },
+                    { "color": "WHITE", "item_id": 64732, "item_name": "MAIN LABEL RI RELAXED", "brand": "RI RELAXED" "rate": 2.2 },
                     { "color": "BLACK", "item_id": 64658, "item_name": "MAIN LABEL RI SOMEWHERE TO GO BLACK", "brand": "RI SOMEWHERE TO GO", "rate": 3.5 }
                 ]
             },
