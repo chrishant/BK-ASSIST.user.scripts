@@ -26,7 +26,6 @@
                     { "color": "BLACK", "item_id": 64658, "item_name": "COO LABEL RI BLACK", "rate": 0.9 }
                 ]
             },
-            "brand": "RI SOMEWHERE TO GO",
             {
                 "type": "MAIN LABEL",
                 "needsColor": true,
