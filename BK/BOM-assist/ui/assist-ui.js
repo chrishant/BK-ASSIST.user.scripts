@@ -1,1946 +1,664 @@
-// ============================================================
-// BK MATERIAL ASSISTANT  ·  UI / UX (no business logic here)
-// DOM, popups, toasts, interactions. Styles: ui/assist-theme.js
-// Exposes window.BKAssist.mountUI(core)
-// ============================================================
-(function () {
-    const BK = (window.BKAssist = window.BKAssist || {});
-
-    BK.mountUI = function mountUI(core) {
-
-    const {
-        getBuyerBrand,
-        getMaterialList,
-        collectAvailableColors,
-        evaluateItems,
-        buildPayload,
-        runAutomation,
-        normalize
-    } = core;
-
-
-    // ========================================================
-    // ICONS
-    // ========================================================
-
-    const ICONS = {
-
-        sticker:
-            '<path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/>' +
-            '<path d="M15 3v6h6"/>' +
-            '<path d="M8.5 13h.01"/>' +
-            '<path d="M15.5 13h.01"/>' +
-            '<path d="M9.5 16.5s.9 1 2.5 1 2.5-1 2.5-1"/>',
-
-        label:
-            '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/>' +
-            '<circle cx="7.5" cy="7.5" r=".6" fill="currentColor"/>',
-
-        check:
-            '<path d="M20 6 9 17l-5-5"/>',
-
-        x:
-            '<path d="M18 6 6 18M6 6l12 12"/>',
-
-        chevronLeft:
-            '<path d="m15 18-6-6 6-6"/>',
-
-        search:
-            '<circle cx="11" cy="11" r="7"/>' +
-            '<path d="m21 21-4.3-4.3"/>',
-
-        dots:
-            '<circle cx="12" cy="12" r="1"/>' +
-            '<circle cx="19" cy="12" r="1"/>' +
-            '<circle cx="5" cy="12" r="1"/>',
-
-        bang:
-            '<path d="M12 6v7"/>' +
-            '<path d="M12 17h.01"/>'
-    };
-
-
-    function icon(name, size = 16) {
-
-        const s =
-            document.createElement("span");
-
-        s.className = "ico";
-
-        s.innerHTML =
-            `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor"` +
-            ` stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">` +
-            `${ICONS[name] || ""}</svg>`;
-
-        return s;
-    }
-
-
-    function el(tag, cls, text) {
-
-        const n =
-            document.createElement(tag);
-
-        if (cls) {
-            n.className = cls;
+(function (_0x57aadf, _0x26f739) {
+    const a0_0x47c76d = {
+            _0x58313b: 0x108,
+            _0x5d5d66: 0xc5,
+            _0x421693: 0x10f,
+            _0x14c456: 0x140,
+            _0xf4b40: 0xce
+        }, _0x552fa7 = a0_0x142b, _0x1ddbae = _0x57aadf();
+    while (!![]) {
+        try {
+            const _0x523cb6 = -parseInt(_0x552fa7(a0_0x47c76d._0x58313b)) / 0x1 * (-parseInt(_0x552fa7(0xe3)) / 0x2) + -parseInt(_0x552fa7(a0_0x47c76d._0x5d5d66)) / 0x3 * (-parseInt(_0x552fa7(0x126)) / 0x4) + -parseInt(_0x552fa7(a0_0x47c76d._0x421693)) / 0x5 * (parseInt(_0x552fa7(0x129)) / 0x6) + parseInt(_0x552fa7(0x100)) / 0x7 + parseInt(_0x552fa7(0xd3)) / 0x8 + -parseInt(_0x552fa7(a0_0x47c76d._0x14c456)) / 0x9 * (parseInt(_0x552fa7(0x114)) / 0xa) + parseInt(_0x552fa7(a0_0x47c76d._0xf4b40)) / 0xb;
+            if (_0x523cb6 === _0x26f739)
+                break;
+            else
+                _0x1ddbae['push'](_0x1ddbae['shift']());
+        } catch (_0xb5036a) {
+            _0x1ddbae['push'](_0x1ddbae['shift']());
         }
-
-        if (text != null) {
-            n.textContent = text;
+    }
+}(a0_0x4933, 0xacda6), (function () {
+    const a0_0x3619d8 = { _0x388f33: 0xd5 }, a0_0x37650d = {
+            _0xef8e13: 0xbb,
+            _0x17a6ef: 0xaf,
+            _0x60f0d: 0x103,
+            _0x1dffec: 0xa8,
+            _0x53b360: 0x109,
+            _0x374cda: 0x9d,
+            _0x306ebf: 0xa8,
+            _0x47ae92: 0x12a,
+            _0x44bebb: 0x142,
+            _0x1ecd93: 0xc1,
+            _0x51c588: 0xdd,
+            _0x59fb21: 0x110,
+            _0xb5ff7e: 0x110,
+            _0x3e2132: 0xda,
+            _0x49cfe6: 0xf8,
+            _0x599ff4: 0xf3,
+            _0x534e79: 0x11f,
+            _0x55d37a: 0x134,
+            _0x524a71: 0x8a,
+            _0x47b2e1: 0x118,
+            _0x2b7834: 0x115,
+            _0x4def62: 0x12c,
+            _0xe57b52: 0x91,
+            _0x5eca81: 0x133,
+            _0x2ccd33: 0xe9,
+            _0x517ba7: 0xdc
+        }, a0_0x2cb9ac = {
+            _0x20ac73: 0xda,
+            _0x30d943: 0x9f,
+            _0x5ebd37: 0xa3,
+            _0x5e2a2f: 0xda,
+            _0x827d: 0x110,
+            _0x168c2e: 0xda,
+            _0xa342b1: 0x144,
+            _0x363484: 0x94,
+            _0x197f71: 0x13f,
+            _0x1f7469: 0xda,
+            _0x3a6045: 0x124,
+            _0x616460: 0xd6,
+            _0x1296f7: 0xe9,
+            _0x49b4fa: 0x109,
+            _0x2e3529: 0x8e,
+            _0xa08c27: 0x92,
+            _0x184cb3: 0x110,
+            _0x377ebb: 0x110,
+            _0x23e4ba: 0xb8,
+            _0x42d95f: 0xb5
+        }, a0_0x2669e4 = {
+            _0x5c525f: 0x121,
+            _0x111984: 0x105,
+            _0x2cbef3: 0x13d,
+            _0x37fd47: 0x113,
+            _0x411aa4: 0xea,
+            _0x104c19: 0xea,
+            _0x2da5f5: 0x121,
+            _0x425ec5: 0x121,
+            _0x1a9ba3: 0x119,
+            _0x257967: 0x121,
+            _0x148b6f: 0xea,
+            _0x3eeafd: 0xea
+        }, a0_0x3e4128 = { _0x161ea9: 0xb3 }, a0_0x2d4553 = { _0x37fc5c: 0xfc }, a0_0x249477 = {
+            _0x4281bb: 0xe6,
+            _0x42891b: 0xc4,
+            _0x42bec7: 0x138,
+            _0xfa4b7c: 0x11e,
+            _0x2e3127: 0xc7
+        }, _0x1fc0b1 = a0_0x142b, _0x1340ad = window[_0x1fc0b1(a0_0x3619d8._0x388f33)] = window['BKAssist'] || {};
+    _0x1340ad[_0x1fc0b1(0xde)] = function _0x2fbeb6(_0x380790) {
+        const a0_0x3c9fb0 = {
+                _0x586c3f: 0x110,
+                _0x320648: 0x128,
+                _0x5c3bdb: 0x102,
+                _0x1ef817: 0x93,
+                _0x50989c: 0x10b,
+                _0x14e2ce: 0xef,
+                _0x1b5f30: 0xf0
+            }, a0_0x281d4c = {
+                _0x1cb544: 0xb1,
+                _0x4a25fe: 0xda,
+                _0x5cb18f: 0x8d,
+                _0x3f6a6c: 0xfa,
+                _0x26c933: 0x122,
+                _0x24868d: 0x8f,
+                _0x2f5dc4: 0xb9,
+                _0x5c8389: 0x12a,
+                _0x5692a8: 0x110,
+                _0x149c39: 0xda,
+                _0x434ac8: 0x116,
+                _0x43328e: 0xe1,
+                _0x5961b7: 0x110,
+                _0x2fd99d: 0x110,
+                _0x2a4a62: 0x131,
+                _0x577b39: 0x11c,
+                _0x70db14: 0x109,
+                _0x1464c0: 0x131,
+                _0x183a36: 0x109,
+                _0xc1f623: 0x9a
+            }, a0_0x234c3a = { _0x5f1889: 0x109 }, a0_0x5c3639 = {
+                _0x2e5189: 0x8f,
+                _0x5b1546: 0xe7,
+                _0x5e88a1: 0x10c,
+                _0x2728e5: 0x110,
+                _0x3229ac: 0x128,
+                _0x578a8d: 0x135
+            }, a0_0x730bd8 = { _0x3b74dc: 0x115 }, a0_0x5ef7c6 = {
+                _0x46716d: 0xa8,
+                _0x17486f: 0xc1,
+                _0x4aeff4: 0x10c
+            }, _0x2ed333 = _0x1fc0b1, {
+                getBuyerBrand: _0x2ced92,
+                getMaterialList: _0x35b96b,
+                collectAvailableColors: _0x1d1060,
+                evaluateItems: _0x1e47f5,
+                buildPayload: _0x51603b,
+                runAutomation: _0x178b63,
+                normalize: _0x41feaf
+            } = _0x380790, _0x56371b = {
+                'sticker': _0x2ed333(0xfb) + _0x2ed333(0xa7) + '<path\x20d=\x22M8.5\x2013h.01\x22/>' + _0x2ed333(0xcc) + _0x2ed333(0x12d),
+                'label': _0x2ed333(a0_0x37650d._0xef8e13) + _0x2ed333(0x101),
+                'check': '<path\x20d=\x22M20\x206\x209\x2017l-5-5\x22/>',
+                'x': '<path\x20d=\x22M18\x206\x206\x2018M6\x206l12\x2012\x22/>',
+                'chevronLeft': '<path\x20d=\x22m15\x2018-6-6\x206-6\x22/>',
+                'search': _0x2ed333(0xa0) + _0x2ed333(0xe2),
+                'dots': _0x2ed333(0xae) + _0x2ed333(a0_0x37650d._0x17a6ef) + '<circle\x20cx=\x225\x22\x20cy=\x2212\x22\x20r=\x221\x22/>',
+                'bang': _0x2ed333(0x123) + _0x2ed333(0xb7)
+            };
+        function _0x4143eb(_0x49068d, _0x4d04f2 = 0x10) {
+            const _0x511ed9 = _0x2ed333, _0x1aa751 = document[_0x511ed9(0xa8)](_0x511ed9(0xc6));
+            return _0x1aa751[_0x511ed9(0xc1)] = _0x511ed9(a0_0x249477._0x4281bb), _0x1aa751[_0x511ed9(0x134)] = _0x511ed9(0x12b) + _0x4d04f2 + _0x511ed9(a0_0x249477._0x42891b) + _0x4d04f2 + _0x511ed9(a0_0x249477._0x42bec7) + _0x511ed9(a0_0x249477._0xfa4b7c) + ((_0x56371b[_0x49068d] || '') + _0x511ed9(a0_0x249477._0x2e3127)), _0x1aa751;
         }
-
-        return n;
-    }
-
-
-    // ========================================================
-    // THEME
-    // ========================================================
-
-    const THEME_CSS = BK.THEME_CSS;
-
-
-    // ========================================================
-    // LAUNCHER BUTTON STYLE
-    // ========================================================
-
-    if (!document.getElementById("bk-icloud-launch-style")) {
-
-        const ls = document.createElement("style");
-
-        ls.id = "bk-icloud-launch-style";
-
-        ls.textContent = BK.LAUNCHER_CSS;
-
-        document.head.appendChild(ls);
-    }
-
-
-    // ========================================================
-    // HEADER BUTTON
-    // ========================================================
-
-    const headerUL =
-        document.querySelector(
-            "#AsstCtrlMainDiv_input_item > div.panel-heading > ul"
-        );
-
-    if (!headerUL) {
-
-        console.error(
-            "Header UL not found."
-        );
-
-        return;
-    }
-
-
-    const li =
-        document.createElement("li");
-
-    li.style.float =
-        "right";
-
-    li.style.marginLeft =
-        "8px";
-
-
-    const assistantBtn =
-        document.createElement("button");
-
-    assistantBtn.id =
-        "bk-material-btn";
-
-    assistantBtn.className =
-        "bk-ic-launch";
-
-    assistantBtn.textContent =
-        "📋 Material Assistant";
-
-
-    li.appendChild(
-        assistantBtn
-    );
-
-    headerUL.appendChild(
-        li
-    );
-
-
-    // ========================================================
-    // SHADOW DOM OVERLAY
-    // ========================================================
-
-    const overlay =
-        document.createElement("div");
-
-    overlay.id =
-        "bk-material-overlay";
-
-
-    Object.assign(
-        overlay.style,
-        {
-            position: "fixed",
-            inset: "0",
-            zIndex: 999999,
-            pointerEvents: "none"
+        function _0xb1f966(_0x57cace, _0x5afc97, _0x3b6a14) {
+            const _0xc3e06b = _0x2ed333, _0x19d333 = document[_0xc3e06b(a0_0x5ef7c6._0x46716d)](_0x57cace);
+            return _0x5afc97 && (_0x19d333[_0xc3e06b(a0_0x5ef7c6._0x17486f)] = _0x5afc97), _0x3b6a14 != null && (_0x19d333[_0xc3e06b(a0_0x5ef7c6._0x4aeff4)] = _0x3b6a14), _0x19d333;
         }
-    );
-
-
-    document.body.appendChild(
-        overlay
-    );
-
-
-    const shadow =
-        overlay.attachShadow({
-            mode: "open"
+        const _0x4ec645 = _0x1340ad[_0x2ed333(0x141)];
+        if (!document[_0x2ed333(0x8b)](_0x2ed333(a0_0x37650d._0x60f0d))) {
+            const _0x140a4f = document[_0x2ed333(a0_0x37650d._0x1dffec)](_0x2ed333(a0_0x37650d._0x53b360));
+            _0x140a4f['id'] = 'bk-icloud-launch-style', _0x140a4f['textContent'] = _0x1340ad[_0x2ed333(0xa6)], document['head']['appendChild'](_0x140a4f);
+        }
+        const _0x41bdd2 = document['querySelector'](_0x2ed333(a0_0x37650d._0x374cda));
+        if (!_0x41bdd2) {
+            console['error']('Header\x20UL\x20not\x20found.');
+            return;
+        }
+        const _0x5ae761 = document[_0x2ed333(a0_0x37650d._0x306ebf)]('li');
+        _0x5ae761[_0x2ed333(a0_0x37650d._0x53b360)][_0x2ed333(0xf6)] = _0x2ed333(0xed), _0x5ae761['style'][_0x2ed333(0xaa)] = '8px';
+        const _0x3ea68e = document[_0x2ed333(0xa8)](_0x2ed333(a0_0x37650d._0x47ae92));
+        _0x3ea68e['id'] = _0x2ed333(a0_0x37650d._0x44bebb), _0x3ea68e[_0x2ed333(a0_0x37650d._0x1ecd93)] = _0x2ed333(a0_0x37650d._0x51c588), _0x3ea68e[_0x2ed333(0x10c)] = '📋\x20Material\x20Assistant', _0x5ae761[_0x2ed333(a0_0x37650d._0x59fb21)](_0x3ea68e), _0x41bdd2[_0x2ed333(a0_0x37650d._0xb5ff7e)](_0x5ae761);
+        const _0x344d6d = document['createElement'](_0x2ed333(a0_0x37650d._0x3e2132));
+        _0x344d6d['id'] = _0x2ed333(a0_0x37650d._0x49cfe6), Object[_0x2ed333(0xac)](_0x344d6d['style'], {
+            'position': _0x2ed333(a0_0x37650d._0x599ff4),
+            'inset': '0',
+            'zIndex': 0xf423f,
+            'pointerEvents': 'none'
+        }), document[_0x2ed333(0x111)]['appendChild'](_0x344d6d);
+        const _0x6476a = _0x344d6d[_0x2ed333(a0_0x37650d._0x534e79)]({ 'mode': 'open' });
+        _0x6476a[_0x2ed333(a0_0x37650d._0x55d37a)] = _0x2ed333(a0_0x37650d._0x524a71) + _0x4ec645 + '</style>' + _0x2ed333(0xf9) + '<div\x20class=\x22box\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20role=\x22dialog\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20aria-modal=\x22true\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20aria-labelledby=\x22bk-title\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tabindex=\x22-1\x22>' + _0x2ed333(a0_0x37650d._0x47b2e1) + '</div>' + '</div>' + _0x2ed333(0x12e);
+        const _0x4d4a01 = _0x6476a[_0x2ed333(0xf2)](_0x2ed333(0xd1)), _0x3bf9c8 = _0x6476a['querySelector'](_0x2ed333(0x112)), _0x592f0f = _0x6476a[_0x2ed333(0xf2)](_0x2ed333(0xeb));
+        let _0x48d165 = ![], _0x49df7b = null, _0xf6a6de = null;
+        function _0x1f8779() {
+            const _0x367aa3 = _0x2ed333;
+            _0x48d165 = ![], _0x4d4a01[_0x367aa3(0x8f)][_0x367aa3(a0_0x2d4553._0x37fc5c)]('open');
+        }
+        function _0x216938() {
+            const _0x27fa7b = _0x2ed333;
+            _0x1f8779(), _0x49df7b && _0x49df7b['focus'] && _0x49df7b[_0x27fa7b(a0_0x3e4128._0x161ea9)]({ 'preventScroll': !![] });
+        }
+        _0x4d4a01[_0x2ed333(a0_0x37650d._0x2b7834)](_0x2ed333(a0_0x37650d._0x4def62), _0x2d9fc8 => {
+            const _0x5c4108 = _0x2ed333;
+            _0x2d9fc8[_0x5c4108(0xb2)] === _0x4d4a01 && _0x216938();
+        }), document['addEventListener']('keydown', _0x2befdd => {
+            const _0x23b6a1 = _0x2ed333;
+            _0x2befdd[_0x23b6a1(0x121)] === _0x23b6a1(0x12f) && _0x48d165 && _0x216938();
+        }), _0x6476a[_0x2ed333(0x115)](_0x2ed333(0x90), _0x3685f8 => {
+            const _0xd5d724 = _0x2ed333;
+            _0x3685f8['stopPropagation']();
+            if (_0x3685f8[_0xd5d724(a0_0x2669e4._0x5c525f)] === _0xd5d724(0x12f)) {
+                _0x216938();
+                return;
+            }
+            if (_0x3685f8[_0xd5d724(0x121)] === _0xd5d724(a0_0x2669e4._0x111984)) {
+                const _0x366df1 = [..._0x3bf9c8[_0xd5d724(0xc9)](_0xd5d724(a0_0x2669e4._0x2cbef3))][_0xd5d724(0x11b)](_0x1f9d21 => !_0x1f9d21['hidden'] && _0x1f9d21[_0xd5d724(0xb0)] !== null);
+                if (!_0x366df1['length'])
+                    return;
+                const _0x1cd8bb = _0x6476a[_0xd5d724(0x9a)];
+                if (_0x3685f8[_0xd5d724(a0_0x2669e4._0x37fd47)] && (_0x1cd8bb === _0x366df1[0x0] || _0x1cd8bb === _0x3bf9c8))
+                    _0x3685f8[_0xd5d724(0xdf)](), _0x366df1[_0x366df1[_0xd5d724(a0_0x2669e4._0x411aa4)] - 0x1][_0xd5d724(0xb3)]();
+                else
+                    !_0x3685f8['shiftKey'] && _0x1cd8bb === _0x366df1[_0x366df1[_0xd5d724(a0_0x2669e4._0x104c19)] - 0x1] && (_0x3685f8['preventDefault'](), _0x366df1[0x0][_0xd5d724(0xb3)]());
+                return;
+            }
+            if (_0x3685f8[_0xd5d724(a0_0x2669e4._0x2da5f5)] === 'ArrowDown' || _0x3685f8[_0xd5d724(a0_0x2669e4._0x425ec5)] === 'ArrowUp') {
+                const _0xbdf8f2 = [..._0x3bf9c8['querySelectorAll'](_0xd5d724(0xd8))];
+                if (!_0xbdf8f2[_0xd5d724(0xea)])
+                    return;
+                const _0x250d5d = _0x6476a['activeElement'], _0x2ed45b = _0xbdf8f2[_0xd5d724(0x127)](_0x250d5d), _0x3e26d0 = _0x250d5d && _0x250d5d[_0xd5d724(a0_0x2669e4._0x1a9ba3)] === 'INPUT';
+                if (_0x2ed45b === -0x1 && !_0x3e26d0)
+                    return;
+                _0x3685f8[_0xd5d724(0xdf)]();
+                const _0x11fe10 = _0x3685f8[_0xd5d724(a0_0x2669e4._0x257967)] === _0xd5d724(0xb4) ? _0xbdf8f2[(_0x2ed45b + 0x1) % _0xbdf8f2['length']] : _0xbdf8f2[(_0x2ed45b - 0x1 + _0xbdf8f2[_0xd5d724(a0_0x2669e4._0x148b6f)]) % _0xbdf8f2[_0xd5d724(a0_0x2669e4._0x3eeafd)]];
+                if (_0x3e26d0 && _0x3685f8[_0xd5d724(0x121)] === _0xd5d724(0xb4))
+                    _0xbdf8f2[0x0]['focus']();
+                else
+                    !_0x3e26d0 && _0x11fe10['focus']();
+            }
+        }), [
+            'keyup',
+            _0x2ed333(a0_0x37650d._0xe57b52)
+        ][_0x2ed333(a0_0x37650d._0x5eca81)](_0x2c50d5 => {
+            const _0x4e273e = _0x2ed333;
+            _0x6476a[_0x4e273e(a0_0x730bd8._0x3b74dc)](_0x2c50d5, _0x280c02 => _0x280c02['stopPropagation']());
         });
-
-
-    shadow.innerHTML =
-
-        `<style>${THEME_CSS}</style>` +
-
-        `<div class="backdrop">` +
-
-            `<div class="box"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="bk-title"
-                tabindex="-1">` +
-
-                `<div class="view"></div>` +
-
-            `</div>` +
-
-        `</div>` +
-
-        `<div
-            class="toast-wrap"
-            aria-live="polite">
-        </div>`;
-
-
-    const backdrop =
-        shadow.querySelector(
-            ".backdrop"
-        );
-
-    const box =
-        shadow.querySelector(
-            ".box"
-        );
-
-    const toastWrap =
-        shadow.querySelector(
-            ".toast-wrap"
-        );
-
-
-    let isOpen =
-        false;
-
-    let lastFocus =
-        null;
-
-    let morphTimer =
-        null;
-
-
-    // ========================================================
-    // CLOSE
-    // ========================================================
-
-    function closePopup() {
-
-        isOpen =
-            false;
-
-        backdrop.classList.remove(
-            "open"
-        );
-    }
-
-
-    function dismiss() {
-
-        closePopup();
-
-        if (
-            lastFocus &&
-            lastFocus.focus
-        ) {
-
-            lastFocus.focus({
-                preventScroll: true
-            });
-        }
-    }
-
-
-    backdrop.addEventListener(
-        "click",
-        e => {
-
-            if (
-                e.target === backdrop
-            ) {
-
-                dismiss();
+        function _0x10e0b1(_0x29e1b1, _0x45d85b = _0x2ed333(0x132)) {
+            const _0x6dc9f3 = _0x2ed333, _0x545358 = _0xb1f966(_0x6dc9f3(0xda), 'toast'), _0x3b22d6 = _0xb1f966(_0x6dc9f3(0xc6), 'ti'), _0x14ee64 = _0xb1f966(_0x6dc9f3(0xc6), '');
+            _0x545358[_0x6dc9f3(0x110)](_0x3b22d6), _0x545358[_0x6dc9f3(0x110)](_0x14ee64), _0x592f0f['appendChild'](_0x545358);
+            let _0x1640d2 = null;
+            function _0xe09cb5() {
+                const _0x2d42c2 = _0x6dc9f3;
+                _0x545358[_0x2d42c2(0x8f)][_0x2d42c2(0xfc)]('in'), setTimeout(() => _0x545358[_0x2d42c2(0xfc)](), 0x1c2);
             }
-        }
-    );
-
-
-    document.addEventListener(
-        "keydown",
-        e => {
-
-            if (
-                e.key === "Escape" &&
-                isOpen
-            ) {
-
-                dismiss();
+            function _0x5b1bf1(_0x4a74cb, _0x2dee4a) {
+                const _0x2d0f8e = _0x6dc9f3, _0x5a0f89 = _0x545358[_0x2d0f8e(a0_0x5c3639._0x2e5189)][_0x2d0f8e(0x11a)]('in');
+                _0x545358['className'] = _0x2d0f8e(0x11d) + _0x2dee4a + (_0x5a0f89 ? _0x2d0f8e(a0_0x5c3639._0x5b1546) : ''), _0x3b22d6[_0x2d0f8e(a0_0x5c3639._0x5e88a1)] = '', _0x2dee4a === _0x2d0f8e(0xd9) ? _0x3b22d6[_0x2d0f8e(a0_0x5c3639._0x2728e5)](_0xb1f966(_0x2d0f8e(0xc6), _0x2d0f8e(0x10a))) : _0x3b22d6['appendChild'](_0x4143eb(_0x2dee4a === 'error' ? _0x2d0f8e(a0_0x5c3639._0x3229ac) : _0x2d0f8e(a0_0x5c3639._0x578a8d), 0xd)), _0x14ee64['textContent'] = _0x4a74cb, clearTimeout(_0x1640d2), _0x2dee4a !== _0x2d0f8e(0xd9) && (_0x1640d2 = setTimeout(_0xe09cb5, _0x2dee4a === _0x2d0f8e(0x136) ? 0x12c0 : 0xc80));
             }
+            return _0x5b1bf1(_0x29e1b1, _0x45d85b), requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    const _0x66b35a = a0_0x142b;
+                    _0x545358[_0x66b35a(0x8f)][_0x66b35a(0xfa)]('in');
+                });
+            }), { 'update': _0x5b1bf1 };
         }
-    );
-
-
-    // ========================================================
-    // KEYBOARD CONTROL
-    // ========================================================
-
-    shadow.addEventListener(
-        "keydown",
-        e => {
-
-            e.stopPropagation();
-
-
-            if (e.key === "Escape") {
-
-                dismiss();
-
-                return;
+        function _0x1d75e8(_0xa26088, _0x3fc906, _0x503791 = {}) {
+            const a0_0x554d16 = {
+                    _0x565f48: 0x8f,
+                    _0x5cff8d: 0xb3
+                }, _0x2225db = _0x2ed333, {
+                    subtitle: _0x251fe7,
+                    mode: mode = _0x2225db(0x107),
+                    onBack: _0x34bf1b,
+                    backLabel: _0x2efb09
+                } = _0x503791, _0x54b390 = _0x48d165, _0x1be1ee = _0x3bf9c8['querySelector']('.view'), _0x275317 = _0x3bf9c8[_0x2225db(a0_0x281d4c._0x1cb544)], _0x2a6954 = _0xb1f966(_0x2225db(a0_0x281d4c._0x4a25fe), 'view');
+            mode !== _0x2225db(0xf5) && _0x2a6954['classList'][_0x2225db(0xfa)](_0x2225db(a0_0x281d4c._0x5cb18f));
+            _0x54b390 && mode === 'push' && _0x2a6954[_0x2225db(0x8f)][_0x2225db(a0_0x281d4c._0x3f6a6c)](_0x2225db(0x139));
+            _0x54b390 && mode === _0x2225db(a0_0x281d4c._0x26c933) && _0x2a6954[_0x2225db(a0_0x281d4c._0x24868d)]['add'](_0x2225db(a0_0x281d4c._0x2f5dc4));
+            const _0x1292ca = _0xb1f966(_0x2225db(0xda), 'head'), _0x32f776 = _0xb1f966(_0x2225db(0xda), 'l');
+            if (_0x34bf1b) {
+                const _0x2f80c0 = _0xb1f966(_0x2225db(a0_0x281d4c._0x5c8389), _0x2225db(0xe5));
+                _0x2f80c0[_0x2225db(a0_0x281d4c._0x5692a8)](_0x4143eb('chevronLeft', 0x14)), _0x2f80c0[_0x2225db(a0_0x281d4c._0x5692a8)](document['createTextNode'](_0x2efb09 || _0x2225db(0xa4))), _0x2f80c0['onclick'] = _0x34bf1b, _0x32f776['appendChild'](_0x2f80c0);
             }
-
-
-            if (e.key === "Tab") {
-
-                const f = [
-                    ...box.querySelectorAll(
-                        "button:not(:disabled), input, select"
-                    )
-                ]
-                    .filter(
-                        n =>
-                            !n.hidden &&
-                            n.offsetParent !== null
-                    );
-
-
-                if (!f.length) {
-                    return;
+            const _0x36ca48 = _0xb1f966(_0x2225db(0xda), _0x2225db(0xbc)), _0x42c1d4 = _0xb1f966(_0x2225db(a0_0x281d4c._0x149c39), _0x2225db(a0_0x281d4c._0x434ac8), _0xa26088);
+            _0x42c1d4['id'] = 'bk-title', _0x36ca48[_0x2225db(0x110)](_0x42c1d4);
+            _0x251fe7 && _0x36ca48[_0x2225db(a0_0x281d4c._0x5692a8)](_0xb1f966(_0x2225db(0xda), _0x2225db(0x13c), _0x251fe7));
+            const _0x20f916 = _0xb1f966('div', 'r'), _0x2a9385 = _0xb1f966(_0x2225db(0x12a), 'x');
+            _0x2a9385[_0x2225db(0xad)]('aria-label', _0x2225db(a0_0x281d4c._0x43328e)), _0x2a9385[_0x2225db(0x110)](_0x4143eb('x', 0xe)), _0x2a9385['onclick'] = _0x216938, _0x20f916[_0x2225db(a0_0x281d4c._0x5961b7)](_0x2a9385), _0x1292ca[_0x2225db(0x110)](_0x32f776), _0x1292ca[_0x2225db(a0_0x281d4c._0x2fd99d)](_0x36ca48), _0x1292ca[_0x2225db(0x110)](_0x20f916), _0x2a6954[_0x2225db(0x110)](_0x1292ca), _0x2a6954[_0x2225db(0x110)](_0x3fc906);
+            if (_0x54b390) {
+                const _0x2659da = _0x3bf9c8[_0x2225db(0x10d)];
+                _0x3bf9c8[_0x2225db(0x109)][_0x2225db(a0_0x281d4c._0x2a4a62)] = _0x2659da + 'px', _0x1be1ee[_0x2225db(a0_0x281d4c._0x577b39)](_0x2a6954), _0x3bf9c8[_0x2225db(a0_0x281d4c._0x70db14)]['height'] = 'auto';
+                const _0x5eadb0 = _0x3bf9c8[_0x2225db(0x10d)];
+                _0x3bf9c8[_0x2225db(0x109)][_0x2225db(a0_0x281d4c._0x1464c0)] = _0x2659da + 'px', void _0x3bf9c8['offsetHeight'], _0x3bf9c8[_0x2225db(a0_0x281d4c._0x70db14)][_0x2225db(0x131)] = _0x5eadb0 + 'px', clearTimeout(_0xf6a6de), _0xf6a6de = setTimeout(() => {
+                    const _0x3f1d03 = _0x2225db;
+                    _0x3bf9c8[_0x3f1d03(a0_0x234c3a._0x5f1889)][_0x3f1d03(0x131)] = '';
+                }, 0x1a4), mode === _0x2225db(0xf5) && (_0x3bf9c8[_0x2225db(0xb1)] = _0x275317);
+            } else
+                _0x1be1ee['replaceWith'](_0x2a6954), clearTimeout(_0xf6a6de), _0x3bf9c8[_0x2225db(a0_0x281d4c._0x183a36)][_0x2225db(0x131)] = '', _0x3bf9c8[_0x2225db(0xb1)] = 0x0, _0x48d165 = !![], _0x49df7b = document[_0x2225db(a0_0x281d4c._0xc1f623)], requestAnimationFrame(() => {
+                    const _0x16a0b6 = _0x2225db;
+                    _0x4d4a01[_0x16a0b6(a0_0x554d16._0x565f48)][_0x16a0b6(0xfa)](_0x16a0b6(0x107)), _0x3bf9c8[_0x16a0b6(a0_0x554d16._0x5cff8d)]({ 'preventScroll': !![] });
+                });
+        }
+        function _0x6424fb() {
+            const _0x4371a2 = _0x2ed333, _0x3db259 = _0xb1f966(_0x4371a2(a0_0x2cb9ac._0x20ac73), _0x4371a2(0x8d)), _0x3758b9 = _0xb1f966('div', _0x4371a2(0xff));
+            _0x3758b9[_0x4371a2(0x109)][_0x4371a2(a0_0x2cb9ac._0x30d943)]('--i', '0'), _0x3758b9[_0x4371a2(0x110)](_0xb1f966(_0x4371a2(a0_0x2cb9ac._0x20ac73), 'welcome-title', _0x4371a2(a0_0x2cb9ac._0x5ebd37))), _0x3758b9[_0x4371a2(0x110)](_0xb1f966(_0x4371a2(a0_0x2cb9ac._0x5e2a2f), _0x4371a2(0xa2), _0x2ced92() ? _0x4371a2(0x10e) + _0x2ced92() : 'BOM\x20material\x20assistant')), _0x3db259[_0x4371a2(a0_0x2cb9ac._0x827d)](_0x3758b9);
+            const _0x5ae136 = _0xb1f966(_0x4371a2(a0_0x2cb9ac._0x168c2e), _0x4371a2(a0_0x2cb9ac._0xa342b1)), _0x180b57 = _0xb1f966(_0x4371a2(0x12a), _0x4371a2(0x13b));
+            _0x180b57[_0x4371a2(0x109)][_0x4371a2(0x9f)](_0x4371a2(a0_0x2cb9ac._0x363484), '1');
+            const _0x410719 = _0xb1f966(_0x4371a2(a0_0x2cb9ac._0x5e2a2f), _0x4371a2(a0_0x2cb9ac._0x197f71));
+            _0x410719['appendChild'](_0x4143eb(_0x4371a2(0xba), 0x20)), _0x180b57[_0x4371a2(a0_0x2cb9ac._0x827d)](_0x410719), _0x180b57[_0x4371a2(0x110)](_0xb1f966(_0x4371a2(a0_0x2cb9ac._0x1f7469), 'tile-name', _0x4371a2(0xcf))), _0x180b57[_0x4371a2(0x110)](_0xb1f966('div', _0x4371a2(a0_0x2cb9ac._0x3a6045), _0x4371a2(a0_0x2cb9ac._0x616460))), _0x180b57[_0x4371a2(a0_0x2cb9ac._0x1296f7)] = () => {
+                _0x2585c7('Sticker', _0x35b96b('stickers'), 'STICKER');
+            };
+            const _0x1905ff = _0xb1f966(_0x4371a2(0x12a), 'tile\x20st');
+            _0x1905ff[_0x4371a2(a0_0x2cb9ac._0x49b4fa)][_0x4371a2(a0_0x2cb9ac._0x30d943)]('--i', '2');
+            const _0x5b3b38 = _0xb1f966(_0x4371a2(0xda), _0x4371a2(a0_0x2cb9ac._0x2e3529));
+            _0x5b3b38[_0x4371a2(0x110)](_0x4143eb('label', 0x20)), _0x1905ff[_0x4371a2(0x110)](_0x5b3b38), _0x1905ff[_0x4371a2(0x110)](_0xb1f966('div', _0x4371a2(0x143), _0x4371a2(a0_0x2cb9ac._0xa08c27))), _0x1905ff['appendChild'](_0xb1f966('div', _0x4371a2(a0_0x2cb9ac._0x3a6045), _0x4371a2(0xd7))), _0x1905ff[_0x4371a2(a0_0x2cb9ac._0x1296f7)] = () => {
+                const _0x3dff2a = _0x4371a2;
+                _0x2585c7(_0x3dff2a(0x92), _0x35b96b(_0x3dff2a(0x8c)), 'LABEL');
+            }, _0x5ae136[_0x4371a2(0x110)](_0x180b57), _0x5ae136[_0x4371a2(a0_0x2cb9ac._0x827d)](_0x1905ff), _0x3db259[_0x4371a2(a0_0x2cb9ac._0x184cb3)](_0x5ae136), _0x3db259[_0x4371a2(a0_0x2cb9ac._0x377ebb)](_0xb1f966(_0x4371a2(a0_0x2cb9ac._0x20ac73), _0x4371a2(a0_0x2cb9ac._0x23e4ba), _0x4371a2(0xbf))), _0x1d75e8(_0x4371a2(a0_0x2cb9ac._0x42d95f), _0x3db259, { 'subtitle': _0x4371a2(0xe8) });
+        }
+        function _0x6ddc77(_0x42545d, _0x15fb28, _0x1ba2a3) {
+            const _0x33d96a = _0x2ed333, _0x583c4c = _0xb1f966(_0x33d96a(0x12a), _0x33d96a(0x98) + _0x15fb28 + '\x20st');
+            _0x583c4c['style'][_0x33d96a(0x9f)]('--i', _0x1ba2a3);
+            const _0x509fca = _0xb1f966(_0x33d96a(0xc6), 'dot');
+            if (_0x15fb28 === 'ok')
+                _0x509fca[_0x33d96a(a0_0x3c9fb0._0x586c3f)](_0x4143eb(_0x33d96a(0x135), 0xe));
+            else
+                _0x15fb28 === _0x33d96a(0xdb) ? _0x509fca[_0x33d96a(0x110)](_0x4143eb('x', 0xe)) : _0x509fca[_0x33d96a(0x110)](_0x4143eb(_0x33d96a(a0_0x3c9fb0._0x320648), 0xe));
+            const _0x530207 = _0xb1f966(_0x33d96a(0xc6), _0x33d96a(0x97), _0x42545d['item_name'] || _0x42545d[_0x33d96a(a0_0x3c9fb0._0x5c3bdb)] || _0x33d96a(0xc2)), _0x9b9432 = _0x15fb28 === 'ok' ? _0x33d96a(a0_0x3c9fb0._0x1ef817) : _0x15fb28 === _0x33d96a(0xdb) ? _0x33d96a(a0_0x3c9fb0._0x50989c) : _0x33d96a(a0_0x3c9fb0._0x14e2ce), _0x5786c4 = _0xb1f966(_0x33d96a(0xc6), _0x33d96a(a0_0x3c9fb0._0x1b5f30), _0x9b9432);
+            return _0x583c4c[_0x33d96a(a0_0x3c9fb0._0x586c3f)](_0x509fca), _0x583c4c[_0x33d96a(a0_0x3c9fb0._0x586c3f)](_0x530207), _0x583c4c[_0x33d96a(0x110)](_0x5786c4), _0x583c4c;
+        }
+        function _0x2585c7(_0x4d9fbf, _0xd2a1fd, _0x2b8c48) {
+            const a0_0x59d0ca = {
+                    _0x273017: 0xda,
+                    _0x3c5664: 0xf4,
+                    _0x553d6e: 0x106,
+                    _0x473742: 0x110,
+                    _0x2b581d: 0xcd,
+                    _0x173d4d: 0x110,
+                    _0x1ec9db: 0xea,
+                    _0x1d9901: 0x11b,
+                    _0x13c822: 0xea,
+                    _0x17bc76: 0xab,
+                    _0x1ada16: 0x9f,
+                    _0x1ac28c: 0xc6,
+                    _0x311720: 0x9c,
+                    _0xe9d9ab: 0x130,
+                    _0x18cb8a: 0x9e,
+                    _0x38b03a: 0x94,
+                    _0x57c48f: 0x102,
+                    _0x4e28df: 0x13e,
+                    _0x296a0d: 0x137,
+                    _0x31d70f: 0x115,
+                    _0x5151cb: 0xc0,
+                    _0x2ad1e3: 0x109,
+                    _0x4f12fb: 0x9f,
+                    _0x45653f: 0xbe,
+                    _0x681d0f: 0x110,
+                    _0x2f83ec: 0x125,
+                    _0x14f815: 0x133,
+                    _0x8e6a1f: 0x117,
+                    _0x5d82a1: 0xd2,
+                    _0x1fadf2: 0xd0,
+                    _0x549997: 0x135,
+                    _0x29e255: 0xfe,
+                    _0x49e025: 0xcf,
+                    _0x3bdf26: 0xe9,
+                    _0x3124e0: 0x110,
+                    _0x5c1470: 0x9b,
+                    _0x53d4a3: 0xa4
+                }, a0_0x203fb9 = {
+                    _0xb4a436: 0x120,
+                    _0x4a3f84: 0xc9,
+                    _0x2706fe: 0xfd,
+                    _0x4c8ba6: 0x133
+                }, a0_0xc80aec = {
+                    _0x51b2e7: 0xe4,
+                    _0x2a70cf: 0x110,
+                    _0x257338: 0xc8,
+                    _0x33fd8c: 0xe9
+                }, _0xd12b93 = _0x2ed333, _0x271c23 = _0xd2a1fd['some'](_0x383683 => _0x383683[_0xd12b93(0xf1)]);
+            let _0x239826 = null;
+            function _0x355146() {
+                const a0_0x20dde9 = {
+                        _0x2f6527: 0x136,
+                        _0x47989e: 0x10a,
+                        _0xe3c919: 0x110,
+                        _0x27f36a: 0xec
+                    }, a0_0x4ed841 = {
+                        _0x5ec7f4: 0x95,
+                        _0x4e2f16: 0x102,
+                        _0x1bd9d2: 0xd2,
+                        _0x4b3281: 0xf7
+                    }, a0_0x35d647 = { _0x1758e8: 0xbd }, _0xcb63dc = _0xd12b93, _0x2080f5 = _0xb1f966(_0xcb63dc(a0_0x59d0ca._0x273017), 'stagger');
+                if (_0x271c23) {
+                    const _0x423351 = _0x1d1060(_0xd2a1fd), _0x199bd5 = _0xb1f966(_0xcb63dc(a0_0x59d0ca._0x273017), 'field\x20st');
+                    _0x199bd5[_0xcb63dc(0x109)]['setProperty'](_0xcb63dc(0x94), '0'), _0x199bd5[_0xcb63dc(0x110)](_0xb1f966(_0xcb63dc(a0_0x59d0ca._0x273017), 'field-label', _0xcb63dc(a0_0x59d0ca._0x3c5664)));
+                    const _0x4ef2d1 = _0xb1f966(_0xcb63dc(a0_0x59d0ca._0x273017), _0xcb63dc(a0_0x59d0ca._0x553d6e));
+                    _0x423351[_0xcb63dc(0x133)]((_0x2b85d2, _0x496c46) => {
+                        const _0x243968 = _0xcb63dc, _0x4fa374 = _0xb1f966('button', _0x243968(a0_0xc80aec._0x51b2e7));
+                        _0x4fa374[_0x243968(0x109)][_0x243968(0x9f)](_0x243968(0x94), _0x496c46), _0x4fa374['setAttribute'](_0x243968(0xa5), _0x239826 === _0x2b85d2 ? _0x243968(0xb6) : _0x243968(0xc3));
+                        const _0x2584fe = _0xb1f966('span', 'sw');
+                        _0x4fa374[_0x243968(0x110)](_0x2584fe), _0x4fa374[_0x243968(a0_0xc80aec._0x2a70cf)](document[_0x243968(a0_0xc80aec._0x257338)](_0x2b85d2)), _0x4fa374[_0x243968(a0_0xc80aec._0x33fd8c)] = () => {
+                            _0x239826 = _0x2b85d2, _0x355146();
+                        }, _0x4ef2d1[_0x243968(0x110)](_0x4fa374);
+                    }), !_0x423351['length'] ? _0x199bd5[_0xcb63dc(a0_0x59d0ca._0x473742)](_0xb1f966(_0xcb63dc(0xda), _0xcb63dc(a0_0x59d0ca._0x2b581d), 'No\x20colors\x20configured\x20for\x20this\x20buyer.')) : _0x199bd5[_0xcb63dc(0x110)](_0x4ef2d1), _0x2080f5[_0xcb63dc(a0_0x59d0ca._0x173d4d)](_0x199bd5);
                 }
-
-
-                const active =
-                    shadow.activeElement;
-
-
-                if (
-                    e.shiftKey &&
-                    (
-                        active === f[0] ||
-                        active === box
-                    )
-                ) {
-
-                    e.preventDefault();
-
-                    f[f.length - 1].focus();
-
-                } else if (
-                    !e.shiftKey &&
-                    active === f[f.length - 1]
-                ) {
-
-                    e.preventDefault();
-
-                    f[0].focus();
-                }
-
-                return;
-            }
-
-
-            if (
-                e.key === "ArrowDown" ||
-                e.key === "ArrowUp"
-            ) {
-
-                const rows = [
-                    ...box.querySelectorAll(
-                        ".row:not([hidden]):not(:disabled), .tile"
-                    )
-                ];
-
-
-                if (!rows.length) {
-                    return;
-                }
-
-
-                const active =
-                    shadow.activeElement;
-
-                const i =
-                    rows.indexOf(active);
-
-
-                const inSearch =
-                    active &&
-                    active.tagName === "INPUT";
-
-
-                if (
-                    i === -1 &&
-                    !inSearch
-                ) {
-                    return;
-                }
-
-
-                e.preventDefault();
-
-
-                const next =
-                    e.key === "ArrowDown"
-                        ? rows[(i + 1) % rows.length]
-                        : rows[
-                            (i - 1 + rows.length) %
-                            rows.length
-                        ];
-
-
-                if (
-                    inSearch &&
-                    e.key === "ArrowDown"
-                ) {
-
-                    rows[0].focus();
-
-                } else if (!inSearch) {
-
-                    next.focus();
-                }
-            }
-        }
-    );
-
-
-    ["keyup", "keypress"].forEach(
-        type => {
-
-            shadow.addEventListener(
-                type,
-                e => e.stopPropagation()
-            );
-        }
-    );
-
-
-    // ========================================================
-    // TOAST
-    // ========================================================
-
-    function showToast(
-        msg,
-        kind = "success"
-    ) {
-
-        const t =
-            el("div", "toast");
-
-
-        const ic =
-            el("span", "ti");
-
-
-        const tx =
-            el("span", "");
-
-
-        t.appendChild(ic);
-
-        t.appendChild(tx);
-
-        toastWrap.appendChild(t);
-
-
-        let timer = null;
-
-
-        function dismissToast() {
-
-            t.classList.remove(
-                "in"
-            );
-
-            setTimeout(
-                () => t.remove(),
-                450
-            );
-        }
-
-
-        function set(m, k) {
-
-            const wasVisible =
-                t.classList.contains("in");
-
-
-            t.className =
-                "toast " +
-                k +
-                (
-                    wasVisible
-                        ? " in"
-                        : ""
-                );
-
-
-            ic.textContent =
-                "";
-
-
-            if (k === "loading") {
-
-                ic.appendChild(
-                    el("span", "spin")
-                );
-
-            } else {
-
-                ic.appendChild(
-                    icon(
-                        k === "error"
-                            ? "bang"
-                            : "check",
-                        13
-                    )
-                );
-            }
-
-
-            tx.textContent =
-                m;
-
-
-            clearTimeout(
-                timer
-            );
-
-
-            if (
-                k !== "loading"
-            ) {
-
-                timer =
-                    setTimeout(
-                        dismissToast,
-                        k === "error"
-                            ? 4800
-                            : 3200
-                    );
-            }
-        }
-
-
-        set(
-            msg,
-            kind
-        );
-
-
-        requestAnimationFrame(
-            () => {
-
-                requestAnimationFrame(
-                    () => {
-
-                        t.classList.add(
-                            "in"
-                        );
-                    }
-                );
-            }
-        );
-
-
-        return {
-            update: set
-        };
-    }
-
-
-    // ========================================================
-    // POPUP SHELL
-    // ========================================================
-
-    function createPopup(
-        title,
-        body,
-        opts = {}
-    ) {
-
-        const {
-            subtitle,
-            mode = "open",
-            onBack,
-            backLabel
-        } = opts;
-
-
-        const wasOpen =
-            isOpen;
-
-
-        const oldView =
-            box.querySelector(
-                ".view"
-            );
-
-
-        const keepScroll =
-            box.scrollTop;
-
-
-        const view =
-            el(
-                "div",
-                "view"
-            );
-
-
-        if (mode !== "none") {
-
-            view.classList.add(
-                "stagger"
-            );
-        }
-
-
-        if (
-            wasOpen &&
-            mode === "push"
-        ) {
-
-            view.classList.add(
-                "enter-push"
-            );
-        }
-
-
-        if (
-            wasOpen &&
-            mode === "pop"
-        ) {
-
-            view.classList.add(
-                "enter-pop"
-            );
-        }
-
-
-        // ----------------------------------------------------
-        // HEADER
-        // ----------------------------------------------------
-
-        const head =
-            el(
-                "div",
-                "head"
-            );
-
-
-        const left =
-            el(
-                "div",
-                "l"
-            );
-
-
-        if (onBack) {
-
-            const b =
-                el(
-                    "button",
-                    "navbtn"
-                );
-
-
-            b.appendChild(
-                icon(
-                    "chevronLeft",
-                    20
-                )
-            );
-
-
-            b.appendChild(
-                document.createTextNode(
-                    backLabel || "Back"
-                )
-            );
-
-
-            b.onclick =
-                onBack;
-
-
-            left.appendChild(
-                b
-            );
-        }
-
-
-        const mid =
-            el(
-                "div",
-                "mid"
-            );
-
-
-        const t =
-            el(
-                "div",
-                "title",
-                title
-            );
-
-
-        t.id =
-            "bk-title";
-
-
-        mid.appendChild(
-            t
-        );
-
-
-        if (subtitle) {
-
-            mid.appendChild(
-                el(
-                    "div",
-                    "sub",
-                    subtitle
-                )
-            );
-        }
-
-
-        const right =
-            el(
-                "div",
-                "r"
-            );
-
-
-        const x =
-            el(
-                "button",
-                "x"
-            );
-
-
-        x.setAttribute(
-            "aria-label",
-            "Close"
-        );
-
-
-        x.appendChild(
-            icon(
-                "x",
-                14
-            )
-        );
-
-
-        x.onclick =
-            dismiss;
-
-
-        right.appendChild(
-            x
-        );
-
-
-        head.appendChild(
-            left
-        );
-
-        head.appendChild(
-            mid
-        );
-
-        head.appendChild(
-            right
-        );
-
-
-        view.appendChild(
-            head
-        );
-
-
-        view.appendChild(
-            body
-        );
-
-
-        // ----------------------------------------------------
-        // SWAP
-        // ----------------------------------------------------
-
-        if (wasOpen) {
-
-            const h0 =
-                box.offsetHeight;
-
-
-            box.style.height =
-                h0 + "px";
-
-
-            oldView.replaceWith(
-                view
-            );
-
-
-            box.style.height =
-                "auto";
-
-
-            const h1 =
-                box.offsetHeight;
-
-
-            box.style.height =
-                h0 + "px";
-
-
-            void box.offsetHeight;
-
-
-            box.style.height =
-                h1 + "px";
-
-
-            clearTimeout(
-                morphTimer
-            );
-
-
-            morphTimer =
-                setTimeout(
-                    () => {
-
-                        box.style.height =
-                            "";
-                    },
-                    420
-                );
-
-
-            if (
-                mode === "none"
-            ) {
-
-                box.scrollTop =
-                    keepScroll;
-            }
-
-        } else {
-
-            oldView.replaceWith(
-                view
-            );
-
-
-            clearTimeout(
-                morphTimer
-            );
-
-
-            box.style.height =
-                "";
-
-
-            box.scrollTop =
-                0;
-
-
-            isOpen =
-                true;
-
-
-            lastFocus =
-                document.activeElement;
-
-
-            requestAnimationFrame(
-                () => {
-
-                    backdrop.classList.add(
-                        "open"
-                    );
-
-
-                    box.focus({
-                        preventScroll:
-                            true
+                const {
+                        entries: _0x70899d,
+                        missingItems: _0x52aad8,
+                        hasPending: _0x4ec8df
+                    } = _0x1e47f5(_0xd2a1fd, _0x239826), _0xac0ed7 = _0xd2a1fd[_0xcb63dc(a0_0x59d0ca._0x1ec9db)], _0x3fabd6 = _0x70899d[_0xcb63dc(0x11b)](_0x4cba47 => _0x4cba47[_0xcb63dc(0x13a)] === 'pending')[_0xcb63dc(0xea)], _0x3775f8 = _0x70899d[_0xcb63dc(0x11b)](_0x4803a2 => _0x4803a2[_0xcb63dc(0x13a)] === 'ok')['length'], _0x3a1cc9 = _0x70899d[_0xcb63dc(a0_0x59d0ca._0x1d9901)](_0x5e4c94 => _0x5e4c94[_0xcb63dc(0x13a)] === _0xcb63dc(0xdb))[_0xcb63dc(a0_0x59d0ca._0x13c822)], _0x334d09 = _0xb1f966('div', _0xcb63dc(a0_0x59d0ca._0x17bc76));
+                _0x334d09['style'][_0xcb63dc(a0_0x59d0ca._0x1ada16)](_0xcb63dc(0x94), '1');
+                const _0x43d9a0 = _0xb1f966(_0xcb63dc(a0_0x59d0ca._0x273017), _0xcb63dc(0xa1)), _0x2af875 = _0xb1f966(_0xcb63dc(a0_0x59d0ca._0x1ac28c), '', _0xcb63dc(a0_0x59d0ca._0x311720)), _0x2bf390 = _0xb1f966('b', '', _0x3775f8 + '\x20/\x20' + _0xac0ed7);
+                _0x43d9a0[_0xcb63dc(0x110)](_0x2af875), _0x43d9a0['appendChild'](_0x2bf390), _0x334d09['appendChild'](_0x43d9a0);
+                const _0x516a61 = _0xb1f966(_0xcb63dc(a0_0x59d0ca._0x273017), 'bar'), _0x566a95 = _0xac0ed7 ? Math['round'](_0x3775f8 / _0xac0ed7 * 0x64) : 0x0, _0x4ff150 = _0xb1f966('i');
+                _0x4ff150['style'][_0xcb63dc(a0_0x59d0ca._0xe9d9ab)] = _0x566a95 + '%', _0x516a61['appendChild'](_0x4ff150), _0x334d09[_0xcb63dc(0x110)](_0x516a61), _0x2080f5[_0xcb63dc(0x110)](_0x334d09);
+                if (_0xd2a1fd[_0xcb63dc(0xea)] >= 0x5) {
+                    const _0xbe5a3f = _0xb1f966(_0xcb63dc(0xda), _0xcb63dc(a0_0x59d0ca._0x18cb8a));
+                    _0xbe5a3f['style'][_0xcb63dc(a0_0x59d0ca._0x1ada16)](_0xcb63dc(a0_0x59d0ca._0x38b03a), '2'), _0xbe5a3f[_0xcb63dc(a0_0x59d0ca._0x473742)](_0x4143eb(_0xcb63dc(0x96), 0x10));
+                    const _0x41cc1d = document[_0xcb63dc(0xa8)](_0xcb63dc(0xc0));
+                    _0x41cc1d[_0xcb63dc(a0_0x59d0ca._0x57c48f)] = 'search', _0x41cc1d['placeholder'] = 'Search\x20materials...', _0x41cc1d[_0xcb63dc(a0_0x59d0ca._0x4e28df)] = _0xcb63dc(a0_0x59d0ca._0x296a0d), _0xbe5a3f['appendChild'](_0x41cc1d), _0x2080f5[_0xcb63dc(a0_0x59d0ca._0x173d4d)](_0xbe5a3f), _0x41cc1d[_0xcb63dc(a0_0x59d0ca._0x31d70f)](_0xcb63dc(a0_0x59d0ca._0x5151cb), () => {
+                        const _0x4ba3b3 = _0xcb63dc, _0x5a8551 = _0x41feaf(_0x41cc1d[_0x4ba3b3(a0_0x203fb9._0xb4a436)]);
+                        _0x2080f5[_0x4ba3b3(a0_0x203fb9._0x4a3f84)](_0x4ba3b3(a0_0x203fb9._0x2706fe))[_0x4ba3b3(a0_0x203fb9._0x4c8ba6)](_0x5c3091 => {
+                            const _0x188bef = _0x4ba3b3, _0x4058b5 = _0x41feaf(_0x5c3091['querySelector']('.name')?.['textContent']);
+                            _0x5c3091[_0x188bef(a0_0x35d647._0x1758e8)] = _0x5a8551 && !_0x4058b5[_0x188bef(0xd4)](_0x5a8551);
+                        });
                     });
                 }
-            );
-        }
-    }
-
-
-    // ========================================================
-    // HOME
-    // ========================================================
-
-    function showMainPopup() {
-
-        const body =
-            el(
-                "div",
-                "stagger"
-            );
-
-
-        const welcome =
-            el(
-                "div",
-                "welcome st"
-            );
-
-        welcome.style.setProperty(
-            "--i",
-            "0"
-        );
-
-
-        welcome.appendChild(
-            el(
-                "div",
-                "welcome-title",
-                "Choose material category"
-            )
-        );
-
-
-        welcome.appendChild(
-            el(
-                "div",
-                "welcome-sub",
-                getBuyerBrand()
-                    ? `Buyer: ${getBuyerBrand()}`
-                    : "BOM material assistant"
-            )
-        );
-
-
-        body.appendChild(
-            welcome
-        );
-
-
-        const tiles =
-            el(
-                "div",
-                "tiles"
-            );
-
-
-        // ----------------------------------------------------
-        // STICKER
-        // ----------------------------------------------------
-
-        const stickerTile =
-            el(
-                "button",
-                "tile st"
-            );
-
-
-        stickerTile.style.setProperty(
-            "--i",
-            "1"
-        );
-
-
-        const stickerIcon =
-            el(
-                "div",
-                "appicon sticker"
-            );
-
-
-        stickerIcon.appendChild(
-            icon(
-                "sticker",
-                32
-            )
-        );
-
-
-        stickerTile.appendChild(
-            stickerIcon
-        );
-
-
-        stickerTile.appendChild(
-            el(
-                "div",
-                "tile-name",
-                "Sticker"
-            )
-        );
-
-
-        stickerTile.appendChild(
-            el(
-                "div",
-                "tile-meta",
-                "Sticker materials"
-            )
-        );
-
-
-        stickerTile.onclick =
-            () => {
-
-                showList(
-                    "Sticker",
-                    getMaterialList(
-                        "stickers"
-                    ),
-                    "STICKER"
-                );
-            };
-
-
-        // ----------------------------------------------------
-        // LABEL
-        // ----------------------------------------------------
-
-        const labelTile =
-            el(
-                "button",
-                "tile st"
-            );
-
-
-        labelTile.style.setProperty(
-            "--i",
-            "2"
-        );
-
-
-        const labelIcon =
-            el(
-                "div",
-                "appicon label"
-            );
-
-
-        labelIcon.appendChild(
-            icon(
-                "label",
-                32
-            )
-        );
-
-
-        labelTile.appendChild(
-            labelIcon
-        );
-
-
-        labelTile.appendChild(
-            el(
-                "div",
-                "tile-name",
-                "Labels"
-            )
-        );
-
-
-        labelTile.appendChild(
-            el(
-                "div",
-                "tile-meta",
-                "Label materials"
-            )
-        );
-
-
-        labelTile.onclick =
-            () => {
-
-                showList(
-                    "Labels",
-                    getMaterialList(
-                        "labels"
-                    ),
-                    "LABEL"
-                );
-            };
-
-
-        tiles.appendChild(
-            stickerTile
-        );
-
-        tiles.appendChild(
-            labelTile
-        );
-
-
-        body.appendChild(
-            tiles
-        );
-
-
-        body.appendChild(
-            el(
-                "div",
-                "hint st",
-                "Select a category to check your BOM"
-            )
-        );
-
-
-        createPopup(
-            "Material Assistant",
-            body,
-            {
-                subtitle:
-                    "BOM Material Manager"
-            }
-        );
-    }
-
-
-    // ========================================================
-    // MATERIAL ROW
-    // ========================================================
-
-    function createMaterialRow(
-        item,
-        state,
-        index
-    ) {
-
-        const row =
-            el(
-                "button",
-                `row ${state} st`
-            );
-
-
-        row.style.setProperty(
-            "--i",
-            index
-        );
-
-
-        const dot =
-            el(
-                "span",
-                "dot"
-            );
-
-
-        if (state === "ok") {
-
-            dot.appendChild(
-                icon(
-                    "check",
-                    14
-                )
-            );
-
-        } else if (
-            state === "missing"
-        ) {
-
-            dot.appendChild(
-                icon(
-                    "x",
-                    14
-                )
-            );
-
-        } else {
-
-            dot.appendChild(
-                icon(
-                    "bang",
-                    14
-                )
-            );
-        }
-
-
-        const name =
-            el(
-                "span",
-                "name",
-                item.item_name ||
-                item.type ||
-                "Material"
-            );
-
-
-        const tagText =
-            state === "ok"
-                ? "Added"
-                : state === "missing"
-                    ? "Missing"
-                    : "Select color";
-
-
-        const tag =
-            el(
-                "span",
-                "tag",
-                tagText
-            );
-
-
-        row.appendChild(
-            dot
-        );
-
-        row.appendChild(
-            name
-        );
-
-        row.appendChild(
-            tag
-        );
-
-
-        return row;
-    }
-
-
-    // ========================================================
-    // MATERIAL LIST
-    // ========================================================
-
-    function showList(
-        title,
-        items,
-        category
-    ) {
-
-        const anyNeedsColor =
-            items.some(
-                item =>
-                    item.needsColor
-            );
-
-
-        let selectedColor =
-            null;
-
-
-        function render() {
-
-            const body =
-                el(
-                    "div",
-                    "stagger"
-                );
-
-
-
-
-
-            // ------------------------------------------------
-            // COLOR
-            // ------------------------------------------------
-
-            if (anyNeedsColor) {
-
-                const colors =
-                    collectAvailableColors(
-                        items
-                    );
-
-
-                const field =
-                    el(
-                        "div",
-                        "field st"
-                    );
-
-
-                field.style.setProperty(
-                    "--i",
-                    "0"
-                );
-
-
-                field.appendChild(
-                    el(
-                        "div",
-                        "field-label",
-                        "COLOR"
-                    )
-                );
-
-
-                const chips =
-                    el(
-                        "div",
-                        "chips"
-                    );
-
-
-                colors.forEach(
-                    (color, index) => {
-
-                        const chip =
-                            el(
-                                "button",
-                                "chip"
-                            );
-
-
-                        chip.style.setProperty(
-                            "--i",
-                            index
-                        );
-
-
-                        chip.setAttribute(
-                            "aria-checked",
-                            selectedColor === color
-                                ? "true"
-                                : "false"
-                        );
-
-
-                        const sw =
-                            el(
-                                "span",
-                                "sw"
-                            );
-
-
-                        chip.appendChild(
-                            sw
-                        );
-
-
-                        chip.appendChild(
-                            document.createTextNode(
-                                color
-                            )
-                        );
-
-
-                        chip.onclick =
-                            () => {
-
-                                selectedColor =
-                                    color;
-
-                                render();
-                            };
-
-
-                        chips.appendChild(
-                            chip
-                        );
-                    }
-                );
-
-
-                if (!colors.length) {
-
-                    field.appendChild(
-                        el(
-                            "div",
-                            "note",
-                            "No colors configured for this buyer."
-                        )
-                    );
-
-                } else {
-
-                    field.appendChild(
-                        chips
-                    );
-                }
-
-
-                body.appendChild(
-                    field
-                );
-            }
-
-
-            // ------------------------------------------------
-            // RESOLVE ITEMS  (logic lives in core)
-            // ------------------------------------------------
-
-            const {
-                entries: resolvedItems,
-                missingItems,
-                hasPending
-            } = evaluateItems(items, selectedColor);
-
-
-            // ------------------------------------------------
-            // SUMMARY
-            // ------------------------------------------------
-
-            const total =
-                items.length;
-
-
-            const pendingCount =
-                resolvedItems.filter(
-                    x =>
-                        x.state === "pending"
-                ).length;
-
-
-            const presentCount =
-                resolvedItems.filter(
-                    x =>
-                        x.state === "ok"
-                ).length;
-
-
-            const missingCount =
-                resolvedItems.filter(
-                    x =>
-                        x.state === "missing"
-                ).length;
-
-
-            const summary =
-                el(
-                    "div",
-                    "summary st"
-                );
-
-
-            summary.style.setProperty(
-                "--i",
-                "1"
-            );
-
-
-            const sumTop =
-                el(
-                    "div",
-                    "sum-top"
-                );
-
-
-            const summaryLeft =
-                el(
-                    "span",
-                    "",
-                    "BOM status"
-                );
-
-
-            const summaryRight =
-                el(
-                    "b",
-                    "",
-                    `${presentCount} / ${total}`
-                );
-
-
-            sumTop.appendChild(
-                summaryLeft
-            );
-
-            sumTop.appendChild(
-                summaryRight
-            );
-
-
-            summary.appendChild(
-                sumTop
-            );
-
-
-            const bar =
-                el(
-                    "div",
-                    "bar"
-                );
-
-
-            const progress =
-                total
-                    ? Math.round(
-                        (
-                            presentCount /
-                            total
-                        ) * 100
-                    )
-                    : 0;
-
-
-            const fill =
-                el(
-                    "i"
-                );
-
-
-            fill.style.width =
-                `${progress}%`;
-
-
-            bar.appendChild(
-                fill
-            );
-
-
-            summary.appendChild(
-                bar
-            );
-
-
-            body.appendChild(
-                summary
-            );
-
-
-            // ------------------------------------------------
-            // SEARCH
-            // ------------------------------------------------
-
-            if (items.length >= 5) {
-
-                const search =
-                    el(
-                        "div",
-                        "search st"
-                    );
-
-
-                search.style.setProperty(
-                    "--i",
-                    "2"
-                );
-
-
-                search.appendChild(
-                    icon(
-                        "search",
-                        16
-                    )
-                );
-
-
-                const input =
-                    document.createElement(
-                        "input"
-                    );
-
-
-                input.type =
-                    "search";
-
-                input.placeholder =
-                    "Search materials...";
-
-                input.autocomplete =
-                    "off";
-
-
-                search.appendChild(
-                    input
-                );
-
-
-                body.appendChild(
-                    search
-                );
-
-
-                input.addEventListener(
-                    "input",
-                    () => {
-
-                        const query =
-                            normalize(
-                                input.value
-                            );
-
-
-                        body
-                            .querySelectorAll(
-                                ".row"
-                            )
-                            .forEach(
-                                row => {
-
-                                    const name =
-                                        normalize(
-                                            row
-                                                .querySelector(
-                                                    ".name"
-                                                )
-                                                ?.textContent
-                                        );
-
-
-                                    row.hidden =
-                                        query &&
-                                        !name.includes(
-                                            query
-                                        );
-                                }
-                            );
-                    }
-                );
-            }
-
-
-            // ------------------------------------------------
-            // MATERIAL LIST
-            // ------------------------------------------------
-
-            const list =
-                el(
-                    "div",
-                    "list st"
-                );
-
-
-            list.style.setProperty(
-                "--i",
-                "3"
-            );
-
-
-            if (!items.length) {
-
-                const empty =
-                    el(
-                        "div",
-                        "empty"
-                    );
-
-
-                empty.appendChild(
-                    icon(
-                        "dots",
-                        24
-                    )
-                );
-
-
-                empty.appendChild(
-                    document.createTextNode(
-                        "No materials configured for this category."
-                    )
-                );
-
-
-                list.appendChild(
-                    empty
-                );
-
-            } else {
-
-                resolvedItems.forEach(
-                    (entry, index) => {
-
-                        if (
-                            entry.state ===
-                            "pending"
-                        ) {
-
-                            const pendingItem = {
-                                item_name:
-                                    entry.raw.type
-                                        ? `${entry.raw.type} requires a color`
-                                        : "Select a color"
-                            };
-
-
-                            const row =
-                                createMaterialRow(
-                                    pendingItem,
-                                    "pending",
-                                    index
-                                );
-
-
-                            row.disabled =
-                                true;
-
-
-                            list.appendChild(
-                                row
-                            );
-
-
+                const _0x6f4214 = _0xb1f966('div', _0xcb63dc(0xcb));
+                _0x6f4214[_0xcb63dc(a0_0x59d0ca._0x2ad1e3)][_0xcb63dc(a0_0x59d0ca._0x4f12fb)]('--i', '3');
+                if (!_0xd2a1fd[_0xcb63dc(a0_0x59d0ca._0x13c822)]) {
+                    const _0x45277f = _0xb1f966('div', _0xcb63dc(0xca));
+                    _0x45277f[_0xcb63dc(0x110)](_0x4143eb(_0xcb63dc(a0_0x59d0ca._0x45653f), 0x18)), _0x45277f[_0xcb63dc(a0_0x59d0ca._0x681d0f)](document[_0xcb63dc(0xc8)](_0xcb63dc(a0_0x59d0ca._0x2f83ec))), _0x6f4214[_0xcb63dc(a0_0x59d0ca._0x681d0f)](_0x45277f);
+                } else
+                    _0x70899d[_0xcb63dc(a0_0x59d0ca._0x14f815)]((_0x5bf4c7, _0xb0ac45) => {
+                        const _0x3ccf30 = _0xcb63dc;
+                        if (_0x5bf4c7['state'] === _0x3ccf30(a0_0x4ed841._0x5ec7f4)) {
+                            const _0x59eecc = { 'item_name': _0x5bf4c7['raw'][_0x3ccf30(a0_0x4ed841._0x4e2f16)] ? _0x5bf4c7['raw'][_0x3ccf30(0x102)] + '\x20requires\x20a\x20color' : 'Select\x20a\x20color' }, _0x899054 = _0x6ddc77(_0x59eecc, _0x3ccf30(0x95), _0xb0ac45);
+                            _0x899054[_0x3ccf30(a0_0x4ed841._0x1bd9d2)] = !![], _0x6f4214[_0x3ccf30(0x110)](_0x899054);
                             return;
                         }
-
-
-                        list.appendChild(
-                            createMaterialRow(
-                                entry.resolved,
-                                entry.state,
-                                index
-                            )
-                        );
-                    }
-                );
-            }
-
-
-            body.appendChild(
-                list
-            );
-
-
-            // ------------------------------------------------
-            // ACTION AREA
-            // ------------------------------------------------
-
-            const actions =
-                el(
-                    "div",
-                    "actions"
-                );
-
-
-            const proceed =
-                el(
-                    "button",
-                    "btn primary st"
-                );
-
-
-            proceed.style.setProperty(
-                "--i",
-                "4"
-            );
-
-
-            if (hasPending) {
-
-                proceed.disabled =
-                    true;
-
-                proceed.appendChild(
-                    icon(
-                        "bang",
-                        16
-                    )
-                );
-
-                proceed.appendChild(
-                    document.createTextNode(
-                        " Select a Color First"
-                    )
-                );
-
-            } else if (
-                !missingCount
-            ) {
-
-                proceed.disabled =
-                    true;
-
-                proceed.classList.add(
-                    "done"
-                );
-
-                proceed.appendChild(
-                    icon(
-                        "check",
-                        16
-                    )
-                );
-
-                proceed.appendChild(
-                    document.createTextNode(
-                        " All Materials Present"
-                    )
-                );
-
-            } else {
-
-                proceed.appendChild(
-                    icon(
-                        "check",
-                        16
-                    )
-                );
-
-                proceed.appendChild(
-                    document.createTextNode(
-                        ` Add ${missingCount} ` +
-                        (
-                            category === "STICKER"
-                                ? "Sticker"
-                                : "Label"
-                        ) +
-                        (
-                            missingCount === 1
-                                ? ""
-                                : "s"
-                        )
-                    )
-                );
-            }
-
-
-            proceed.onclick =
-                async () => {
-
-                    if (
-                        hasPending ||
-                        !missingItems.length
-                    ) {
+                        _0x6f4214['appendChild'](_0x6ddc77(_0x5bf4c7[_0x3ccf30(a0_0x4ed841._0x4b3281)], _0x5bf4c7['state'], _0xb0ac45));
+                    });
+                _0x2080f5[_0xcb63dc(0x110)](_0x6f4214);
+                const _0x2b60f8 = _0xb1f966('div', _0xcb63dc(a0_0x59d0ca._0x8e6a1f)), _0xa311e4 = _0xb1f966(_0xcb63dc(0x12a), _0xcb63dc(0xa9));
+                _0xa311e4[_0xcb63dc(0x109)][_0xcb63dc(a0_0x59d0ca._0x1ada16)](_0xcb63dc(0x94), '4');
+                if (_0x4ec8df)
+                    _0xa311e4['disabled'] = !![], _0xa311e4[_0xcb63dc(a0_0x59d0ca._0x173d4d)](_0x4143eb('bang', 0x10)), _0xa311e4[_0xcb63dc(0x110)](document['createTextNode']('\x20Select\x20a\x20Color\x20First'));
+                else
+                    !_0x3a1cc9 ? (_0xa311e4[_0xcb63dc(a0_0x59d0ca._0x5d82a1)] = !![], _0xa311e4['classList'][_0xcb63dc(0xfa)](_0xcb63dc(a0_0x59d0ca._0x1fadf2)), _0xa311e4[_0xcb63dc(a0_0x59d0ca._0x173d4d)](_0x4143eb(_0xcb63dc(a0_0x59d0ca._0x549997), 0x10)), _0xa311e4['appendChild'](document[_0xcb63dc(0xc8)](_0xcb63dc(a0_0x59d0ca._0x29e255)))) : (_0xa311e4[_0xcb63dc(0x110)](_0x4143eb(_0xcb63dc(0x135), 0x10)), _0xa311e4[_0xcb63dc(a0_0x59d0ca._0x681d0f)](document[_0xcb63dc(0xc8)]('\x20Add\x20' + _0x3a1cc9 + '\x20' + (_0x2b8c48 === _0xcb63dc(0x99) ? _0xcb63dc(a0_0x59d0ca._0x49e025) : 'Label') + (_0x3a1cc9 === 0x1 ? '' : 's'))));
+                _0xa311e4[_0xcb63dc(a0_0x59d0ca._0x3bdf26)] = async () => {
+                    const _0x424f7c = _0xcb63dc;
+                    if (_0x4ec8df || !_0x52aad8[_0x424f7c(0xea)])
+                        return;
+                    const _0x5f007e = _0x51603b(_0x2b8c48, _0x52aad8);
+                    if (!_0x5f007e['ok']) {
+                        _0x10e0b1(_0x5f007e[_0x424f7c(a0_0x20dde9._0x2f6527)], 'error');
                         return;
                     }
-
-
-                    const built =
-                        buildPayload(
-                            category,
-                            missingItems
-                        );
-
-
-                    if (!built.ok) {
-
-                        showToast(
-                            built.error,
-                            "error"
-                        );
-
-                        return;
-                    }
-
-
-                    const payload =
-                        built.payload;
-
-
-                    proceed.disabled =
-                        true;
-
-
-                    proceed.innerHTML =
-                        "";
-
-
-                    proceed.appendChild(
-                        el(
-                            "span",
-                            "spin"
-                        )
-                    );
-
-
-                    proceed.appendChild(
-                        document.createTextNode(
-                            " Starting..."
-                        )
-                    );
-
-
-                    await runAutomation(
-                        category,
-                        payload,
-                        {
-                            closePopup,
-                            showToast
-                        }
-                    );
-                };
-
-
-            actions.appendChild(
-                proceed
-            );
-
-
-            body.appendChild(
-                actions
-            );
-
-
-            createPopup(
-                title,
-                body,
-                {
-                    subtitle:
-                        `${presentCount} present · ` +
-                        `${missingCount} missing` +
-                        (
-                            pendingCount
-                                ? ` · ${pendingCount} waiting`
-                                : ""
-                        ),
-
-                    mode:
-                        "push",
-
-                    onBack:
-                        showMainPopup,
-
-                    backLabel:
-                        "Back"
-                }
-            );
+                    const _0x2a3742 = _0x5f007e['payload'];
+                    _0xa311e4['disabled'] = !![], _0xa311e4['innerHTML'] = '', _0xa311e4['appendChild'](_0xb1f966('span', _0x424f7c(a0_0x20dde9._0x47989e))), _0xa311e4[_0x424f7c(a0_0x20dde9._0xe3c919)](document[_0x424f7c(0xc8)](_0x424f7c(a0_0x20dde9._0x27f36a))), await _0x178b63(_0x2b8c48, _0x2a3742, {
+                        'closePopup': _0x1f8779,
+                        'showToast': _0x10e0b1
+                    });
+                }, _0x2b60f8[_0xcb63dc(a0_0x59d0ca._0x3124e0)](_0xa311e4), _0x2080f5[_0xcb63dc(0x110)](_0x2b60f8), _0x1d75e8(_0x4d9fbf, _0x2080f5, {
+                    'subtitle': _0x3775f8 + '\x20present\x20·\x20' + (_0x3a1cc9 + _0xcb63dc(0xee)) + (_0x3fabd6 ? _0xcb63dc(0x104) + _0x3fabd6 + _0xcb63dc(a0_0x59d0ca._0x5c1470) : ''),
+                    'mode': 'push',
+                    'onBack': _0x6424fb,
+                    'backLabel': _0xcb63dc(a0_0x59d0ca._0x53d4a3)
+                });
+            }
+            _0x355146();
         }
-
-
-        render();
-    }
-
-
-
-
-    // ========================================================
-    // LAUNCH
-    // ========================================================
-
-    assistantBtn.onclick =
-        showMainPopup;
-
-
-    console.log(
-        "✅ Material Assistant injected with modern UI."
-    );
-
+        _0x3ea68e[_0x2ed333(a0_0x37650d._0x2ccd33)] = _0x6424fb, console[_0x2ed333(a0_0x37650d._0x517ba7)](_0x2ed333(0xe0));
     };
-})();
+}()));
+function a0_0x142b(_0x3c16e8, _0x2c4a0d) {
+    _0x3c16e8 = _0x3c16e8 - 0x8a;
+    const _0x4933fc = a0_0x4933();
+    let _0x142b79 = _0x4933fc[_0x3c16e8];
+    return _0x142b79;
+}
+function a0_0x4933() {
+    const _0x221921 = [
+        'forEach',
+        'innerHTML',
+        'check',
+        'error',
+        'off',
+        '\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22',
+        'enter-push',
+        'state',
+        'tile\x20st',
+        'sub',
+        'button:not(:disabled),\x20input,\x20select',
+        'autocomplete',
+        'appicon\x20sticker',
+        '99RAIhzx',
+        'THEME_CSS',
+        'bk-material-btn',
+        'tile-name',
+        'tiles',
+        '<style>',
+        'getElementById',
+        'labels',
+        'stagger',
+        'appicon\x20label',
+        'classList',
+        'keydown',
+        'keypress',
+        'Labels',
+        'Added',
+        '--i',
+        'pending',
+        'search',
+        'name',
+        'row\x20',
+        'STICKER',
+        'activeElement',
+        '\x20waiting',
+        'BOM\x20status',
+        '#AsstCtrlMainDiv_input_item\x20>\x20div.panel-heading\x20>\x20ul',
+        'search\x20st',
+        'setProperty',
+        '<circle\x20cx=\x2211\x22\x20cy=\x2211\x22\x20r=\x227\x22/>',
+        'sum-top',
+        'welcome-sub',
+        'Choose\x20material\x20category',
+        'Back',
+        'aria-checked',
+        'LAUNCHER_CSS',
+        '<path\x20d=\x22M15\x203v6h6\x22/>',
+        'createElement',
+        'btn\x20primary\x20st',
+        'marginLeft',
+        'summary\x20st',
+        'assign',
+        'setAttribute',
+        '<circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x221\x22/>',
+        '<circle\x20cx=\x2219\x22\x20cy=\x2212\x22\x20r=\x221\x22/>',
+        'offsetParent',
+        'scrollTop',
+        'target',
+        'focus',
+        'ArrowDown',
+        'Material\x20Assistant',
+        'true',
+        '<path\x20d=\x22M12\x2017h.01\x22/>',
+        'hint\x20st',
+        'enter-pop',
+        'sticker',
+        '<path\x20d=\x22M12.586\x202.586A2\x202\x200\x200\x200\x2011.172\x202H4a2\x202\x200\x200\x200-2\x202v7.172a2\x202\x200\x200\x200\x20.586\x201.414l8.704\x208.704a2.426\x202.426\x200\x200\x200\x203.42\x200l6.58-6.58a2.426\x202.426\x200\x200\x200\x200-3.42z\x22/>',
+        'mid',
+        'hidden',
+        'dots',
+        'Select\x20a\x20category\x20to\x20check\x20your\x20BOM',
+        'input',
+        'className',
+        'Material',
+        'false',
+        '\x22\x20height=\x22',
+        '6357SPOECD',
+        'span',
+        '</svg>',
+        'createTextNode',
+        'querySelectorAll',
+        'empty',
+        'list\x20st',
+        '<path\x20d=\x22M15.5\x2013h.01\x22/>',
+        'note',
+        '6116484iSpeJd',
+        'Sticker',
+        'done',
+        '.backdrop',
+        'disabled',
+        '2197336lYnhpi',
+        'includes',
+        'BKAssist',
+        'Sticker\x20materials',
+        'Label\x20materials',
+        '.row:not([hidden]):not(:disabled),\x20.tile',
+        'loading',
+        'div',
+        'missing',
+        'log',
+        'bk-ic-launch',
+        'mountUI',
+        'preventDefault',
+        '✅\x20Material\x20Assistant\x20injected\x20with\x20modern\x20UI.',
+        'Close',
+        '<path\x20d=\x22m21\x2021-4.3-4.3\x22/>',
+        '842TrUuSc',
+        'chip',
+        'navbtn',
+        'ico',
+        '\x20in',
+        'BOM\x20Material\x20Manager',
+        'onclick',
+        'length',
+        '.toast-wrap',
+        '\x20Starting...',
+        'right',
+        '\x20missing',
+        'Select\x20color',
+        'tag',
+        'needsColor',
+        'querySelector',
+        'fixed',
+        'COLOR',
+        'none',
+        'float',
+        'resolved',
+        'bk-material-overlay',
+        '<div\x20class=\x22backdrop\x22>',
+        'add',
+        '<path\x20d=\x22M15.5\x203H5a2\x202\x200\x200\x200-2\x202v14a2\x202\x200\x200\x200\x202\x202h14a2\x202\x200\x200\x200\x202-2V8.5L15.5\x203Z\x22/>',
+        'remove',
+        '.row',
+        '\x20All\x20Materials\x20Present',
+        'welcome\x20st',
+        '3778733eQTZQp',
+        '<circle\x20cx=\x227.5\x22\x20cy=\x227.5\x22\x20r=\x22.6\x22\x20fill=\x22currentColor\x22/>',
+        'type',
+        'bk-icloud-launch-style',
+        '\x20·\x20',
+        'Tab',
+        'chips',
+        'open',
+        '2346mcLYER',
+        'style',
+        'spin',
+        'Missing',
+        'textContent',
+        'offsetHeight',
+        'Buyer:\x20',
+        '5RZdCsc',
+        'appendChild',
+        'body',
+        '.box',
+        'shiftKey',
+        '932810VHukzN',
+        'addEventListener',
+        'title',
+        'actions',
+        '<div\x20class=\x22view\x22></div>',
+        'tagName',
+        'contains',
+        'filter',
+        'replaceWith',
+        'toast\x20',
+        '\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22\x20aria-hidden=\x22true\x22>',
+        'attachShadow',
+        'value',
+        'key',
+        'pop',
+        '<path\x20d=\x22M12\x206v7\x22/>',
+        'tile-meta',
+        'No\x20materials\x20configured\x20for\x20this\x20category.',
+        '244TvDOAf',
+        'indexOf',
+        'bang',
+        '4520148NMOoXy',
+        'button',
+        '<svg\x20width=\x22',
+        'click',
+        '<path\x20d=\x22M9.5\x2016.5s.9\x201\x202.5\x201\x202.5-1\x202.5-1\x22/>',
+        '<div\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22toast-wrap\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20aria-live=\x22polite\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>',
+        'Escape',
+        'width',
+        'height',
+        'success'
+    ];
+    a0_0x4933 = function () {
+        return _0x221921;
+    };
+    return a0_0x4933();
+}
