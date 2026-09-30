@@ -1,91 +1,78 @@
-function a0_0x601a(_0x5d5c99, _0xebfe25) {
-    _0x5d5c99 = _0x5d5c99 - 0xa6;
-    const _0x2b3a05 = a0_0x2b3a();
-    let _0x601a1a = _0x2b3a05[_0x5d5c99];
-    return _0x601a1a;
-}
-function a0_0x2b3a() {
-    const _0x1c5483 = [
-        'message',
+function a0_0x4042() {
+    const _0x58c423 = [
+        '778cUVSPC',
+        'mountUI',
+        '507520uGeLXX',
         'BKAssist',
-        '✘\x20Material\x20Assistant\x0a\x0a',
-        'text',
-        '3299yCSLSx',
-        '2828tNdsxe',
-        '225AtAzCM',
-        '686iJspHZ',
-        '1190892MqwVCk',
-        'core',
-        '22McZZYj',
-        'https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/',
-        'includes',
-        '1278HgOibx',
+        '4690756RYPlyz',
         'status',
-        'ui/assist-theme.js',
-        ':\x20HTTP\x20',
-        'core/assist-core.js',
-        '70698vGiMYt',
-        'no-store',
-        '3255910ZCMblC',
-        '76376JFhOGI',
-        'now',
+        'message',
         'getElementById',
-        '819kEntuA',
+        '4121032jpyOnT',
+        'core/assist-core.js',
+        '836880hqpjsR',
+        '✘\x20Material\x20Assistant\x20failed\x20to\x20load:',
+        '6639SerXRL',
+        'text',
+        '5758542YuhkQF',
+        'now',
         'init',
-        '905690UcVbru'
+        'error',
+        ':\x20HTTP\x20',
+        '2516664yeFoNc',
+        'includes'
     ];
-    a0_0x2b3a = function () {
-        return _0x1c5483;
+    a0_0x4042 = function () {
+        return _0x58c423;
     };
-    return a0_0x2b3a();
+    return a0_0x4042();
 }
-(function (_0xc17c9e, _0x10abbb) {
-    const a0_0x1cb188 = {
-            _0x2ea541: 0xae,
-            _0x2fef75: 0xb7,
-            _0x390d6b: 0xb0,
-            _0x20ae30: 0xbc,
-            _0x23ac28: 0xbe,
-            _0x3e596b: 0xbf,
-            _0x1d9951: 0xb4
-        }, _0x57abeb = a0_0x601a, _0x31ba4e = _0xc17c9e();
+function a0_0x1fac(_0x506e68, _0x40f580) {
+    _0x506e68 = _0x506e68 - 0x1dd;
+    const _0x4042b7 = a0_0x4042();
+    let _0x1fac6d = _0x4042b7[_0x506e68];
+    return _0x1fac6d;
+}
+(function (_0x122af0, _0x1b31c2) {
+    const a0_0x469565 = { _0x42d9e1: 0x1ef }, _0x3fbb8e = a0_0x1fac, _0xd150fa = _0x122af0();
     while (!![]) {
         try {
-            const _0x73d52c = -parseInt(_0x57abeb(a0_0x1cb188._0x2ea541)) / 0x1 * (-parseInt(_0x57abeb(0xb1)) / 0x2) + -parseInt(_0x57abeb(a0_0x1cb188._0x2fef75)) / 0x3 * (-parseInt(_0x57abeb(0xaf)) / 0x4) + parseInt(_0x57abeb(a0_0x1cb188._0x390d6b)) / 0x5 * (parseInt(_0x57abeb(a0_0x1cb188._0x20ae30)) / 0x6) + -parseInt(_0x57abeb(a0_0x1cb188._0x23ac28)) / 0x7 + -parseInt(_0x57abeb(a0_0x1cb188._0x3e596b)) / 0x8 * (parseInt(_0x57abeb(0xa7)) / 0x9) + -parseInt(_0x57abeb(0xa9)) / 0xa + parseInt(_0x57abeb(a0_0x1cb188._0x1d9951)) / 0xb * (parseInt(_0x57abeb(0xb2)) / 0xc);
-            if (_0x73d52c === _0x10abbb)
+            const _0x55ed7d = parseInt(_0x3fbb8e(0x1ed)) / 0x1 + -parseInt(_0x3fbb8e(0x1e3)) / 0x2 * (parseInt(_0x3fbb8e(a0_0x469565._0x42d9e1)) / 0x3) + parseInt(_0x3fbb8e(0x1e1)) / 0x4 + parseInt(_0x3fbb8e(0x1e5)) / 0x5 + parseInt(_0x3fbb8e(0x1f1)) / 0x6 + -parseInt(_0x3fbb8e(0x1e7)) / 0x7 + -parseInt(_0x3fbb8e(0x1eb)) / 0x8;
+            if (_0x55ed7d === _0x1b31c2)
                 break;
             else
-                _0x31ba4e['push'](_0x31ba4e['shift']());
-        } catch (_0x1420be) {
-            _0x31ba4e['push'](_0x31ba4e['shift']());
+                _0xd150fa['push'](_0xd150fa['shift']());
+        } catch (_0x18d4fe) {
+            _0xd150fa['push'](_0xd150fa['shift']());
         }
     }
-}(a0_0x2b3a, 0xb3ed4), ((async () => {
-    const a0_0x22fb3a = {
-            _0x16dc1b: 0xa8,
-            _0x48c6bf: 0xab,
-            _0x446b80: 0xac
-        }, a0_0xe370e4 = {
-            _0x4a1f42: 0xc0,
-            _0x9d19e8: 0xba,
-            _0x25d3b3: 0xad
-        }, _0x104887 = a0_0x601a;
-    if (document[_0x104887(0xa6)]('bk-material-btn'))
+}(a0_0x4042, 0x757bd), ((async () => {
+    const a0_0x6d5fba = {
+            _0x3f7a71: 0x1ea,
+            _0x5afa7b: 0x1e6,
+            _0x1b18f2: 0x1ee,
+            _0x455bb5: 0x1e9
+        }, a0_0x110d6d = {
+            _0xcf0f5f: 0x1e2,
+            _0x5b61df: 0x1dd,
+            _0x3ac202: 0x1f0
+        }, _0x18e86a = a0_0x1fac;
+    if (document[_0x18e86a(a0_0x6d5fba._0x3f7a71)]('bk-material-btn'))
         return;
-    const _0x32a975 = _0x104887(0xb5);
-    async function _0x31041c(_0x830377) {
-        const _0x277ffb = _0x104887, _0x5a3df9 = _0x830377[_0x277ffb(0xb6)]('?') ? '&' : '?', _0x245f89 = await fetch('' + _0x32a975 + _0x830377 + _0x5a3df9 + '_=' + Date[_0x277ffb(a0_0xe370e4._0x4a1f42)](), { 'cache': _0x277ffb(0xbd) });
-        if (!_0x245f89['ok'])
-            throw new Error(_0x830377 + _0x277ffb(a0_0xe370e4._0x9d19e8) + _0x245f89[_0x277ffb(0xb8)]);
-        (0x0, eval)(await _0x245f89[_0x277ffb(a0_0xe370e4._0x25d3b3)]());
+    const _0xcc717a = 'https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/';
+    async function _0x554d11(_0x31c20c) {
+        const _0x5ecbf5 = _0x18e86a, _0x12933e = _0x31c20c[_0x5ecbf5(a0_0x110d6d._0xcf0f5f)]('?') ? '&' : '?', _0x5260cb = await fetch('' + _0xcc717a + _0x31c20c + _0x12933e + '_=' + Date[_0x5ecbf5(a0_0x110d6d._0x5b61df)](), { 'cache': 'no-store' });
+        if (!_0x5260cb['ok'])
+            throw new Error(_0x31c20c + _0x5ecbf5(0x1e0) + _0x5260cb[_0x5ecbf5(0x1e8)]);
+        (0x0, eval)(await _0x5260cb[_0x5ecbf5(a0_0x110d6d._0x3ac202)]());
     }
     try {
-        await _0x31041c(_0x104887(0xbb));
-        const _0x4177bf = await window[_0x104887(0xab)][_0x104887(0xb3)][_0x104887(a0_0x22fb3a._0x16dc1b)]();
-        if (!_0x4177bf)
+        await _0x554d11(_0x18e86a(0x1ec));
+        const _0x334005 = await window[_0x18e86a(0x1e6)]['core'][_0x18e86a(0x1de)]();
+        if (!_0x334005)
             return;
-        await _0x31041c(_0x104887(0xb9)), await _0x31041c('ui/assist-ui.js'), window[_0x104887(a0_0x22fb3a._0x48c6bf)]['mountUI'](window[_0x104887(0xab)][_0x104887(0xb3)]);
-    } catch (_0x4081a3) {
-        console['error']('✘\x20Material\x20Assistant\x20failed\x20to\x20load:', _0x4081a3), alert(_0x104887(a0_0x22fb3a._0x446b80) + _0x4081a3[_0x104887(0xaa)]);
+        await _0x554d11('ui/assist-theme.js'), await _0x554d11('ui/assist-ui.js'), window['BKAssist'][_0x18e86a(0x1e4)](window[_0x18e86a(a0_0x6d5fba._0x5afa7b)]['core']);
+    } catch (_0x240afc) {
+        console[_0x18e86a(0x1df)](_0x18e86a(a0_0x6d5fba._0x1b18f2), _0x240afc), alert('✘\x20Material\x20Assistant\x0a\x0a' + _0x240afc[_0x18e86a(a0_0x6d5fba._0x455bb5)]);
     }
 })()));
