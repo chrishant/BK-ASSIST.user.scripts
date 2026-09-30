@@ -1,279 +1,269 @@
 // ============================================================
-// BK MATERIAL ASSISTANT
-// CORE
+// BK MATERIAL ASSISTANT  ·  CORE (no UI code in this file)
+// Auth, material data, BOM lookups, automation hand-off.
+// Exposes window.BKAssist.core
+// ============================================================
+(function () {
+    const BK = (window.BKAssist = window.BKAssist || {});
+
+// ----------------------------
+// Remote data / automation
+// ----------------------------
+const MATERIALS_URL =
+    "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/store/items/mat.json";
+
+const AUTOMATION_SCRIPT_URLS = {
+    STICKER:
+        "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine-sticker.js",
+
+    LABEL:
+        "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/engine/assist-engine-label.js"
+};
+
+const DEFAULT_EXCESS = 5;
+
+
+// ============================================================
+// CACHE BUST
 // ============================================================
 
-(() => {
-
-    const MATERIALS_URL =
-        "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/main/BK/BOM-assist/store/items/mat.json";
-
-
-    const AUTOMATION_SCRIPT_URLS = {
-
-        STICKER:
-            "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/main/BK/BOM-assist/engine/assist-engine-sticker.js",
-
-        LABEL:
-            "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/main/BK/BOM-assist/engine/assist-engine-label.js"
-    };
+function withCacheBust(url) {
+    const sep = url.includes("?") ? "&" : "?";
+    return `${url}${sep}_=${Date.now()}`;
+}
 
 
-    const DEFAULT_EXCESS = 5;
+// ============================================================
+// ACCESS KEY
+// ============================================================
 
+async function verifyKey() {
+
+    const STORAGE = "bk_auth_hash";
+
+    let hash = localStorage.getItem(STORAGE);
+
+    if (!hash) {
+
+        const key = prompt("Enter BK Assistant Access Key:");
+
+        if (!key) return false;
+
+        const buf = await crypto.subtle.digest(
+            "SHA-256",
+            new TextEncoder().encode(key)
+        );
+
+        hash = [...new Uint8Array(buf)]
+            .map(b => b.toString(16).padStart(2, "0"))
+            .join("");
+    }
+
+    const res = await fetch(
+        "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/main/HASH-KEY/keys.json",
+        {
+            cache: "no-store"
+        }
+    );
+
+    if (!res.ok) {
+
+        alert("❌ Key server unreachable");
+
+        return false;
+    }
+
+    const db = await res.json();
+
+    const today = new Date();
+
+    const valid = db.keys.find(k =>
+        k.hash === hash &&
+        k.active &&
+        new Date(k.expiry) >= today
+    );
+
+    if (!valid) {
+
+        localStorage.removeItem(STORAGE);
+
+        alert("❌ Access revoked or expired");
+
+        return false;
+    }
+
+    localStorage.setItem(STORAGE, hash);
+
+    return true;
+}
+
+
+    // ========================================================
+    // INIT  (auth + material data)
+    // ========================================================
 
     let MATERIALS = null;
 
+    async function init() {
 
-    // ========================================================
-    // INTERNAL
-    // ========================================================
+        const authorized = await verifyKey();
 
-    function cacheBust(url) {
+        if (!authorized) {
+            console.warn("✘ Material Assistant not started — access key check failed.");
+            return false;
+        }
 
-        const separator =
-            url.includes("?")
-                ? "&"
-                : "?";
+        try {
 
-        return `${url}${separator}_=${Date.now()}`;
+            const res = await fetch(withCacheBust(MATERIALS_URL), { cache: "no-store" });
+
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+            MATERIALS = await res.json();
+
+            console.log(`✅ Loaded materials data from ${MATERIALS_URL}`);
+
+            return true;
+
+        } catch (err) {
+
+            const msg =
+                `Failed to load materials.json (${err.message}). ` +
+                `Material Assistant will not be available.`;
+
+            console.error(`✘ ${msg}`);
+            alert(`✘ Material Assistant\n\n${msg}`);
+
+            return false;
+        }
     }
 
+
+    // ========================================================
+    // ANGULAR SCOPE HELPER
+    // ========================================================
 
     function getScope(selector) {
 
-        const element =
-            document.querySelector(
-                selector
-            );
+        const el = document.querySelector(selector);
 
-
-        return element
-            ? angular.element(element).scope()
+        return el
+            ? angular.element(el).scope()
             : null;
     }
 
 
-    function getMainScope() {
-
-        return getScope(
-            "#AsstCtrlMainDiv_input_item"
-        );
-    }
-
-
-    function normalize(value) {
-
-        return (value || "")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase();
-    }
-
-
     // ========================================================
-    // MATERIAL DATA
+    // MATERIAL HELPERS
     // ========================================================
-
-    async function loadMaterials() {
-
-        const response =
-            await fetch(
-                cacheBust(
-                    MATERIALS_URL
-                ),
-                {
-                    cache: "no-store"
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                `Materials HTTP ${response.status}`
-            );
-        }
-
-
-        MATERIALS =
-            await response.json();
-
-
-        return MATERIALS;
-    }
-
-
-    // ========================================================
-    // BUYER
-    // ========================================================
-
-    function getBuyerName() {
-
-        return (
-            getMainScope()
-                ?.main_model
-                ?.buyer_name ||
-            ""
-        ).trim();
-    }
-
 
     function getBuyerKey() {
 
-        if (!MATERIALS) {
-            return null;
-        }
-
+        const scope =
+            getScope("#AsstCtrlMainDiv_input_item");
 
         const buyer =
-            normalize(
-                getBuyerName()
+            (scope?.main_model?.buyer_name || "")
+                .trim()
+                .toUpperCase();
+
+        const buyerKey =
+            Object.keys(MATERIALS)
+                .sort((a, b) => b.length - a.length)
+                .find(key =>
+                    buyer.includes(key.toUpperCase())
+                );
+
+        if (!buyerKey) {
+
+            console.warn(
+                "No material configuration found for buyer:",
+                buyer
             );
+        }
 
-
-        return Object.keys(MATERIALS)
-            .sort(
-                (a, b) =>
-                    b.length - a.length
-            )
-            .find(
-                key =>
-                    buyer.includes(
-                        normalize(key)
-                    )
-            ) || null;
-    }
-
-
-    function getBuyerConfig() {
-
-        const key =
-            getBuyerKey();
-
-
-        return key
-            ? MATERIALS[key]
-            : null;
+        return buyerKey || null;
     }
 
 
     function getBuyerBrand() {
 
-        return (
-            getBuyerConfig()
-                ?.brand ||
-            null
-        );
+        const buyerKey = getBuyerKey();
+
+        return buyerKey
+            ? MATERIALS[buyerKey].brand
+            : null;
     }
 
 
-    // ========================================================
-    // MATERIALS
-    // ========================================================
-
     function getMaterialList(type) {
 
-        return (
-            getBuyerConfig()
-                ?.[type] ||
-            []
-        );
+        const buyerKey = getBuyerKey();
+
+        if (!buyerKey) return [];
+
+        return MATERIALS[buyerKey][type] || [];
     }
 
 
     function getBuyerColors() {
 
-        return (
-            getBuyerConfig()
-                ?.colors ||
-            []
-        );
+        const buyerKey = getBuyerKey();
+
+        if (!buyerKey) return [];
+
+        return MATERIALS[buyerKey].colors || [];
     }
 
 
-    function resolveItem(
-        rawItem,
-        selectedColor
-    ) {
+    // ========================================================
+    // MATERIAL RESOLUTION
+    // ========================================================
+
+    function resolveItem(rawItem, selectedColor) {
 
         if (!rawItem.needsColor) {
-
-            return {
-                ...rawItem
-            };
+            return rawItem;
         }
-
 
         if (!selectedColor) {
             return null;
         }
 
-
         const variant =
-            (rawItem.variants || [])
-                .find(
-                    item =>
-                        normalize(item.color) ===
-                        normalize(selectedColor)
-                );
-
+            (rawItem.variants || []).find(
+                v =>
+                    v.color.toUpperCase() ===
+                    selectedColor.toUpperCase()
+            );
 
         if (!variant) {
             return null;
         }
 
-
         return {
-
-            item_id:
-                variant.item_id,
-
-            item_name:
-                variant.item_name,
-
-            type:
-                rawItem.type,
-
-            rate:
-                variant.rate,
-
-            color:
-                variant.color,
-
-            excess:
-                variant.excess ??
-                rawItem.excess
+            item_id: variant.item_id,
+            item_name: variant.item_name,
+            type: rawItem.type,
+            rate: variant.rate,
+            color: variant.color,
+            excess: variant.excess ?? rawItem.excess
         };
     }
 
 
-    function collectAvailableColors(
-        items
-    ) {
+    function collectAvailableColors(items) {
 
-        const colors =
-            new Set();
+        const colors = new Set();
 
+        items.forEach(item => {
 
-        items.forEach(
-            item => {
+            if (!item.needsColor) return;
 
-                if (!item.needsColor) {
-                    return;
-                }
-
-
-                (item.variants || [])
-                    .forEach(
-                        variant =>
-                            colors.add(
-                                variant.color
-                            )
-                    );
-            }
-        );
-
+            (item.variants || []).forEach(v => {
+                colors.add(v.color);
+            });
+        });
 
         return [...colors];
     }
@@ -285,75 +275,118 @@
 
     function getBomItems() {
 
-        return (
-            getMainScope()
-                ?.so_component_items_list ||
-            []
-        );
+        const scope =
+            getScope("#AsstCtrlMainDiv_input_item");
+
+        return scope?.so_component_items_list || [];
     }
 
 
-    function isItemInBom(
-        requiredItem
-    ) {
+    function normalize(str) {
 
-        return getBomItems()
-            .some(
-                item =>
-
-                    item.item_id ===
-                    requiredItem.item_id ||
-
-                    normalize(
-                        item.item_name
-                    ) ===
-                    normalize(
-                        requiredItem.item_name
-                    )
-            );
+        return (str || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .toUpperCase();
     }
 
 
-    function getBomStatus(items) {
+    function isItemInBom(requiredItem) {
 
-        return items.map(
-            item => ({
+        const bom = getBomItems();
 
-                item,
+        return bom.some(item =>
 
-                present:
-                    isItemInBom(
-                        item
-                    )
-            })
+            item.item_id === requiredItem.item_id ||
+
+            normalize(item.item_name) ===
+            normalize(requiredItem.item_name)
+
         );
     }
 
 
     // ========================================================
-    // AUTOMATION
+    // ITEM EVALUATION  (moved out of the UI: pure logic)
+    // Returns each item's state: "pending" | "ok" | "missing"
     // ========================================================
 
-    async function runAutomation(
-        category,
-        payload
-    ) {
+    function evaluateItems(items, selectedColor) {
 
-        if (
-            !AUTOMATION_SCRIPT_URLS[
-                category
-            ]
-        ) {
+        const entries = [];
+        const missingItems = [];
+        let hasPending = false;
 
-            throw new Error(
-                `Automation not configured: ${category}`
-            );
+        items.forEach(rawItem => {
+
+            const resolved = resolveItem(rawItem, selectedColor);
+
+            if (!resolved) {
+                hasPending = true;
+                entries.push({ raw: rawItem, resolved: null, state: "pending" });
+                return;
+            }
+
+            const exists = isItemInBom(resolved);
+
+            if (!exists) missingItems.push(resolved);
+
+            entries.push({
+                raw: rawItem,
+                resolved,
+                state: exists ? "ok" : "missing"
+            });
+        });
+
+        return { entries, missingItems, hasPending };
+    }
+
+
+    // ========================================================
+    // PAYLOAD BUILDER  (moved out of the UI)
+    // Returns { ok: true, payload } or { ok: false, error }
+    // ========================================================
+
+    function buildPayload(category, missingItems) {
+
+        const brand = getBuyerBrand();
+
+        if (!brand) {
+            return { ok: false, error: "Unable to resolve buyer brand." };
         }
 
+        const itemsMissingRate = missingItems.filter(item => item.rate == null);
 
-        window.bkPendingBomItems =
-            payload;
+        if (itemsMissingRate.length) {
+            console.error("Items missing rate:", itemsMissingRate);
+            return {
+                ok: false,
+                error: `${itemsMissingRate.length} material(s) have no rate configured.`
+            };
+        }
 
+        const payload = missingItems.map(item => ({
+            filterText: category,
+            type: item.type,
+            brand: brand,
+            color: item.color ?? null,
+            rate: item.rate,
+            excess: item.excess ?? DEFAULT_EXCESS,
+            item_id: item.item_id,
+            item_name: item.item_name
+        }));
+
+        return { ok: true, payload };
+    }
+
+
+    async function runAutomation(category, payload, hooks = {}) {
+
+        // UI hooks are optional so core never depends on the UI layer.
+        const closePopup = hooks.closePopup || (() => {});
+        const showToast  = hooks.showToast  || (() => ({ update() {} }));
+
+        window.bkPendingBomItems = payload;
 
         window.dispatchEvent(
             new CustomEvent(
@@ -364,109 +397,135 @@
             )
         );
 
+        console.log(
+            `📦 Handed off ${payload.length} item(s) ` +
+            `to BOM automation [${category}]:`
+        );
+
+        console.table(payload);
+
+
+        openCostingItemPopup();
+
+        closePopup();
+
 
         const scriptUrl =
-            AUTOMATION_SCRIPT_URLS[
-                category
-            ];
+            AUTOMATION_SCRIPT_URLS[category];
+
+        if (!scriptUrl) {
+
+            console.error(
+                `✘ No automation script configured for category "${category}".`
+            );
+
+            showToast(
+                "Automation script is not configured.",
+                "error"
+            );
+
+            return;
+        }
 
 
-        const response =
-            await fetch(
-                cacheBust(
-                    scriptUrl
-                ),
+        const loading =
+            showToast(
+                `Starting ${category === "STICKER" ? "Sticker" : "Label"} automation...`,
+                "loading"
+            );
+
+
+        try {
+
+            const res = await fetch(
+                withCacheBust(scriptUrl),
                 {
                     cache: "no-store"
                 }
             );
 
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}`);
+            }
 
-        if (!response.ok) {
+            const code = await res.text();
 
-            throw new Error(
-                `Automation HTTP ${response.status}`
+            (0, eval)(code);
+
+            loading.update(
+                "Automation started successfully.",
+                "success"
+            );
+
+            console.log(
+                `🚀 Automation script [${category}] fetched and started.`
+            );
+
+        } catch (err) {
+
+            console.error(
+                `✘ Failed to fetch/run automation script for ${category}:`,
+                err
+            );
+
+            loading.update(
+                `Automation failed: ${err.message}`,
+                "error"
             );
         }
-
-
-        const code =
-            await response.text();
-
-
-        (0, eval)(code);
-
-
-        return {
-            category,
-            count:
-                payload.length
-        };
     }
 
 
+
+
     // ========================================================
-    // PUBLIC API
+    // OPEN BLUEKAKTUS BOM POPUP
     // ========================================================
 
-    const API = {
+    function openCostingItemPopup() {
 
-        version:
-            "1.0.0",
-
-
-        async init() {
-
-            if (!MATERIALS) {
-
-                await loadMaterials();
-            }
-
-
-            return API;
-        },
-
-
-        isReady() {
-
-            return (
-                MATERIALS !== null
+        const btn =
+            document.querySelector(
+                'a[title="Bom Item Costing Creation"]'
             );
-        },
+
+        if (!btn) {
+
+            console.error(
+                "Bom Item Costing Creation button not found."
+            );
+
+            return false;
+        }
+
+        btn.dispatchEvent(
+            new MouseEvent(
+                "click",
+                {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                }
+            )
+        );
+
+        return true;
+    }
 
 
-        getBuyerName,
 
-        getBuyerKey,
-
-        getBuyerConfig,
-
+    BK.core = {
+        init,
         getBuyerBrand,
-
         getMaterialList,
-
         getBuyerColors,
-
-        resolveItem,
-
         collectAvailableColors,
-
-        getBomItems,
-
+        resolveItem,
         isItemInBom,
-
-        getBomStatus,
-
-        runAutomation
+        normalize,
+        evaluateItems,
+        buildPayload,
+        runAutomation,
+        DEFAULT_EXCESS
     };
-
-
-    window.BKMaterialAssistant =
-        API;
-
-
-    console.log(
-        "🧠 BK Material Assistant Core loaded."
-    );
-
 })();
