@@ -6,7 +6,7 @@
 (async () => {
 
     const CORE_URL =
-        "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/material-assistant.js";
+        "https://raw.githubusercontent.com/chrishant/BK-ASSIST.user.scripts/refs/heads/main/BK/BOM-assist/mat-core.js";
 
 
     function cacheBust(url) {
