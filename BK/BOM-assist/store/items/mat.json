@@ -58,18 +58,29 @@
             { "item_id": 61486, "item_name": "CARTON STICKER LOVE & ROSES", "type": "CARTON STICKER", "rate": 1.95, "avg": 0.07 },
             { "item_id": 61487, "item_name": "TPT STICKER LOVE & ROSES", "type": "TPT STICKER", "rate": 4.65, "avg": 0.07 },
             { "item_id": 68471, "item_name": "BARCODE STICKER LOVE & ROSES", "type": "BARCODE STICKER", "rate": 1.1 }
-        ],
-        "labels": [
-            { "item_id": 2274, "item_name": "MAIN LABEL LOVE & ROSES", "type": "MAIN LABEL", "rate": 2.6 },
-            { "item_id": 5481, "item_name": "SIZE LABEL LOVE & ROSES", "type": "SIZE LABEL", "rate": 1.15 },
+          ],
+        "labels":
+      [
+          {
+          "type": "SIZE LABEL",
+          "filterText": "LABEL",
+          "variants": [
+            { "item_id": 5481, "item_name": "SIZE LABEL LOVE & ROSES", "type": "SIZE LABEL", "rate": 1.15 }]
+          },
+           {
+          "type": "MAIN LABEL",
+          "filterText": "LABEL",
+          "needsColor": true,
+          "variants": [
+            { "item_id": 2274, "item_name": "MAIN LABEL LOVE & ROSES", "type": "MAIN LABEL", "rate": 2.6 }]
+            },
             { "item_id": 5480, "item_name": "WASH CARE LABEL LOVE & ROSES", "type": "WASH CARE LABEL", "rate": 3.6 },
-            {
-        "type": "HANG TAG",
-        "filterText": "TAG",
-        "variants": [
-          { "item_id": 65999, "item_name": "HANG TAG LOVE & ROSES", "brand": "LOVE & ROSES", "rate": 5.6 }
-        ]
-      },
+           {
+          "type": "HANG TAG",
+          "filterText": "TAG",
+          "variants": [ 
+            { "item_id": 65999, "item_name": "HANG TAG LOVE & ROSES", "brand": "LOVE & ROSES", "rate": 5.6 } ]
+            },
         ]
     }
 }
