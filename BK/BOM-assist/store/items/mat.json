@@ -139,7 +139,7 @@
             },
             {
               "options": {
-                "color": "WHITE"
+                "color": "WYT"
               },
               "brand": "RI RELAXED",
               "item_id": 64732,
@@ -158,7 +158,7 @@
           ]
         },
         {
-          "category": "TAG",
+          "category": "LABEL",
           "type": "HANG TAG",
           "filterText": "TAG",
           "variants": [
@@ -173,7 +173,7 @@
             },
             {
               "options": {
-                "color": "WHITE"
+                "color": "WYT"
               },
               "brand": "RI RELAXED",
               "item_id": 64732,
