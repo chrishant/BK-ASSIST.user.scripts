@@ -138,6 +138,9 @@
               "rate": 3.5
             },
             {
+              "options": {
+                "color": "WHITE"
+              },
               "brand": "RI RELAXED",
               "item_id": 64732,
               "item_name": "MAIN LABEL RI RELAXED",
@@ -169,6 +172,9 @@
               "rate": 8.5
             },
             {
+              "options": {
+                "color": "WHITE"
+              },
               "brand": "RI RELAXED",
               "item_id": 64732,
               "item_name": "HANG TAG RI RELAXED",
