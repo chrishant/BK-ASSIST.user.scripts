@@ -38,20 +38,23 @@
           "type": "POLYBAG STICKER",
           "item_id": 62770,
           "item_name": "POLYBAG STICKER RI",
-          "rate": 0.505
+          "rate": 0.505,
+          "avg": 1
         },
         {
           "category": "STICKER",
           "type": "ADDRESS QR STICKER",
           "item_id": 71014,
           "item_name": "ADDRESS QR STICKER RI",
-          "rate": 0.505
+          "rate": 0.505,
+          "avg": 1
         },
         {
           "category": "STICKER",
           "type": "BARCODE STICKER RFID",
           "item_id": 22813,
           "item_name": "BARCODE STICKER RFID RI",
+          "avg": 1,
           "rate": 4.273
         },
         {
@@ -59,7 +62,8 @@
           "type": "WASH CARE LABEL",
           "item_id": 11597,
           "item_name": "WASH CARE LABEL RI",
-          "rate": 4
+          "rate": 4,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -72,7 +76,8 @@
               },
               "item_id": 32570,
               "item_name": "SIZE LABEL RI GREY",
-              "rate": 0.9
+              "rate": 0.9,
+              "avg": 1
             },
             {
               "options": {
@@ -80,7 +85,8 @@
               },
               "item_id": 68576,
               "item_name": "SIZE LABEL RI WHITE",
-              "rate": 0.65
+              "rate": 0.65,
+              "avg": 1
             },
             {
               "options": {
@@ -88,7 +94,8 @@
               },
               "item_id": 32569,
               "item_name": "SIZE LABEL RI BLACK",
-              "rate": 0.9
+              "rate": 0.9,
+              "avg": 1
             }
           ]
         },
@@ -103,7 +110,8 @@
               },
               "item_id": 64725,
               "item_name": "COO LABEL RI GREY",
-              "rate": 0.7
+              "rate": 0.7,
+              "avg": 1
             },
             {
               "options": {
@@ -111,7 +119,8 @@
               },
               "item_id": 64732,
               "item_name": "COO LABEL RI WHITE",
-              "rate": 0.6
+              "rate": 0.6,
+              "avg": 1
             },
             {
               "options": {
@@ -119,7 +128,8 @@
               },
               "item_id": 64658,
               "item_name": "COO LABEL RI BLACK",
-              "rate": 0.9
+              "rate": 0.9,
+              "avg": 1
             }
           ]
         },
@@ -135,7 +145,8 @@
               "brand": "RI SOME WHERE TO GO",
               "item_id": 64725,
               "item_name": "MAIN LABEL RI SOME WHERE TO GO GREY",
-              "rate": 3.5
+              "rate": 3.5,
+              "avg": 1
             },
             {
               "options": {
@@ -144,7 +155,8 @@
               "brand": "RI RELAXED",
               "item_id": 64732,
               "item_name": "MAIN LABEL RI RELAXED",
-              "rate": 2.2
+              "rate": 2.2,
+              "avg": 1
             },
             {
               "options": {
@@ -153,7 +165,8 @@
               "brand": "RI SOME WHERE TO GO",
               "item_id": 64785,
               "item_name": "MAIN LABEL RI SOME WHERE TO GO BLACK",
-              "rate": 3.5
+              "rate": 3.5,
+              "avg": 1
             }
           ]
         },
@@ -169,7 +182,8 @@
               "brand": "RI SOME WHERE TO GO",
               "item_id": 64725,
               "item_name": "HANG TAG RI SOME WHERE TO GO GREY",
-              "rate": 8.5
+              "rate": 8.5,
+              "avg": 1
             },
             {
               "options": {
@@ -178,7 +192,8 @@
               "brand": "RI RELAXED",
               "item_id": 64732,
               "item_name": "HANG TAG RI RELAXED",
-              "rate": 4.2
+              "rate": 4.2,
+              "avg": 1
             },
             {
               "options": {
@@ -187,7 +202,8 @@
               "brand": "RI SOME WHERE TO GO",
               "item_id": 65999,
               "item_name": "HANG TAG RI SOME WHERE TO GO BLACK",
-              "rate": 8.5
+              "rate": 8.5,
+              "avg": 1
             }
           ]
         }
@@ -209,44 +225,42 @@
         {
           "category": "STICKER",
           "filterText": "STICKER",
+          "brand": "LOVE & ROSES",
           "type": "CARTON STICKER",
           "item_id": 61486,
           "item_name": "CARTON STICKER LOVE & ROSES",
           "rate": 1.95,
-          "avg": 0.07
+          "avg": 0.7
         },
         {
           "category": "STICKER",
           "filterText": "STICKER",
+          "brand": "LOVE & ROSES",
           "type": "TPT STICKER",
           "item_id": 61487,
           "item_name": "TPT STICKER LOVE & ROSES",
           "rate": 4.65,
-          "avg": 0.07
+          "avg": 0.7
         },
         {
           "category": "STICKER",
-          "filterText": "STICKER",
+          "filterText": "BARCODE STICKER",
+          "brand": "LOVE & ROSES",
           "type": "BARCODE STICKER",
           "item_id": 68471,
           "item_name": "BARCODE STICKER LOVE & ROSES",
-          "rate": 1.1
-        },
-        {
-          "category": "LABEL",
-          "filterText": "UID LABELS",
-          "type": "UID LABEL",
-          "item_id": null,
-          "item_name": "UID LABELS",
-          "rate": 1.35
+          "rate": 1.1,
+          "avg": 1
         },
         {
           "category": "LABEL",
           "filterText": "LABEL",
           "type": "WASH CARE LABEL",
+          "brand": "LOVE & ROSES",
           "item_id": 5480,
           "item_name": "WASH CARE LABEL LOVE & ROSES",
-          "rate": 3.6
+          "rate": 3.6,
+          "avg": 1
         }
       ],
       "items": [
@@ -257,7 +271,8 @@
           "brand": "LOVE & ROSES",
           "item_id": 2274,
           "item_name": "MAIN LABEL LOVE & ROSES",
-          "rate": 2.6
+          "rate": 2.6,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -266,7 +281,8 @@
           "brand": "LOVE & ROSES",
           "item_id": 5481,
           "item_name": "SIZE LABEL LOVE & ROSES",
-          "rate": 1.15
+          "rate": 1.15,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -275,7 +291,8 @@
           "brand": "LOVE & ROSES",
           "item_id": null,
           "item_name": "HANG TAG LOVE & ROSES",
-          "rate": 5.6
+          "rate": 5.6,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -284,7 +301,8 @@
           "brand": "RHS",
           "item_id": null,
           "item_name": "MAIN LABEL RHS",
-          "rate": 3.42
+          "rate": 3.42,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -293,7 +311,8 @@
           "brand": "RHS",
           "item_id": null,
           "item_name": "LOOP LABEL RHS",
-          "rate": 1.98
+          "rate": 1.98,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -302,7 +321,8 @@
           "brand": "RHS",
           "item_id": null,
           "item_name": "HANG TAG RHS",
-          "rate": 8
+          "rate": 8,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -311,7 +331,8 @@
           "brand": "V&A",
           "item_id": null,
           "item_name": "MAIN LABEL V&A",
-          "rate": 5
+          "rate": 5,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -320,7 +341,8 @@
           "brand": "V&A",
           "item_id": null,
           "item_name": "LOOP LABEL V&A",
-          "rate": 2.2
+          "rate": 2.2,
+          "avg": 1
         },
         {
           "category": "LABEL",
@@ -329,7 +351,8 @@
           "brand": "V&A",
           "item_id": null,
           "item_name": "HANG TAG V&A",
-          "rate": 7.5
+          "rate": 7.5,
+          "avg": 1
         }
       ]
     }
